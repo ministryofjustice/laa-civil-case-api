@@ -1,7 +1,6 @@
 name: Static Analysis
 on:
   workflow_call:
-    secrets:
 
 jobs:
   lint:

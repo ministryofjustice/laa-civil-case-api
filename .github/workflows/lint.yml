@@ -2,8 +2,11 @@ name: Lint
 
 on:
   push:
-    branches:
-      - '**'
+    branches-ignore:
+      - main
+  pull_request:
+    types:
+      - reopened
 
 jobs:
   lint:

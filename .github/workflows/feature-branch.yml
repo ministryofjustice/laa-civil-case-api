@@ -11,10 +11,9 @@ on:
       - reopened
 
 jobs:
-
-  lint:
-    name: Linting
-    uses: ./.github/workflows/lint.yml
+  static-analysis:
+    name: Static Analysis
+    uses: ./.github/workflows/static-analysis.yml
 
   test:
     name: Test

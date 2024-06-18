@@ -8,10 +8,12 @@ on:
       - main
 
 jobs:
+  static-analysis:
+    name: Static Analysis
+    uses: ./.github/workflows/static-analysis.yml
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  lint:
-    name: Linting
-    uses: ./.github/workflows/lint.yml
 
   test:
     name: Test
@@ -20,7 +22,7 @@ jobs:
   build-and-push:
     name: Build
     uses: ./.github/workflows/build.yml
-    needs: [lint, test]
+    needs: [static-analysis, test]
     with:
       ECR_REGION: ${{vars.ECR_REGION}}
       ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}

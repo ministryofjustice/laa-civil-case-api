@@ -12,22 +12,31 @@ anyio==3.7.1
     #   starlette
 cfgv==3.3.1
     # via pre-commit
+click==8.1.7
+    # via
+    #   -r requirements/source/requirements.in
+    #   uvicorn
 distlib==0.3.8
     # via virtualenv
 exceptiongroup==1.2.1
     # via
     #   anyio
     #   pytest
-fastapi==0.103.2
+fastapi==0.103.1
     # via -r requirements/source/requirements.in
 filelock==3.12.2
     # via virtualenv
+h11==0.14.0
+    # via
+    #   -r requirements/source/requirements.in
+    #   uvicorn
 identify==2.5.24
     # via pre-commit
 idna==3.7
     # via anyio
 importlib-metadata==6.7.0
     # via
+    #   click
     #   pluggy
     #   pre-commit
     #   pydantic
@@ -61,14 +70,19 @@ tomli==2.0.1
     # via pytest
 typing-extensions==4.7.1
     # via
+    #   -r requirements/source/requirements.in
     #   annotated-types
     #   anyio
     #   fastapi
+    #   h11
     #   importlib-metadata
     #   platformdirs
     #   pydantic
     #   pydantic-core
     #   starlette
+    #   uvicorn
+uvicorn==0.22.0
+    # via -r requirements/source/requirements.in
 virtualenv==20.26.2
     # via pre-commit
 zipp==3.15.0

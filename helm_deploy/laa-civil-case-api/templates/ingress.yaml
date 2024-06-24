@@ -1,0 +1,27 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "laa-civil-case-api.fullname" . }}-app
+  namespace: {{.Release.Namespace}}
+  annotations:
+    external-dns.alpha.kubernetes.io/set-identifier: {{ include "laa-civil-case-api.fullname" . }}-app-{{.Release.Namespace}}-green
+    external-dns.alpha.kubernetes.io/aws-weight: "100"
+    nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+spec:
+  ingressClassName: "modsec"
+  tls:
+  - hosts:
+      - {{.Release.Namespace}}.cloud-platform.service.justice.gov.uk
+  rules:
+  - host: {{.Release.Namespace}}.cloud-platform.service.justice.gov.uk
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: {{ include "laa-civil-case-api.fullname" . }}-app
+            port: 
+              number: 80
+{{- end }}

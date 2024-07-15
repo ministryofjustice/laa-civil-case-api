@@ -1,15 +1,26 @@
-from typing import Union
+from fastapi import FastAPI, HTTPException
+from typing import Optional
+from .routers import case_information
+from .db.database import SessionLocal, engine
+from .models.db import cases
+import os
 
-from fastapi import FastAPI
+cwd = os.getcwd()
+os.chdir("./app")
 
-app = FastAPI()
+cases.Base.metadata.create_all(bind=engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+def create_app():
+    app = FastAPI()
+    app.include_router(case_information.router)
+    return app
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+case_api = create_app()

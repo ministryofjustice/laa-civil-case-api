@@ -2,7 +2,7 @@ FROM python:3.12-slim
 
 WORKDIR /case_api
 
-COPY ./requirements/generated/requirements.txt /case_api/requirements.txt
+COPY ./requirements/requirements.txt /case_api/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /case_api/requirements.txt
 

@@ -5,3 +5,4 @@ uvicorn>=0.22.0
 click>=7.0
 h11>=0.8
 typing-extensions>=4.0
+SQLAlchemy

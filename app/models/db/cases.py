@@ -1,11 +1,8 @@
-from sqlalchemy import Column, String
+# One line of FastAPI imports here later 👈
+from sqlmodel import Field, SQLModel
+from datetime import datetime
 
-from app.db.database import Base
-
-
-class Cases(Base):
-    __tablename__ = "cases"
-
-    id = Column(String, primary_key=True, unique=True,)
-    category = Column(String)
-    time = Column(String)
+class Cases(SQLModel, table=True):
+    id: str | None = Field(default=None, primary_key=True)
+    category: str = Field(index=True)
+    time: datetime

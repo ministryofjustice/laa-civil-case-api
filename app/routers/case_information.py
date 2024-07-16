@@ -1,7 +1,9 @@
 from fastapi import APIRouter
 from ..models.request.cases import Case as RequestCase
-from ..models.response.cases import Case as ResponseCase
+from app.models.db.cases import Cases
 from datetime import datetime
+from sqlmodel import Session
+from app.db.database import engine
 
 router = APIRouter(
     prefix="/cases",
@@ -17,7 +19,11 @@ async def read_case():
 def generate_id():
     return "1"
 
-@router.post("/", tags=["cases"], response_model=ResponseCase)
-async def create_case(case: RequestCase):
-    id =  generate_id()
-    return ResponseCase(category=case.category, id=id, time=datetime.now())
+@router.post("/", tags=["cases"], response_model=Cases)
+def create_case(request: RequestCase):
+    with Session(engine) as session:
+        case = Cases(category = request.category, id="a", time=datetime.now())
+        session.add(case)
+        session.commit()
+        session.refresh(case)
+        return case

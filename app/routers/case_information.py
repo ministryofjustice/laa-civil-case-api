@@ -1,8 +1,9 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from ..models.cases import CaseCreate, Case
 from datetime import datetime
-from sqlmodel import Session
+from sqlmodel import Session, select
 from app.db.database import engine
+import random
 
 router = APIRouter(
     prefix="/cases",
@@ -10,18 +11,31 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
+
 @router.get("/{case_id}", tags=["cases"])
-async def read_case():
-    return [{"case object"}]
+async def read_case(case_id: str):
+    with Session(engine) as session:
+        case = session.get(Case, case_id)
+        if not case:
+            raise HTTPException(status_code=404, detail="Case not found")
+        return case
+
+
+@router.get("/", tags=["cases"])
+async def read_all_cases():
+    with Session(engine) as session:
+        cases = session.exec(select(Case)).all()
+        return cases
 
 
 def generate_id():
-    return "1"
+    return str(random.randint(1, 100000))
+
 
 @router.post("/", tags=["cases"], response_model=Case)
 def create_case(request: CaseCreate):
     with Session(engine) as session:
-        case = Case(category = request.category, time=datetime.now(), name=request.name)
+        case = Case(category=request.category, time=datetime.now(), name=request.name, id=generate_id())
         session.add(case)
         session.commit()
         session.refresh(case)

@@ -9,3 +9,5 @@ env/
 *.sha256
 terraform.tfstate
 __pycache__
+database.db
+.idea

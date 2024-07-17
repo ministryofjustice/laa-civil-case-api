@@ -1,6 +1,6 @@
 # One line of FastAPI imports here later 👈
 from sqlmodel import Field, Session, SQLModel, create_engine, select
-from app.models.db.cases import Cases
+from app.models.cases import Case
 from datetime import datetime
 
 

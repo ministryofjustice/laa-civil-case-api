@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from typing import Optional
 from .routers import case_information
 from .db.database import create_db_and_tables
-from .models.db import cases
+from .models import cases
 import os
 
 cwd = os.getcwd()

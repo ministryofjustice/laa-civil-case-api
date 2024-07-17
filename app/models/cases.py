@@ -2,10 +2,16 @@
 from sqlmodel import Field, SQLModel
 from datetime import datetime
 
-class RequestCase(SQLModel):
+class BaseCase(SQLModel):
     category: str = Field(index=True)
+    name: str
 
-
-class Case(RequestCase, table=True):
-    id: str | None = Field(default=None, primary_key=True)
+class Case(BaseCase, table=True):
+    id: int | None = Field(default=None, primary_key=True)
     time: datetime
+
+class CaseCreate(BaseCase):
+    pass
+
+class CaseRead(SQLModel):
+    id: int

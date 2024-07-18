@@ -1,1 +1,1 @@
-from .cases import Case
+from .cases import Case  # noqa: F401

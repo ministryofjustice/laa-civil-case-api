@@ -1,7 +1,7 @@
 from logging.config import fileConfig
 
 # This imports all the models
-from app.models import *  # noqa: F401
+from app.models import cases  # noqa: F401
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool

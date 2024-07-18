@@ -17,3 +17,4 @@ def test_read_case(client: TestClient, session: Session):
     response = client.post(
             "/cases/", json={"category": "Housing", "name": "John Doe"})
     case = response.json()
+

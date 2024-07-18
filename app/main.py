@@ -1,7 +1,5 @@
-from fastapi import FastAPI, HTTPException
-from typing import Optional
+from fastapi import FastAPI
 from .routers import case_information
-from .models import cases
 import os
 
 cwd = os.getcwd()

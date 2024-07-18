@@ -9,6 +9,7 @@ environment: development
 image:
   repository: laa-civil-case-api
   pullPolicy: IfNotPresent
+  containerPort: 8026
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
@@ -17,21 +18,40 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
   create: false
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: laa-civil-case-api-development
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  allowPrivilegeEscalation: false
+  seccompProfile:
+    type: RuntimeDefault
+  capabilities:
+    drop: ["ALL"]
 
 service:
   type: ClusterIP
-  containerPort: 8026
   port: 80
 
 ingress:
-  enabled: true
+  enabled: false
+  className: "default"
+  annotations: {}
+  cluster:
+    name: green
+    weight: '100'
+  tls: []
+  whitelist:
+    # GlobalProtect VPN (Digital Mac)
+    - 18.169.147.172/32
+    - 35.176.93.186/32
+    - 18.130.148.126/32
+    - 35.176.148.126/32
 
 autoscaling:
   enabled: false

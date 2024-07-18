@@ -7,14 +7,10 @@ replicas:
 
 environment: uat
 
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: false
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: laa-civil-case-api-uat
-
 ingress:
   enabled: false
+  hosts:
+    - host: "laa-civil-case-api-uat.cloud-platform.service.justice.gov.uk"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific

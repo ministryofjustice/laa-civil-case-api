@@ -7,3 +7,4 @@ h11>=0.8
 typing-extensions>=4.0
 SQLAlchemy
 sqlmodel
+alembic

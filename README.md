@@ -11,7 +11,7 @@ alembic upgrade head
 To run the uvicorn server, use the below code:
 
 ```shell
-uvicorn app.main:case_api --reload
+uvicorn app:case_api --reload
 ```
 
 # Migrations

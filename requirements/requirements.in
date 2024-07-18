@@ -8,3 +8,4 @@ typing-extensions>=4.0
 SQLAlchemy
 sqlmodel
 alembic
+httpx

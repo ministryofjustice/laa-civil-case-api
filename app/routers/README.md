@@ -35,9 +35,9 @@ These create_case route only accepts post requests and requires the request body
 the Case model. 
 
 This means the body needs to contain a name which can be encoded as a string and a category which 
-matches one of the categories of law defined in the [/app/models/categories.py](/app/models/categories.py) enum class.
+matches one of the categories of law defined in the [/app/models/categories.py](../models/categories.py) enum class.
 
-To learn more about models please read [/app/models/README.md](./models/README.md)
+To learn more about models please read [/app/models/README.md](../models/README.md)
 
 ## Reading and writing to the database
 Database connections are managed with SQLModel sessions, these are inherited from SQLAlchemy sessions.

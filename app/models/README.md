@@ -53,7 +53,18 @@ To reflect this new model in the database you will need to generate and run an A
 Please see [/migrations/README.md](../migrations/README.md) for instructions on how to do this.
 
 ## How do I use these models to define endpoint schemas?
+By implementing them as part of your routers' method arguments they are automatically used to validate the user's input.
+```python
+from app.models.cases import Case, CaseRequest
+from app.routers.case_information import router
 
 
-## Model documentation
+@router.post("/", tags=["cases"], response_model=Case)
+def create_case(request: CaseRequest):
+    pass
+```
+
+To see more about defining endpoints view the readme: [here](../routers/README.md).
+
+### Model documentation
 Your models will automatically be added to the Swagger documentation when you use them as part of an API endpoint.

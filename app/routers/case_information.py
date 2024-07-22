@@ -13,7 +13,7 @@ router = APIRouter(
 
 
 @router.get("/{case_id}", tags=["cases"])
-async def read_case(case_id: str, session: Session = Depends(get_session),):
+async def read_case(case_id: str, session: Session = Depends(get_session)):
     case = session.get(Case, case_id)
     if not case:
         raise HTTPException(status_code=404, detail="Case not found")

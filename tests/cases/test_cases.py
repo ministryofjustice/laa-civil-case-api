@@ -1,8 +1,7 @@
 from fastapi.testclient import TestClient
-from sqlmodel import Session
 
 
-def test_create_case(client: TestClient, session: Session):
+def test_create_case(client: TestClient):
     response = client.post(
             "/cases/", json={"category": "Housing", "name": "John Doe"})
     case = response.json()
@@ -11,10 +10,3 @@ def test_create_case(client: TestClient, session: Session):
     assert case["category"] == "Housing"
     assert case["name"] == "John Doe"
     assert case["id"] is not None
-
-
-def test_read_case(client: TestClient, session: Session):
-    response = client.post(
-            "/cases/", json={"category": "Housing", "name": "John Doe"})
-    case = response.json()
-

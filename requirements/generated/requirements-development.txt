@@ -35,6 +35,8 @@ fastapi-cli==0.0.4
     # via fastapi
 filelock==3.15.4
     # via virtualenv
+greenlet==3.0.3
+    # via -r requirements/source/requirements-base.in
 h11==0.14.0
     # via
     #   httpcore

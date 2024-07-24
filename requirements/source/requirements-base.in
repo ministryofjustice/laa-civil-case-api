@@ -1,5 +1,6 @@
 fastapi==0.111.1
 typing-extensions>=4.0
+greenlet==3.0.3
 SQLAlchemy
 sqlmodel
 alembic

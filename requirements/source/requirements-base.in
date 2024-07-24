@@ -1,5 +1,4 @@
 fastapi==0.111.1
-uvicorn>=0.22.0
 typing-extensions>=4.0
 SQLAlchemy
 sqlmodel

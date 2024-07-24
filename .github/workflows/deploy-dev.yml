@@ -14,6 +14,8 @@ on:
     secrets:
       ECR_ROLE_TO_ASSUME:
         required: true
+      ECR_REGISTRY:
+        required: true
       KUBE_CERT:
         required: true
       KUBE_CLUSTER:

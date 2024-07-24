@@ -1,14 +1,32 @@
-FROM python:3.12-slim
+ARG BASE_IMAGE=python:3.12-slim
+FROM $BASE_IMAGE AS base
 
-WORKDIR /case_api
+ARG REQUIREMENTS=requirements.txt
 
-COPY ./requirements/generated/requirements.txt /case_api/requirements.txt
+# Create a non-root user
+RUN adduser --disabled-password app -u 1000 && \
+    cp /usr/share/zoneinfo/Europe/London /etc/localtime
 
-RUN pip install --no-cache-dir --upgrade -r /case_api/requirements.txt
+RUN mkdir /home/app/case_api
+WORKDIR /home/app/case_api
 
-COPY ./app /case_api/app
+COPY requirements/$REQUIREMENTS requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-CMD ["fastapi", "run", "app/main.py", "--port", "80"]
+COPY app ./app
 
-# If running behind a proxy like Nginx or Traefik add --proxy-headers
-# CMD ["fastapi", "run", "app/main.py", "--port", "80", "--proxy-headers"]
+# Change ownership of the working directory to the non-root user
+RUN chown -R app:app /home/app
+
+# Cleanup container
+RUN rm -rf /var/lib/apt/lists/*
+
+# Switch to the non-root user
+USER app
+
+# Expose the Flask port
+EXPOSE 8026
+
+#CMD ["cat",  "app/__init__.py"]
+CMD ["uvicorn", "app.__init__:case_api", "--port",  "8026", "--host", "0.0.0.0"]

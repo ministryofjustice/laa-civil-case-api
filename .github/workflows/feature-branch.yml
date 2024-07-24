@@ -42,6 +42,7 @@ jobs:
       ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}
     secrets:
       ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
+      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
       KUBE_CERT: ${{ secrets.KUBE_CERT }}
       KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
       KUBE_NAMESPACE: ${{ secrets.KUBE_NAMESPACE }}
@@ -57,6 +58,7 @@ jobs:
       ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}
     secrets:
       ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
+      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
       KUBE_CERT: ${{ secrets.KUBE_CERT }}
       KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
       KUBE_NAMESPACE: ${{ secrets.KUBE_NAMESPACE }}

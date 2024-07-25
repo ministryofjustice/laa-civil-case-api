@@ -1,7 +1,7 @@
 ARG BASE_IMAGE=python:3.12-slim
 FROM $BASE_IMAGE AS base
 
-ARG REQUIREMENTS=requirements.txt
+ARG REQUIREMENTS=requirements-production.txt
 
 # Create a non-root user
 RUN adduser --disabled-password app -u 1000 && \
@@ -10,7 +10,7 @@ RUN adduser --disabled-password app -u 1000 && \
 RUN mkdir /home/app/case_api
 WORKDIR /home/app/case_api
 
-COPY requirements/$REQUIREMENTS requirements.txt
+COPY requirements/generated/$REQUIREMENTS requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 

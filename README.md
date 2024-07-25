@@ -32,6 +32,28 @@ pytest
 ```
 For information on writing tests please see [here](./tests/README.md).
 
+## Code formatting and linting
+The following will:
+- Generate requirement.txt files from files inside requirements/source/*.in and put them into requirements/generated/*.txt
+- Run linting checks with ruff
+
+```shell
+pre-commit install
+```
+### Manually running linting
+The Ruff linter looks for code quality issues. Ensure there are no ruff issues before committing. 
+
+To lint all files in the directory, run:
+
+```shell
+ruff check
+```
+
+To format all files in the directory, run:
+```shell
+ruff format
+```
+
 ## Development
 For information on how to contribute please see the following:
 - ### Models - [app/models/README.md](./app/models/README.md)

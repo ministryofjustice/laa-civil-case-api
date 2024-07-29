@@ -1,5 +1,5 @@
 from app.main import create_app
-from config import Config
+from app.config import Config
 import sentry_sdk
 
 

@@ -46,7 +46,6 @@ jobs:
           fetch-depth: 0
       - uses: sonarsource/sonarcloud-github-action@master
         with:
-          projectBaseDir: app
           args: >
             -Dsonar.python.version=3.12
         env:

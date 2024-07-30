@@ -3,4 +3,13 @@ import os
 
 class Config(object):
     ENVIRONMENT = os.environ.get("CLA_ENVIRONMENT", "unknown")
+
+    DB_USER = os.environ.get("POSTGRES_USER", "postgres")
+    DB_PASSWORD = os.environ.get("POSTGRES_PASSWORD", "postgres")
+    DB_HOST = os.environ.get("POSTGRES_HOST", "localhost")
+    DB_PORT = os.environ.get("POSTGRES_PORT", "5436")
+    DB_NAME = os.environ.get("POSTGRES_DB", "case_api")
+
+    DB_LOGGING = os.environ.get("DB_LOGGING", "False") == "True"
+
     SENTRY_DSN = os.environ.get("SENTRY_DSN")

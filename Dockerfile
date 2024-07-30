@@ -16,6 +16,8 @@ RUN pip install -r requirements.txt
 
 COPY app ./app
 
+COPY alembic.ini ./alembic.ini
+
 # Change ownership of the working directory to the non-root user
 RUN chown -R app:app /home/app
 

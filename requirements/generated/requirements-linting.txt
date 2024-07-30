@@ -61,6 +61,8 @@ markupsafe==2.1.5
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
+psycopg2-binary==2.9.9
+    # via -r requirements/source/requirements-base.in
 pydantic==2.8.2
     # via
     #   fastapi

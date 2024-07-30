@@ -1,0 +1,25 @@
+name: civil-case-api
+
+services:
+  db:
+    container_name: case-api-db
+    image: postgres:16
+    environment: &database_config
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: case_api
+      POSTGRES_PORT: 5432
+    ports:
+      - "5436:5432"
+
+  api:
+    container_name: case-api
+    build: .
+    ports:
+      - "8026:8026"
+    restart: "no"
+    environment:
+      POSTGRES_HOST: db
+      <<: *database_config
+    depends_on:
+      - db

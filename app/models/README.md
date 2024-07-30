@@ -50,7 +50,7 @@ class MyModel(SQLModel, table=True):
 
 To reflect this new model in the database you will need to generate and run an Alembic migration.
 
-Please see [/migrations/README.md](../migrations/README.md) for instructions on how to do this.
+Please see [/migrations/README.md](../db/migrations/README.md) for instructions on how to do this.
 
 ## How do I use these models to define endpoint schemas?
 By implementing them as part of your routers' method arguments they are automatically used to validate the user's input.

@@ -75,7 +75,7 @@ ruff format
 For information on how to contribute please see the following:
 - ### Models - [app/models/README.md](./app/models/README.md)
 
-- ### Migrations - [app/migrations/README.md](app/db/migrations/README.md)
+- ### Migrations - [app/db/migrations/README.md](app/db/migrations/README.md)
 
 - ### Routers - [app/routers/README.md](app/routers/README.md)
 

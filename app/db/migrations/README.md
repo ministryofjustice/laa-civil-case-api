@@ -10,7 +10,7 @@ This can be auto generated for you by running the following:
 ```bash
 alembic revision --autogenerate -m "[RevisionName]"
 ```
-This will create a migration script in app/migrations/versions with a hex revision tag.
+This will create a migration script in app/db/migrations/versions with a hex revision tag.
 
 ## How to upgrade the database
 To upgrade the database to the latest migration run:

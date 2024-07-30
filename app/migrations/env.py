@@ -1,6 +1,6 @@
 from logging.config import fileConfig
 
-from app.db.database import db_url
+from app.db import db_url
 
 # This imports all the models
 from app.models import cases  # noqa: F401

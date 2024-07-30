@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends
 from ..models.cases import CaseRequest, Case
 from datetime import datetime
 from sqlmodel import Session, select
-from app.db.database import get_session
+from app.db import get_session
 import random
 
 router = APIRouter(

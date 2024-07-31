@@ -10,10 +10,4 @@ services:
     volumes:
       - ".:/case_api"
     environment:
-      - AWS_STS_REGIONAL_ENDPOINTS=${AWS_STS_REGIONAL_ENDPOINTS:-regional}
-      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-eu-west-2}
-      - AWS_REGION=${AWS_REGION:-eu-west-2}
-      - AWS_ROLE_ARN=${AWS_ROLE_ARN:-Get this from kubernetes}
-      - AWS_WEB_IDENTITY_TOKEN_FILE=${AWS_WEB_IDENTITY_TOKEN_FILE:-Get this from kubernetes}
-      - MAX_RETRIES=${MAX_RETRIES:-32}
       - CLA_ENVIRONMENT=${CLA_ENVIRONMENT:-}

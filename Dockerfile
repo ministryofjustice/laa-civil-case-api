@@ -27,6 +27,6 @@ RUN rm -rf /var/lib/apt/lists/*
 USER app
 
 # Expose the fast api port
-EXPOSE 8026
+EXPOSE 8027
 
-CMD ["uvicorn", "app:case_api", "--port",  "8026", "--host", "0.0.0.0"]
+CMD ["uvicorn", "app:case_api", "--port",  "8027", "--host", "0.0.0.0"]

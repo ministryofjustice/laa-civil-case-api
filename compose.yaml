@@ -23,9 +23,9 @@ services:
   api:
     container_name: case-api
     build: .
-    command: uvicorn app:case_api --host 0.0.0.0 --port 8026 --reload
+    command: uvicorn app:case_api --host 0.0.0.0 --port 8027 --reload
     ports:
-      - "8026:8026"
+      - "8027:8027"
     environment:
       <<: *database_config
     volumes:

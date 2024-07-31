@@ -12,7 +12,7 @@ This command:
 - Migrates the database to the latest version
 - Reloads the app whenever changes are made within the `/app` directory
 
-#### The API docs can then be found at: [localhost:8026](http://localhost:8026)
+#### The API docs can then be found at: [localhost:8027](http://localhost:8027)
 ___
 
 ## Running in a virtual environment

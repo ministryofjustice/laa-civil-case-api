@@ -9,7 +9,7 @@ environment: development
 image:
   repository: laa-civil-case-api
   pullPolicy: IfNotPresent
-  containerPort: 8026
+  containerPort: 8027
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 

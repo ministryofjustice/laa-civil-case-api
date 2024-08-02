@@ -4,3 +4,4 @@ sqlalchemy[asyncio]
 sqlmodel
 alembic
 sentry-sdk[fastapi]
+psycopg2-binary

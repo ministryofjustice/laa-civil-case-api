@@ -49,7 +49,7 @@ FastAPI `Depends()` method.
 from fastapi import APIRouter, HTTPException, Depends
 from app.models.cases import CaseRequest, Case
 from sqlmodel import Session, select
-from app.db.database import get_session
+from app.db import get_session
 from datetime import datetime
 
 router = APIRouter(

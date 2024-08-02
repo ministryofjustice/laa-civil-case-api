@@ -15,6 +15,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 COPY app ./app
+COPY alembic.ini ./alembic.ini
 
 # Change ownership of the working directory to the non-root user
 RUN chown -R app:app /home/app
@@ -25,8 +26,7 @@ RUN rm -rf /var/lib/apt/lists/*
 # Switch to the non-root user
 USER app
 
-# Expose the Flask port
-EXPOSE 8026
+# Expose the fast api port
+EXPOSE 8027
 
-#CMD ["cat",  "app/__init__.py"]
-CMD ["uvicorn", "app.__init__:case_api", "--port",  "8026", "--host", "0.0.0.0"]
+CMD ["uvicorn", "app:case_api", "--port",  "8027", "--host", "0.0.0.0"]

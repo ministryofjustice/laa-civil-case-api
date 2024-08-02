@@ -1,20 +1,35 @@
 # LAA Civil Case API
 [![Standards Icon]][Standards Link]
 
+## Running the API
+It is recommended to use Docker to run the app and database.
 
-## Installation
-It is recommended to run the application using a virtual environment.
+```bash
+./run_local.sh
+```
+This command:
+- Builds the containers for the app and database
+- Migrates the database to the latest version
+- Reloads the app whenever changes are made within the `/app` directory
+
+#### The API docs can then be found at: [localhost:8027](http://localhost:8027)
+
+> If you run into any isues please see [TROUBLESHOOT.md](TROUBLESHOOT.md).
+___
+
+## Running in a virtual environment
+If you wish to run the app in a virtual environment you can do so with:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 ```commandline
-pip install -r requirements/requirements.txt
+pip install -r requirements/generated/requirements-development.txt
 ```
 
-## Running the API
+### Running the API
 
-To set up the database run:
+To migrate the database to the latest revision run:
 ```bash
 alembic upgrade head
 ```
@@ -26,7 +41,11 @@ uvicorn app:case_api --reload
 ```
 
 ## Tests
-Tests are managed using Pytest and can be run by using
+To install testing dependencies run:
+```commandline
+pip install -r requirements/generated/requirements-testing.txt
+```
+Tests are managed using Pytest and can be run by using:
 ```commandline
 pytest
 ```
@@ -58,7 +77,7 @@ ruff format
 For information on how to contribute please see the following:
 - ### Models - [app/models/README.md](./app/models/README.md)
 
-- ### Migrations - [app/migrations/README.md](app/migrations/README.md)
+- ### Migrations - [app/db/migrations/README.md](app/db/migrations/README.md)
 
 - ### Routers - [app/routers/README.md](app/routers/README.md)
 

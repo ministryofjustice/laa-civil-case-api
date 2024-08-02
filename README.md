@@ -13,6 +13,8 @@ This command:
 - Reloads the app whenever changes are made within the `/app` directory
 
 #### The API docs can then be found at: [localhost:8027](http://localhost:8027)
+
+> If you run into any isues please see [TROUBLESHOOT.md](TROUBLESHOOT.md).
 ___
 
 ## Running in a virtual environment

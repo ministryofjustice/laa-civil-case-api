@@ -7,3 +7,6 @@ def create_app():
     app = FastAPI(**docs_config)
     app.include_router(case_information.router)
     return app
+
+
+# A comment

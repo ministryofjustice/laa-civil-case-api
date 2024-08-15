@@ -1,9 +1,12 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException, status
 from .routers import case_information
 from .config.docs import config as docs_config
-from .auth.security import OAuth2PasswordBearer, create_access_token, get_current_user
+from .auth.security import create_access_token, get_current_user
 from fastapi.security import OAuth2PasswordRequestForm
-from .auth.models import User, Token, TokenData
+from .auth.models import User, Token
+from .auth.security import authenticate_user
+from datetime import timedelta
+
 
 def create_app():
     app = FastAPI(**docs_config)

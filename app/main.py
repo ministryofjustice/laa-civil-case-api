@@ -4,9 +4,8 @@ from typing import Annotated
 from fastapi import FastAPI, Depends, HTTPException, status
 from .routers import case_information
 from .config.docs import config as docs_config
-from .auth.security import create_access_token, get_current_user
 from fastapi.security import OAuth2PasswordRequestForm
-from .auth.security import User, Token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, fake_users_db, get_current_active_user
+from .auth.security import create_access_token, User, Token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, fake_users_db, get_current_active_user
 
 
 def create_app():

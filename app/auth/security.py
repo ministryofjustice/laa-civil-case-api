@@ -4,11 +4,9 @@ from datetime import timezone, timedelta, datetime
 from passlib.context import CryptContext
 import jwt
 from jwt.exceptions import InvalidTokenError
-from datetime import datetime, timedelta
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from fastapi import HTTPException, Depends, status, FastAPI
+from fastapi.security import OAuth2PasswordBearer
+from fastapi import HTTPException, Depends, status
 from pydantic import BaseModel
-import app
 
 # Change secret key to K8 secret
 SECRET_KEY = "6c6b04c74f00966489fa5df26cb21ee98d325f0cd3f5c763c980f740dcd1a777"

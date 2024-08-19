@@ -14,9 +14,7 @@ anyio==4.4.0
     #   starlette
     #   watchfiles
 argon2-cffi==23.1.0
-    # via
-    #   -r requirements/source/requirements-production.in
-    #   passlib
+    # via -r requirements/source/requirements-production.in
 argon2-cffi-bindings==21.2.0
     # via argon2-cffi
 certifi==2024.7.4
@@ -71,7 +69,7 @@ markupsafe==2.1.5
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-passlib[argon2]==1.7.4
+passlib==1.7.4
     # via -r requirements/source/requirements-production.in
 psycopg2-binary==2.9.9
     # via -r requirements/source/requirements-base.in

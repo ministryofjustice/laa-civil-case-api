@@ -1,5 +1,5 @@
 -r requirements-base.in
 pyjwt
-passlib[argon2]
+passlib
 argon2_cffi
 python-jose

@@ -5,8 +5,8 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from .routers import case_information
 from .config.docs import config as docs_config
 from fastapi.security import OAuth2PasswordRequestForm
-from .auth.security import create_access_token, User, Token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, fake_users_db, get_current_active_user
-
+from .auth.security import create_access_token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, get_current_active_user
+from .models.users import User, Token, fake_users_db
 
 def create_app():
     app = FastAPI(**docs_config)
@@ -35,11 +35,5 @@ def create_app():
         current_user: Annotated[User, Depends(get_current_active_user)],
     ):
         return current_user
-
-    @app.get("/users/me/items/")
-    async def read_own_items(
-        current_user: Annotated[User, Depends(get_current_active_user)],
-    ):
-        return [{"item_id": "Foo", "owner": current_user.username}]
 
     return app

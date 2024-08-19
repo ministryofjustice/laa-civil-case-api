@@ -6,7 +6,9 @@ import jwt
 from jwt.exceptions import InvalidTokenError
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, Depends, status
-from ..models.users import User, fake_users_db, UserInDB
+from ..models.users import Users, TokenData
+from app.db import get_session, engine
+from sqlmodel import Session
 
 # Change secret key to K8 secret
 SECRET_KEY = "6c6b04c74f00966489fa5df26cb21ee98d325f0cd3f5c763c980f740dcd1a777"
@@ -24,12 +26,14 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 def get_user(db, username: str):
-    if username in db:
-        user_dict = db[username]
-        return UserInDB(**user_dict)
+    with Session(engine) as session:
+        
+        user = session.get(Users, username)
+        
+        return user
 
-def authenticate_user(fake_db, username: str, password: str):
-    user = get_user(fake_db, username)
+def authenticate_user(db, username: str, password: str):
+    user = get_user(db, username)
     if not user:
         return False
     if not verify_password(password, user.hashed_password):
@@ -61,13 +65,13 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
         token_data = TokenData(username=username)
     except InvalidTokenError:
         raise credentials_exception
-    user = get_user(fake_users_db, username=token_data.username)
+    user = get_user(get_session(), username=token_data.username)
     if user is None:
         raise credentials_exception
     return user
 
 async def get_current_active_user(
-    current_user: Annotated[User, Depends(get_current_user)],
+    current_user: Annotated[Users, Depends(get_current_user)],
 ):
     if current_user.disabled:
         raise HTTPException(status_code=400, detail="Inactive user")

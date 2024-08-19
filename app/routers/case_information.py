@@ -4,7 +4,7 @@ from datetime import datetime
 from sqlmodel import Session, select
 from app.db import get_session
 import random
-from ..auth.security import User, get_current_active_user
+from ..auth.security import Users, get_current_active_user
 
 router = APIRouter(
     prefix="/cases",
@@ -14,7 +14,7 @@ router = APIRouter(
 
 
 @router.get("/{case_id}", tags=["cases"])
-async def read_case(case_id: str, session: Session = Depends(get_session), current_user: User = Depends(get_current_active_user)):
+async def read_case(case_id: str, session: Session = Depends(get_session), current_user: Users = Depends(get_current_active_user)):
     case = session.get(Case, case_id)
     if not case:
         raise HTTPException(status_code=404, detail="Case not found")
@@ -22,7 +22,7 @@ async def read_case(case_id: str, session: Session = Depends(get_session), curre
 
 
 @router.get("/", tags=["cases"])
-async def read_all_cases(session: Session = Depends(get_session), current_user: User = Depends(get_current_active_user)):
+async def read_all_cases(session: Session = Depends(get_session), current_user: Users = Depends(get_current_active_user)):
     cases = session.exec(select(Case)).all()
     return cases
 
@@ -32,7 +32,7 @@ def generate_id():
 
 
 @router.post("/", tags=["cases"], response_model=Case)
-def create_case(request: CaseRequest, session: Session = Depends(get_session), current_user: User = Depends(get_current_active_user)):
+def create_case(request: CaseRequest, session: Session = Depends(get_session), current_user: Users = Depends(get_current_active_user)):
     case = Case(category=request.category, time=datetime.now(), name=request.name, id=generate_id())
     session.add(case)
     session.commit()

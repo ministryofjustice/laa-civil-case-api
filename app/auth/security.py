@@ -9,9 +9,9 @@ from fastapi import HTTPException, Depends, status
 from ..models.users import Users, TokenData
 from app.db import get_session, engine
 from sqlmodel import Session
+from app.config import Config
 
-# Change secret key to K8 secret
-SECRET_KEY = "6c6b04c74f00966489fa5df26cb21ee98d325f0cd3f5c763c980f740dcd1a777"
+SECRET_KEY = Config.SECRET_KEY
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

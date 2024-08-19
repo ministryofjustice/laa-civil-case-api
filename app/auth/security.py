@@ -15,6 +15,17 @@ SECRET_KEY = "6c6b04c74f00966489fa5df26cb21ee98d325f0cd3f5c763c980f740dcd1a777"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
+fake_users_db = {
+    "johndoe": {
+        "username": "johndoe",
+        "full_name": "John Doe",
+        "email": "johndoe@example.com",
+        "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
+        "disabled": False,
+    }
+}
+
+
 class Token(BaseModel):
     access_token: str
     token_type: str
@@ -25,8 +36,8 @@ class TokenData(BaseModel):
 class User(BaseModel):
     username: str
     email: Union[str, None] = None
+    full_name: Union[str, None] = None
     disabled: Union[bool, None] = None
-
 class UserInDB(User):
     hashed_password: str
 

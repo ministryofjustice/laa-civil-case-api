@@ -6,18 +6,8 @@ from .routers import case_information
 from .config.docs import config as docs_config
 from .auth.security import create_access_token, get_current_user
 from fastapi.security import OAuth2PasswordRequestForm
-from .auth.security import User, Token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES
+from .auth.security import User, Token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, fake_users_db, get_current_active_user
 
-
-fake_users_db = {
-    "johndoe": {
-        "username": "johndoe",
-        "full_name": "John Doe",
-        "email": "johndoe@example.com",
-        "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
-        "disabled": False,
-    }
-}
 
 def create_app():
     app = FastAPI(**docs_config)
@@ -40,9 +30,17 @@ def create_app():
             data={"sub": user.username}, expires_delta=access_token_expires
         )
         return Token(access_token=access_token, token_type="bearer")
-    
-    @app.get("/users/me", response_model=User)
-    async def read_users_me(current_user: User = Depends(get_current_user)):
+
+    @app.get("/users/me/", response_model=User)
+    async def read_users_me(
+        current_user: Annotated[User, Depends(get_current_active_user)],
+    ):
         return current_user
+
+    @app.get("/users/me/items/")
+    async def read_own_items(
+        current_user: Annotated[User, Depends(get_current_active_user)],
+    ):
+        return [{"item_id": "Foo", "owner": current_user.username}]
 
     return app

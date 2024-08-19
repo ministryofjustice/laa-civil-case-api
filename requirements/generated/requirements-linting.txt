@@ -13,6 +13,8 @@ anyio==4.4.0
     #   httpx
     #   starlette
     #   watchfiles
+bcrypt==4.2.0
+    # via -r requirements/source/requirements-base.in
 certifi==2024.7.4
     # via
     #   httpcore
@@ -61,6 +63,8 @@ markupsafe==2.1.5
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
+passlib==1.7.4
+    # via -r requirements/source/requirements-base.in
 psycopg2-binary==2.9.9
     # via -r requirements/source/requirements-base.in
 pydantic==2.8.2
@@ -71,6 +75,8 @@ pydantic-core==2.20.1
     # via pydantic
 pygments==2.18.0
     # via rich
+pyjwt==2.9.0
+    # via -r requirements/source/requirements-base.in
 python-dotenv==1.0.1
     # via uvicorn
 python-multipart==0.0.9

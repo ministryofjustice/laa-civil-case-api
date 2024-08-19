@@ -5,3 +5,6 @@ sqlmodel
 alembic
 sentry-sdk[fastapi]
 psycopg2-binary
+pyjwt
+passlib
+bcrypt

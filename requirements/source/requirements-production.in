@@ -1,5 +1,1 @@
 -r requirements-base.in
-pyjwt
-passlib
-bcrypt
-python-jose

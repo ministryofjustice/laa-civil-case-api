@@ -18,18 +18,7 @@ This command:
 ___
 
 ## Adding an authorised user
-To add an authorised user, able to use the API, first run the below to see the container ID:
-```bash
-docker ps
-```
-With the container ID, run the script to copy the script to the container:
-```bash
-docker cp insert_local_user.sql <container_id>:/tmp/insert_local_user.sql
-```
-Then run the script with:
-```bash
-docker exec -it <container_id> psql -U postgres -d case_api -f /tmp/insert_local_user.sql
-```
+An authorised user is created as part of the run_local script.
 The created user will have the username johndoe and password of password.
 
 ## Running in a virtual environment
@@ -64,6 +53,9 @@ Tests are managed using Pytest and can be run by using:
 ```commandline
 pytest
 ```
+
+All tests use a mocked user that circumvents the authorisation.
+
 For information on writing tests please see [here](./tests/README.md).
 
 ## Code formatting and linting

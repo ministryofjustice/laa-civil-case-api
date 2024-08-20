@@ -12,7 +12,11 @@ router = APIRouter(
 )
 
 
-# Defines the token endpoint
+'''
+The below function generates a JWT for a user who has
+provided a username and password. This JWT is unique
+and signed with an expiry time.
+'''
 @router.post("/token")
 async def login_for_access_token(
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
@@ -29,9 +33,3 @@ async def login_for_access_token(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
     return Token(access_token=access_token, token_type="bearer")
-
-@router.get("/users/me/", response_model=Users)
-async def read_users_me(
-    current_user: Annotated[Users, Depends(get_current_active_user)],
-):
-    return current_user

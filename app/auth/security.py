@@ -24,7 +24,7 @@ def verify_password(plain_password, hashed_password):
 def get_password_hash(password):
     return pwd_context.hash(password)
 
-def get_user(db, username: str):
+def get_user(username: str):
     with Session(engine) as session:
         
         user = session.get(Users, username)

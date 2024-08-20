@@ -3,8 +3,8 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from ..auth.security import create_access_token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, get_current_active_user
-from ..models.users import Users, Token
+from ..auth.security import create_access_token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES
+from ..models.users import Token
 from app.db import get_session
 
 router = APIRouter(

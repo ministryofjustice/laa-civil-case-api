@@ -11,24 +11,24 @@ router = APIRouter(
 )
 
 
-"""
-This endpoint accepts a username and password, authenticates the user, and returns a JSON Web Token (JWT) if the credentials are valid. This JWT is signed and will expire after 30 minutes.
-This token can then be used to authenticate subsequent requests.
-
-Args:
-    form_data (OAuth2PasswordRequestForm): The form data containing the username and password.
-
-Returns:
-    Token: An JWT containing the access token and its type.
-
-Raises:
-    HTTPException: If authentication fails, an HTTP 401 Unauthorised error is raised with
-                   a message indicating incorrect username or password.
-"""
 @router.post("/token")
 async def login_for_access_token(
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
 ) -> Token:
+    """
+    This endpoint accepts a username and password, authenticates the user, and returns a JSON Web Token (JWT) if the credentials are valid.
+    This JWT is signed and will expire after 30 minutes. This token can then be used to authenticate subsequent requests.
+
+    Args:
+        form_data (OAuth2PasswordRequestForm): The form data containing the username and password.
+
+    Returns:
+        Token: An JWT containing the access token and its type.
+
+    Raises:
+        HTTPException: If authentication fails, an HTTP 401 Unauthorised error is raised with
+        a message indicating incorrect username or password.
+    """
     user = authenticate_user(form_data.username, form_data.password)
     if not user:
         raise HTTPException(

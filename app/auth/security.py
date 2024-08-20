@@ -32,6 +32,22 @@ def get_user(username: str):
         return user
 
 def authenticate_user(username: str, password: str):
+    """
+    This function returns the user if they are authenticated against their
+    hashed password and exist in the database. Used in service login.
+
+    Args:
+        username: Username data as a string
+        password: Password data as a string
+
+    Returns:
+        user: A string that contains the user information to be used
+        to create the access token
+
+    Raises:
+        False: If user does not exist or if the verify password function
+        cannot match the current password with the hashed user password
+    """
     user = get_user(username)
     if not user:
         return False

@@ -17,6 +17,21 @@ This command:
 > If you run into any isues please see [TROUBLESHOOT.md](TROUBLESHOOT.md).
 ___
 
+## Adding an authorised user
+To add an authorised user, able to use the API, first run the below to see the container ID:
+```bash
+docker ps
+```
+With the container ID, run the script to copy the script to the container:
+```bash
+docker cp insert_local_user.sql <container_id>:/tmp/insert_local_user.sql
+```
+Then run the script with:
+```bash
+docker exec -it <container_id> psql -U postgres -d case_api -f /tmp/insert_local_user.sql
+```
+The created user will have the username johndoe and password of password.
+
 ## Running in a virtual environment
 If you wish to run the app in a virtual environment you can do so with:
 ```bash

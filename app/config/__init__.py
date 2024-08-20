@@ -15,4 +15,4 @@ class Config(object):
 
     SENTRY_DSN = os.environ.get("SENTRY_DSN")
 
-    SECRET_KEY = os.environ.get("SECRET_KEY")
+    SECRET_KEY = os.environ.get("SECRET_KEY", "default")

@@ -3,12 +3,13 @@ from sqlmodel import SQLModel, create_engine, Session, StaticPool
 from app import case_api
 from app.db import get_session
 from fastapi.testclient import TestClient
-from app import Config
 
 @pytest.fixture(name="session")
-def session():
-    db_url = f"postgresql://{Config.DB_USER}:{Config.DB_PASSWORD}@{Config.DB_HOST}:{Config.DB_PORT}/{Config.DB_NAME}"
-    engine = create_engine(db_url, echo=Config.DB_LOGGING)
+def session_fixture():
+    engine = create_engine(
+        "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
+    )
+    SQLModel.metadata.create_all(engine)
     with Session(engine) as session:
         yield session
 

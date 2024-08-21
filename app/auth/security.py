@@ -7,9 +7,8 @@ from jwt.exceptions import InvalidTokenError
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, Depends, status
 from ..models.users import Users, TokenData, Token
-from app.db import engine
-from sqlmodel import Session
 from app.config import Config
+from app.db import get_session
 
 import logging
 
@@ -28,13 +27,12 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 def get_user(username: str):
-    with Session(engine) as session:
-        
+    with next(get_session()) as session:
         user = session.get(Users, username)
-        
+    
         return user
 
-def authenticate_user(username: str, password: str) -> Users | bool:
+def authenticate_user(username: str, password: str) -> str | Users | bool:
     """
     This function returns the user if they are authenticated against their
     hashed password and exist in the database. Used in service login.

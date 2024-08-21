@@ -6,7 +6,6 @@ class Token(SQLModel):
     access_token: str
     token_type: str
 
-
 class TokenData(SQLModel):
     """TokenData links the JWT token to the username"""
     username: Union[str, None] = None
@@ -19,4 +18,3 @@ class Users(SQLModel, table=True):
     email: Union[str, None] = None
     full_name: Union[str, None] = None
     disabled: bool = Field(default=False)
-

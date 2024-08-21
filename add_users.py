@@ -13,7 +13,8 @@ def add_users(users_list_dict: dict):
 
     Logs:
         Logger warning: If username already exists will raise a
-        warning and ignore adding this user.
+        warning and ignore adding this user. It was also raise
+        a warning if there is a missing username/password.
     """
     with next(get_session()) as session:
         for user_info in users_list_dict:
@@ -27,7 +28,7 @@ def add_users(users_list_dict: dict):
             # Check if the username already exists
             existing_user = session.get(Users, username)
             if existing_user:
-                print(f"User with username '{username}' already exists.")
+                logging.warning(f"User with username '{username}' already exists.")
                 continue
 
             password = get_password_hash(password)

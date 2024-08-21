@@ -26,13 +26,13 @@ def verify_password(plain_password, hashed_password):
 def get_password_hash(password):
     return pwd_context.hash(password)
 
-def get_user(username: str):
-    with next(get_session()) as session:
+def get_user(session, username: str):
+    with session:
         user = session.get(Users, username)
     
         return user
 
-def authenticate_user(username: str, password: str) -> str | Users | bool:
+def authenticate_user(session, username: str, password: str) -> str | Users | bool:
     """
     This function returns the user if they are authenticated against their
     hashed password and exist in the database. Used in service login.
@@ -47,7 +47,7 @@ def authenticate_user(username: str, password: str) -> str | Users | bool:
         False: If user does not exist or if the verify password function
         cannot match the current password with the hashed user password
     """
-    user = get_user(username)
+    user = get_user(session, username)
     if not user:
         return False
     if not verify_password(password, user.hashed_password):
@@ -104,7 +104,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
     except InvalidTokenError:
         logging.warning(f"Invalid Token Authorisation on token {token}")
         raise credentials_exception
-    user = get_user(username=token_data.username)
+    user = get_user(next(get_session()), username=token_data.username)
     if user is None:
         raise credentials_exception
     return user

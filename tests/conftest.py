@@ -24,3 +24,16 @@ def client_fixture(session: Session):
     client = TestClient(case_api)
     yield client
     case_api.dependency_overrides.clear()
+
+@pytest.fixture
+def auth_token(client):
+    # Send POST request with x-www-form-urlencoded data
+    response = client.post(
+        "/token",
+        data={"username": "johndoe", "password": "password"},
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
+    )
+    assert response.status_code == 200
+    token_data = response.json()
+    assert "access_token" in token_data
+    return token_data["access_token"]

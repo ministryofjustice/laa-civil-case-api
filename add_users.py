@@ -2,6 +2,7 @@ from app.db import get_session
 from app.models.users import Users
 from sqlmodel import select
 from app.auth.security import get_password_hash
+from logging import Logger
 
 def add_users(users_list_dict: dict):
     """
@@ -12,8 +13,8 @@ def add_users(users_list_dict: dict):
         usernames and plain text passwords for users
 
     Raises:
-        Print: If username already exists will print out warning
-        and ignore adding this user.
+        Logger warning: If username already exists will raise a
+        warning and ignore adding this user.
     """
     with next(get_session()) as session:
         for user_info in users_list_dict:
@@ -21,11 +22,11 @@ def add_users(users_list_dict: dict):
             password = user_info.get('password')
 
             if not username or not password:
-                print(f"Skipping user with missing username or password: {user_info}")
+                Logger.warning(f"Skipping user with missing username or password: {user_info}")
                 continue
 
             # Check if the username already exists
-            existing_user = session.exec(select(Users).where(Users.username == username)).first()
+            existing_user = session.get(Users, username)
             if existing_user:
                 print(f"User with username '{username}' already exists.")
                 continue

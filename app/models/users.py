@@ -8,14 +8,15 @@ class Token(SQLModel):
 
 
 class TokenData(SQLModel):
-    '''TokenData links the JWT token to the username'''
+    """TokenData links the JWT token to the username"""
     username: Union[str, None] = None
 
 class Users(SQLModel, table=True):
-    """Users are required to be authenticated to use some functionality of the API."""
+    """Users are required to be authenticated to use some functionality of the API.
+    Disabled users are unable to authenticate to receive a token."""
     username: str = Field(primary_key=True)
     hashed_password: Union[str, None] = None
     email: Union[str, None] = None
     full_name: Union[str, None] = None
-    disabled: Union[bool, None] = None
+    disabled: bool = Field(default=False)
 

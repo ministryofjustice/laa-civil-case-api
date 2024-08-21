@@ -11,6 +11,8 @@ from app.db import engine
 from sqlmodel import Session
 from app.config import Config
 
+from logging import Logger
+
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
@@ -20,6 +22,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
+
 
 def get_password_hash(password):
     return pwd_context.hash(password)
@@ -43,8 +46,6 @@ def authenticate_user(username: str, password: str):
     Returns:
         user: A string that contains the user information to be used
         to create the access token
-
-    Raises:
         False: If user does not exist or if the verify password function
         cannot match the current password with the hashed user password
     """
@@ -56,6 +57,17 @@ def authenticate_user(username: str, password: str):
     return user
 
 def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None):
+    """
+    Creates the JWT access token with an expiry time.
+
+    Args:
+        data: Takes in a dictionary containing the username of the current user.
+        expires_delta: Takes in a timedelta of the expiry time of the token.
+
+    Returns:
+        encoded_jwt: Returns the fully encoded JWT with expiry time.
+    """
+    # Data.copy is used to avoid updating the original data dictionary when encoding
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
@@ -67,6 +79,19 @@ def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None
 
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
+    """
+    Checks the current user token to return a user.
+
+    Args:
+        token: Takes in a string of the current token which compares to the oauth2 scheme.
+
+    Returns:
+        user: Returns the current user by verifying the JWT.
+
+    Raises:
+        credentials_exception: If authentication fails, a HTTP 401 Unauthorised error is
+        raised with a message indicating that the credentials could not be validated.
+    """
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
@@ -79,6 +104,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
             raise credentials_exception
         token_data = TokenData(username=username)
     except InvalidTokenError:
+        Logger.warning(f"Invalid Token Authorisation on user {username}")
         raise credentials_exception
     user = get_user(username=token_data.username)
     if user is None:
@@ -89,5 +115,8 @@ async def get_current_active_user(
     current_user: Annotated[Users, Depends(get_current_user)],
 ):
     if current_user.disabled:
-        raise HTTPException(status_code=400, detail="Inactive user")
+        raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="User Disabled",
+    )
     return current_user

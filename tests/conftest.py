@@ -41,8 +41,6 @@ def auth_token(client):
         data={"username": "johndoe", "password": "password"},
         headers={"Content-Type": "application/x-www-form-urlencoded"}
     )
-    print('here')
-    print(response)
     assert response.status_code == 200
     token_data = response.json()
     assert "access_token" in token_data

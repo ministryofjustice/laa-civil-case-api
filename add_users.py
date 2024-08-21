@@ -1,6 +1,5 @@
 from app.db import get_session
 from app.models.users import Users
-from sqlmodel import select
 from app.auth.security import get_password_hash
 import logging
 

@@ -1,11 +1,8 @@
 import pytest
 from sqlmodel import SQLModel, create_engine, Session, StaticPool
 from app import case_api
-from app.auth.security import get_current_user
 from app.db import get_session
 from fastapi.testclient import TestClient
-
-from app.models import Users
 
 @pytest.fixture(name="session")
 def session_fixture():
@@ -32,8 +29,8 @@ def client_fixture(session: Session):
 def auth_token(client):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(
-        "/token",  # Adjust this to match your token endpoint
-        data={"username": "johndoe", "password": "password"},  # Replace with appropriate credentials
+        "/token",
+        data={"username": "johndoe", "password": "password"},
         headers={"Content-Type": "application/x-www-form-urlencoded"}
     )
     assert response.status_code == 200

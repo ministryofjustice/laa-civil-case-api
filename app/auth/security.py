@@ -6,11 +6,10 @@ import jwt
 from jwt.exceptions import InvalidTokenError
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, Depends, status
-from ..models.users import Users, TokenData
+from ..models.users import Users, TokenData, Token
 from app.db import engine
 from sqlmodel import Session
 from app.config import Config
-from ..models.users import Users, Token
 
 import logging
 

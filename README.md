@@ -19,7 +19,7 @@ ___
 
 ## Adding an authorised user
 An authorised user is created as part of the run_local script.
-The created user will have the username johndoe and password of password.
+The created user will have the username cla_admin and password of cla_admin.
 
 ## Running in a virtual environment
 If you wish to run the app in a virtual environment you can do so with:

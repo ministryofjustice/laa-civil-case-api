@@ -38,7 +38,7 @@ def add_users(users_list_dict: dict):
         session.commit()
 
 users_to_add = [
-        {'username': 'johndoe', 'password': 'password'},
+        {'username': 'cla_admin', 'password': 'cla_admin'},
         {'username': 'janedoe', 'password': 'password'}
 ]
 

@@ -14,8 +14,8 @@ def session_fixture():
     )
     SQLModel.metadata.create_all(engine)
     with Session(engine) as session:
-        password = get_password_hash('password')
-        new_user = Users(username='johndoe', hashed_password=password)
+        password = get_password_hash('cla_admin')
+        new_user = Users(username='cla_admin', hashed_password=password)
         session.add(new_user)
         session.commit()
         yield session
@@ -38,7 +38,7 @@ def auth_token(client):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(
         "/token",
-        data={"username": "johndoe", "password": "password"},
+        data={"username": "cla_admin", "password": "cla_admin"},
         headers={"Content-Type": "application/x-www-form-urlencoded"}
     )
     assert response.status_code == 200

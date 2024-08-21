@@ -11,7 +11,7 @@ def add_users(users_list_dict: dict):
         users_list_dict: Should contain a list of dictionary 
         usernames and plain text passwords for users
 
-    Raises:
+    Logs:
         Logger warning: If username already exists will raise a
         warning and ignore adding this user.
     """

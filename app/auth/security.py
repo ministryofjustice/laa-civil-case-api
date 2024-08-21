@@ -9,6 +9,7 @@ from fastapi import HTTPException, Depends, status
 from ..models.users import Users, TokenData, Token
 from app.config import Config
 from app.db import get_session
+from sqlmodel import Session
 
 import logging
 
@@ -75,7 +76,7 @@ def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None
     return encoded_jwt
 
 
-async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], session: Annotated[str, Depends(next(get_session()))]):
+async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], session: Annotated[Session, Depends(get_session)]):
     """
     Checks the current user token to return a user.
 
@@ -109,7 +110,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], sessio
     return user
 
 async def get_current_active_user(
-    current_user: Annotated[Users, Depends(get_current_user)],
+    current_user: Annotated[Users, Depends(get_current_user)]
 ):
     if current_user.disabled:
         raise HTTPException(

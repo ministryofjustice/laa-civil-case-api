@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 import pytest
 
 @pytest.fixture
-def auth_token(client):
+def auth_token(client: TestClient):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(
         "/token",

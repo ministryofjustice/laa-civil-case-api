@@ -1,4 +1,5 @@
 from fastapi.testclient import TestClient
+from tests.auth.test_auth import auth_token
 
 def test_create_case(client: TestClient, auth_token):
     response = client.post(

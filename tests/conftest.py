@@ -25,7 +25,7 @@ def client_fixture(session: Session):
     yield client
     case_api.dependency_overrides.clear()
 
-@pytest.fixture()
+@pytest.fixture(autouse=True)
 def auth_token(client):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(

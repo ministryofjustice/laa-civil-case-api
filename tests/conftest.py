@@ -4,6 +4,9 @@ from app import case_api
 from app.db import get_session
 from fastapi.testclient import TestClient
 
+from app.auth.security import get_password_hash
+from app.models.users import Users
+
 @pytest.fixture(name="session")
 def session_fixture():
     engine = create_engine(
@@ -11,6 +14,10 @@ def session_fixture():
     )
     SQLModel.metadata.create_all(engine)
     with Session(engine) as session:
+        password = get_password_hash('password')
+        new_user = Users(username='johndoe', hashed_password=password)
+        session.add(new_user)
+        session.commit()
         yield session
 
 
@@ -25,6 +32,7 @@ def client_fixture(session: Session):
     yield client
     case_api.dependency_overrides.clear()
 
+
 @pytest.fixture
 def auth_token(client):
     # Send POST request with x-www-form-urlencoded data
@@ -33,6 +41,8 @@ def auth_token(client):
         data={"username": "johndoe", "password": "password"},
         headers={"Content-Type": "application/x-www-form-urlencoded"}
     )
+    print('here')
+    print(response)
     assert response.status_code == 200
     token_data = response.json()
     assert "access_token" in token_data

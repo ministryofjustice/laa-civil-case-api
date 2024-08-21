@@ -27,7 +27,7 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 def get_user(session, username: str):
-    with session:
+    with next(get_session()) as session:
         user = session.get(Users, username)
     
         return user

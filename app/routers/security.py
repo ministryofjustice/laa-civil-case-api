@@ -34,7 +34,7 @@ async def login_for_access_token(
         HTTPException: If authentication fails, an HTTP 401 Unauthorised error is raised with
         a message indicating incorrect username or password.
     """
-    user = authenticate_user(next(get_session()), form_data.username, form_data.password)
+    user = authenticate_user(session, form_data.username, form_data.password)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

@@ -75,7 +75,7 @@ def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None
     return encoded_jwt
 
 
-async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
+async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], session: Annotated[str, Depends(get_session())]):
     """
     Checks the current user token to return a user.
 
@@ -103,7 +103,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
     except InvalidTokenError:
         logging.warning(f"Invalid Token Authorisation on token {token}")
         raise credentials_exception
-    user = get_user(next(get_session()), username=token_data.username)
+    user = get_user(session, username=token_data.username)
     if user is None:
         raise credentials_exception
     return user

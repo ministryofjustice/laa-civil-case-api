@@ -10,8 +10,9 @@ from ..models.users import Users, TokenData
 from app.db import engine
 from sqlmodel import Session
 from app.config import Config
+from ..models.users import Users, Token
 
-from logging import Logger
+import logging
 
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
@@ -34,7 +35,7 @@ def get_user(username: str):
         
         return user
 
-def authenticate_user(username: str, password: str):
+def authenticate_user(username: str, password: str) -> Users | bool:
     """
     This function returns the user if they are authenticated against their
     hashed password and exist in the database. Used in service login.
@@ -56,7 +57,7 @@ def authenticate_user(username: str, password: str):
         return False
     return user
 
-def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None):
+def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None) -> Token:
     """
     Creates the JWT access token with an expiry time.
 
@@ -104,7 +105,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
             raise credentials_exception
         token_data = TokenData(username=username)
     except InvalidTokenError:
-        Logger.warning(f"Invalid Token Authorisation on user {username}")
+        logging.warning(f"Invalid Token Authorisation on token {token}")
         raise credentials_exception
     user = get_user(username=token_data.username)
     if user is None:

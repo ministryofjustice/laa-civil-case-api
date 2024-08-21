@@ -22,14 +22,21 @@ def client_fixture(session: Session):
     def get_session_override():
         return session
     
-    def override_get_current_user():
-        # Return a dummy user or None to bypass authentication
-        return Users(username="testuser", hashed_password="dummyhash")
-
     case_api.dependency_overrides[get_session] = get_session_override
-
-    case_api.dependency_overrides[get_current_user] = override_get_current_user
 
     client = TestClient(case_api)
     yield client
     case_api.dependency_overrides.clear()
+
+@pytest.fixture()
+def auth_token(client):
+    # Send POST request with x-www-form-urlencoded data
+    response = client.post(
+        "/token",  # Adjust this to match your token endpoint
+        data={"username": "johndoe", "password": "password"},  # Replace with appropriate credentials
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
+    )
+    assert response.status_code == 200
+    token_data = response.json()
+    assert "access_token" in token_data
+    return token_data["access_token"]

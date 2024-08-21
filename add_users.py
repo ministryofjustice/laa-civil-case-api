@@ -2,7 +2,7 @@ from app.db import get_session
 from app.models.users import Users
 from sqlmodel import select
 from app.auth.security import get_password_hash
-from logging import Logger
+import logging
 
 def add_users(users_list_dict: dict):
     """
@@ -22,7 +22,7 @@ def add_users(users_list_dict: dict):
             password = user_info.get('password')
 
             if not username or not password:
-                Logger.warning(f"Skipping user with missing username or password: {user_info}")
+                logging.warning(f"Skipping user with missing username or password: {user_info}")
                 continue
 
             # Check if the username already exists

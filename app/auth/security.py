@@ -27,10 +27,9 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 def get_user(session, username: str):
-    with next(get_session()) as session:
-        user = session.get(Users, username)
-    
-        return user
+    user = session.get(Users, username)
+
+    return user
 
 def authenticate_user(session, username: str, password: str) -> str | Users | bool:
     """

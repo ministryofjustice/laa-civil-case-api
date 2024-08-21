@@ -7,6 +7,8 @@ from fastapi.testclient import TestClient
 from app.auth.security import get_password_hash
 from app.models.users import Users
 
+SECRET_KEY = 'TEST_KEY'
+
 @pytest.fixture(name="session")
 def session_fixture():
     engine = create_engine(

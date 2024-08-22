@@ -15,6 +15,7 @@ import logging
 
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
+SECRET_KEY = Config.SECRET_KEY
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -59,20 +60,23 @@ def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None
     Creates the JWT access token with an expiry time.
 
     Args:
-        data: Takes in a dictionary containing the username of the current user.
-        expires_delta: Takes in a timedelta of the expiry time of the token.
+        data: A dictionary containing the username.
+        expires_delta: A timedelta of the expiry time of the token.
 
     Returns:
         encoded_jwt: Returns the fully encoded JWT with expiry time.
     """
-    # Data.copy is used to avoid updating the original data dictionary when encoding
+    """
+    Data.copy is used to avoid updating the original data dictionary with
+    the expiry field to ensure it can still be read as a standalone object.
+    """
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
     else:
         expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, Config.SECRET_KEY, algorithm=ALGORITHM)
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
 
@@ -81,13 +85,13 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], sessio
     Checks the current user token to return a user.
 
     Args:
-        token: Takes in a string of the current token which compares to the oauth2 scheme.
+        token: Uses the oauth2 scheme to get the current JWT.
 
     Returns:
-        user: Returns the current user by verifying the JWT.
+        user: Returns the current user object by verifying against the JWT.
 
     Raises:
-        credentials_exception: If authentication fails, a HTTP 401 Unauthorised error is
+        HTTP_Exception: If authentication fails, a HTTP 401 Unauthorised error is
         raised with a message indicating that the credentials could not be validated.
     """
     credentials_exception = HTTPException(
@@ -96,7 +100,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], sessio
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        payload = jwt.decode(token, Config.SECRET_KEY, algorithms=[ALGORITHM])
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception

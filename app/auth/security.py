@@ -24,8 +24,17 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
-
 def get_password_hash(password):
+    """
+    This function runs bcrypt salting and hashing via passlib.
+
+    Args:
+        password: Password data as a string.
+
+    Returns:
+        password: Returns a hashed and salted password using
+        passlib bcrypt.
+    """
     return pwd_context.hash(password)
 
 def get_user(session, username: str):

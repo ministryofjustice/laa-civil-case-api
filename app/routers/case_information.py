@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends
 from ..models.cases import CaseRequest, Case
 from datetime import datetime
 from sqlmodel import Session, select
-from app.db import get_session
+from ..db import get_session
 import random
 from ..auth.security import get_current_active_user
 

@@ -1,3 +1,8 @@
+# Amend parent directory
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from app.db import get_session
 from app.models.users import Users
 from app.auth.security import get_password_hash

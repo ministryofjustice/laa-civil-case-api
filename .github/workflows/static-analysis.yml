@@ -1,9 +1,6 @@
 name: Static Analysis
 on:
-  workflow_run:
-    workflows: ["Test"]  # Name of the workflow that triggers this one
-    types:
-      - completed
+  workflow_call:
     secrets:
       SONAR_TOKEN:
         required: true

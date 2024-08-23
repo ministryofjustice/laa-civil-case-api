@@ -47,13 +47,13 @@ jobs:
       - name: Download coverage HTML report
         uses: actions/download-artifact@v4
         with:
-          name: coverage-html-report
-          path: coverage_html
+          name: coverage-xml-report
+          path: coverage/
       - uses: sonarsource/sonarcloud-github-action@master
         with:
           args: >
             -Dsonar.python.version=3.12
-            -Dsonar.python.coverage.reportPaths=coverage_html/index.html
+            -Dsonar.python.coverage.reportPaths=coverage/coverage.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -44,11 +44,6 @@ jobs:
         with:
           name: coverage-xml-report
           path: coverage
-      - name: List coverage directory contents
-        run: |
-          echo "Listing contents of coverage directory:"
-          ls -la coverage
-          echo "End of coverage directory contents."
       - uses: actions/checkout@v4
         with:
           # Number of commits to fetch. 0 indicates all history for all branches and tags.

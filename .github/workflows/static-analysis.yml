@@ -49,11 +49,6 @@ jobs:
         with:
           name: coverage-xml-report
           path: coverage
-      - name: List coverage directory contents
-        run: |
-          echo "Listing contents of coverage directory:"
-          ls -la coverage
-          echo "End of coverage directory contents."
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:

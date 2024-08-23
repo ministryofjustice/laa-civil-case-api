@@ -12,5 +12,4 @@ __pycache__
 database.db
 .idea
 .coverage
-htmlcov
 .venv

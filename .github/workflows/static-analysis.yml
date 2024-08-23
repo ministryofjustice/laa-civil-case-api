@@ -49,11 +49,100 @@ jobs:
         with:
           name: coverage-xml-report
           path: coverage/
-      - uses: sonarsource/sonarcloud-github-action@master
+
+It looks like you’re on the right track, but there might be a few potential issues causing SonarCloud to not pick up the coverage report. Here’s a checklist and some troubleshooting tips:
+
+Checklist for SonarCloud Coverage Configuration
+Ensure Coverage XML File Exists: Verify that the coverage.xml file is indeed being generated and uploaded in the coverage-xml-report artifact.
+
+Correct Path and File Naming: Make sure the path specified in sonar.python.coverage.reportPaths matches the location and name of the XML file.
+
+SonarCloud Project Configuration: Confirm that your SonarCloud project is properly configured to expect Python coverage reports.
+
+SonarCloud Analysis Command: Ensure that the SonarCloud GitHub Action is correctly configured and that you’re using the latest version.
+
+Correct Configuration Example
+Here's an example with adjusted configurations to ensure proper setup:
+
+Test Workflow (test.yml)
+Ensure the coverage.xml is correctly generated and uploaded:
+
+yaml
+Copy code
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: Test with pytest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-cov
+          pip install -r requirements.txt
+
+      - name: Run tests and generate coverage report
+        run: |
+          coverage run -m pytest
+          coverage xml
+
+      - name: Upload coverage XML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-xml-report
+          path: coverage.xml
+SonarCloud Workflow (sonarcloud.yml)
+Ensure the SonarCloud analysis is correctly configured:
+
+yaml
+Copy code
+name: SonarCloud Analysis
+
+on:
+  workflow_run:
+    workflows: ["Test"]  # This should match the name of your Test workflow
+    types:
+      - completed  # Trigger when the Test workflow completes
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download coverage XML report
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-xml-report
+          path: coverage
+
+      - name: Run SonarCloud Analysis
+        uses: sonarsource/sonarcloud-github-action@v1
         with:
           args: >
             -Dsonar.python.version=3.12
+            -Dsonar.projectKey=ministryofjustice_laa-civil-case-api
+            -Dsonar.organization=ministryofjustice
+            -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.python.coverage.reportPaths=coverage/coverage.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN 

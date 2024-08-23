@@ -23,7 +23,7 @@ jobs:
       run: |
         pip install pytest pytest-cov
         coverage run -m pytest
-        coverage xml
+        coverage html
 
     - name: Upload pytest test results
       uses: actions/upload-artifact@v4
@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
-        path: coverage.xml
+        path: coverage.html

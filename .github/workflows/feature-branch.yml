@@ -10,7 +10,7 @@ on:
     types:
       - reopened
 
-jobs:   
+jobs:
   test:
     name: Test
     uses: ./.github/workflows/test.yml

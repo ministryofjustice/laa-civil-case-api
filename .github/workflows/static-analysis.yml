@@ -54,7 +54,6 @@ jobs:
         with:
           args: >
             -Dsonar.python.version=3.12
-            -Dsonar.sources=app
             -Dsonar.python.coverage.reportPaths=coverage/coverage.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -48,16 +48,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: coverage-xml-report
-          path: coverage
+          path: coverage-reports
       - name: Run SonarCloud Analysis
-        uses: sonarsource/sonarcloud-github-action@master
-        with:
-          args: >
-            -Dsonar.python.version=3.12
-            -Dsonar.projectKey=ministryofjustice_laa-civil-case-api
-            -Dsonar.organization=ministryofjustice
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.python.coverage.reportPaths=coverage/coverage.xml
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

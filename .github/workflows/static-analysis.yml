@@ -54,7 +54,7 @@ jobs:
         with:
           args: >
             -Dsonar.python.version=3.12
-            -Dsonar.sources=app
+            -Dsonar.sources=/app
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.python.coverage.reportPaths=coverage/coverage.xml
         env:

@@ -7,7 +7,7 @@ All access tokens are valid for 30 minutes on the API. This can be adjusted by a
 The OAuth2 JWT encoding requires a SECRET_KEY. This can be defined in your .env file to generate unique tokens. All environments have a different secret key that defines what to be encoded against.
 
 ## Adding Auth to Routes
-To add authorisation to any route, simple add the below to the route definition:
+To add authorisation to any route, simply add the below to the route definition:
 ```shell
 current_user: Users = Depends(get_current_active_user)
 ```

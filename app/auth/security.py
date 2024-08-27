@@ -1,7 +1,7 @@
 from typing import Union, Annotated
 from datetime import timezone, timedelta, datetime
 
-from passlib.context import CryptContext
+from passlib.hash import argon2
 import jwt
 from jwt.exceptions import InvalidTokenError
 from fastapi.security import OAuth2PasswordBearer
@@ -17,12 +17,10 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 SECRET_KEY = Config.SECRET_KEY
 
-pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
-
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
+    return argon2.verify(plain_password, hashed_password)
 
 def get_password_hash(password):
     """
@@ -35,7 +33,7 @@ def get_password_hash(password):
         password: Returns a hashed and salted password using
         passlib argon2.
     """
-    return pwd_context.hash(password)
+    return argon2.hash(password)
 
 def get_user(session, username: str):
     user = session.get(Users, username)

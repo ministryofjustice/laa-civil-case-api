@@ -1,4 +1,3 @@
-from typing import Union
 from sqlmodel import Field, SQLModel
 
 
@@ -12,7 +11,7 @@ class Token(SQLModel):
 class TokenData(SQLModel):
     """TokenData links the JWT token to the username"""
 
-    username: Union[str, None] = None
+    username: str | None = None
 
 
 class Users(SQLModel, table=True):
@@ -22,7 +21,7 @@ class Users(SQLModel, table=True):
     """
 
     username: str = Field(primary_key=True)
-    hashed_password: Union[str, None] = None
-    email: Union[str, None] = None
-    full_name: Union[str, None] = None
+    hashed_password: str | None = None
+    email: str | None = None
+    full_name: str | None = None
     disabled: bool = Field(default=False)

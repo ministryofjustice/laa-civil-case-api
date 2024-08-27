@@ -1,4 +1,4 @@
-from typing import Union, Annotated
+from typing import Annotated
 from datetime import timezone, timedelta, datetime
 
 from passlib.hash import argon2
@@ -67,9 +67,7 @@ def authenticate_user(session, username: str, password: str) -> str | Users | bo
     return user
 
 
-def create_access_token(
-    data: dict, expires_delta: Union[timedelta, None] = None
-) -> Token:
+def create_access_token(data: dict, expires_delta: timedelta | None = None) -> Token:
     """
     Creates the JWT access token with an expiry time.
 

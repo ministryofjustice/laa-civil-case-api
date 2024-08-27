@@ -26,6 +26,7 @@ def add_users(users_list_dict: dict):
         for user_info in users_list_dict:
             username = user_info.get('username')
             password = user_info.get('password')
+            disabled = user_info.get('disabled')
 
             if not username or not password:
                 logging.warning(f"Skipping user with missing username or password: {user_info}")
@@ -38,14 +39,14 @@ def add_users(users_list_dict: dict):
                 continue
 
             password = get_password_hash(password)
-            new_user = Users(username=username, hashed_password=password)
+            new_user = Users(username=username, hashed_password=password, disabled=disabled)
             session.add(new_user)
 
         session.commit()
 
 users_to_add = [
-        {'username': 'cla_admin', 'password': 'cla_admin'},
-        {'username': 'janedoe', 'password': 'password'}
+        {'username': 'cla_admin', 'password': 'cla_admin', 'disabled': False},
+        {'username': 'janedoe', 'password': 'password', 'disabled': True}
 ]
 
 add_users(users_to_add)

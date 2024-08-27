@@ -25,7 +25,6 @@ jobs:
   build-and-push:
     name: Build
     uses: ./.github/workflows/build.yml
-    needs: static-analysis
     with:
       ECR_REGION: ${{vars.ECR_REGION}}
       ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}
@@ -62,7 +61,7 @@ jobs:
   deploy-uat:
     name: UAT
     uses: ./.github/workflows/deploy.yml
-    needs: [build-and-push, test]
+    needs: [deploy-dev, static-analysis, test, scan-image]
     with:
       environment: uat
       ECR_REGION: ${{vars.ECR_REGION}}

@@ -38,12 +38,6 @@ def get_password_hash(password):
     return argon2.hash(password)
 
 
-def get_user(session, username: str):
-    user = session.get(Users, username)
-
-    return user
-
-
 def authenticate_user(session, username: str, password: str) -> str | Users | bool:
     """
     This function returns the user if they are authenticated against their
@@ -59,7 +53,7 @@ def authenticate_user(session, username: str, password: str) -> str | Users | bo
         False: If user does not exist or if the verify password function
         cannot match the current password with the hashed user password
     """
-    user = get_user(session, username)
+    user = session.get(Users, username)
     if not user:
         return False
     if not verify_password(password, user.hashed_password):
@@ -123,7 +117,7 @@ async def get_current_user(
     except InvalidTokenError:
         logging.warning(f"Invalid Token Authorisation on token {token}")
         raise credentials_exception
-    user = get_user(session, username=token_data.username)
+    user = session.get(Users, token_data.username)
     if user is None:
         raise credentials_exception
     return user

@@ -10,12 +10,12 @@ from app.auth.security import get_password_hash
 import logging
 
 
-def add_users(users_list_dict: dict):
+def add_users(users_list_dict: list[dict]):
     """
     This function creates new users in the spun up local database
 
     Args:
-        users_list_dict: Should contain a list of dictionary
+        users_list_dict: Should contain a list with a dictionary inside
         usernames and plain text passwords for users
 
     Logs:

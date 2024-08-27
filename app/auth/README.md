@@ -13,4 +13,4 @@ current_user: Users = Depends(get_current_active_user)
 ```
 
 ## Hashing and Encoding
-All password information is hashed and salted per bcrypt and passlib. The token is then generated and encoded via JWT which uses the secret key to sign the identity of the token. This means that the token contains a header, payload and a signature following the HS256 algorithm ensuring security.
+All password information is hashed and salted per argon2 and passlib. The token is then generated and encoded via JWT which uses the secret key to sign the identity of the token. This means that the token contains a header, payload and a signature following the HS256 algorithm ensuring security.

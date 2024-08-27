@@ -17,7 +17,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 SECRET_KEY = Config.SECRET_KEY
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -26,14 +26,14 @@ def verify_password(plain_password, hashed_password):
 
 def get_password_hash(password):
     """
-    This function runs bcrypt salting and hashing via passlib.
+    This function runs argon2 salting and hashing via passlib.
 
     Args:
         password: Password data as a string.
 
     Returns:
         password: Returns a hashed and salted password using
-        passlib bcrypt.
+        passlib argon2.
     """
     return pwd_context.hash(password)
 

@@ -7,4 +7,5 @@ sentry-sdk[fastapi]
 psycopg2-binary
 pyjwt
 passlib
-bcrypt
+argon2-cffi
+argon2

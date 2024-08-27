@@ -7,7 +7,8 @@ from fastapi.testclient import TestClient
 from app.auth.security import get_password_hash
 from app.models.users import Users
 
-SECRET_KEY = 'TEST_KEY'
+SECRET_KEY = "TEST_KEY"
+
 
 @pytest.fixture(name="session")
 def session_fixture():
@@ -16,17 +17,19 @@ def session_fixture():
     )
     SQLModel.metadata.create_all(engine)
     users_to_add = [
-        {'username': 'cla_admin', 'password': 'cla_admin', 'disabled': False},
-        {'username': 'jane_doe', 'password': 'password', 'disabled': True}
+        {"username": "cla_admin", "password": "cla_admin", "disabled": False},
+        {"username": "jane_doe", "password": "password", "disabled": True},
     ]
     with Session(engine) as session:
         for user in users_to_add:
-            username = user.get('username')
-            password = user.get('password')
-            disabled = user.get('disabled')
+            username = user.get("username")
+            password = user.get("password")
+            disabled = user.get("disabled")
 
             password = get_password_hash(password)
-            new_user = Users(username=username, hashed_password=password, disabled=disabled)
+            new_user = Users(
+                username=username, hashed_password=password, disabled=disabled
+            )
             session.add(new_user)
 
         session.commit()
@@ -37,7 +40,7 @@ def session_fixture():
 def client_fixture(session: Session):
     def get_session_override():
         return session
-    
+
     case_api.dependency_overrides[get_session] = get_session_override
 
     client = TestClient(case_api)
@@ -51,7 +54,7 @@ def auth_token(client):
     response = client.post(
         "/token",
         data={"username": "cla_admin", "password": "cla_admin"},
-        headers={"Content-Type": "application/x-www-form-urlencoded"}
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
     assert response.status_code == 200
     token_data = response.json()
@@ -65,7 +68,7 @@ def auth_token_disabled_user(client):
     response = client.post(
         "/token",
         data={"username": "jane_doe", "password": "password"},
-        headers={"Content-Type": "application/x-www-form-urlencoded"}
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
     assert response.status_code == 200
     token_data = response.json()

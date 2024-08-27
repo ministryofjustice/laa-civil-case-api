@@ -1,8 +1,12 @@
 from fastapi.testclient import TestClient
 
+
 def test_create_case(client: TestClient, auth_token):
     response = client.post(
-            "/cases/", json={"category": "Housing", "name": "John Doe"}, headers={"Authorization": f"Bearer {auth_token}"})
+        "/cases/",
+        json={"category": "Housing", "name": "John Doe"},
+        headers={"Authorization": f"Bearer {auth_token}"},
+    )
     case = response.json()
 
     assert response.status_code == 200

@@ -19,8 +19,10 @@ SECRET_KEY = Config.SECRET_KEY
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
+
 def verify_password(plain_password, hashed_password):
     return argon2.verify(plain_password, hashed_password)
+
 
 def get_password_hash(password):
     """
@@ -35,10 +37,12 @@ def get_password_hash(password):
     """
     return argon2.hash(password)
 
+
 def get_user(session, username: str):
     user = session.get(Users, username)
 
     return user
+
 
 def authenticate_user(session, username: str, password: str) -> str | Users | bool:
     """
@@ -62,7 +66,10 @@ def authenticate_user(session, username: str, password: str) -> str | Users | bo
         return False
     return user
 
-def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None) -> Token:
+
+def create_access_token(
+    data: dict, expires_delta: Union[timedelta, None] = None
+) -> Token:
     """
     Creates the JWT access token with an expiry time.
 
@@ -81,13 +88,18 @@ def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
     else:
-        expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+        expire = datetime.now(timezone.utc) + timedelta(
+            minutes=ACCESS_TOKEN_EXPIRE_MINUTES
+        )
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
 
-async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], session: Annotated[Session, Depends(get_session)]):
+async def get_current_user(
+    token: Annotated[str, Depends(oauth2_scheme)],
+    session: Annotated[Session, Depends(get_session)],
+):
     """
     Checks the current user token to return a user.
 
@@ -118,12 +130,13 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], sessio
         raise credentials_exception
     return user
 
+
 async def get_current_active_user(
-    current_user: Annotated[Users, Depends(get_current_user)]
+    current_user: Annotated[Users, Depends(get_current_user)],
 ):
     if current_user.disabled:
         raise HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="User Disabled",
-    )
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User Disabled",
+        )
     return current_user

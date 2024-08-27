@@ -10,7 +10,7 @@ router = APIRouter(
     prefix="/cases",
     tags=["cases"],
     responses={404: {"description": "Not found"}},
-    dependencies=[Depends(get_current_active_user)]
+    dependencies=[Depends(get_current_active_user)],
 )
 
 
@@ -34,7 +34,12 @@ def generate_id():
 
 @router.post("/", tags=["cases"], response_model=Case)
 def create_case(request: CaseRequest, session: Session = Depends(get_session)):
-    case = Case(category=request.category, time=datetime.now(), name=request.name, id=generate_id())
+    case = Case(
+        category=request.category,
+        time=datetime.now(),
+        name=request.name,
+        id=generate_id(),
+    )
     session.add(case)
     session.commit()
     session.refresh(case)

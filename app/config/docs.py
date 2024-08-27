@@ -19,5 +19,5 @@ config = {
         "name": "MIT Licence",
         "url": "https://github.com/ministryofjustice/laa-civil-case-api/blob/main/LICENSE",
     },
-    "docs_url": "/"
+    "docs_url": "/",
 }

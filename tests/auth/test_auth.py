@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from app.auth.security import create_access_token, verify_password, get_password_hash, authenticate_user, get_current_active_user, ACCESS_TOKEN_EXPIRE_MINUTES
+from app.auth.security import create_access_token, verify_password, get_password_hash, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES
 from freezegun import freeze_time
 import pytest
 from jwt import ExpiredSignatureError
@@ -58,8 +58,8 @@ def test_credential_exception_no_user(session, client: TestClient, auth_token):
 
 def test_authenticate_user(session):
     auth_user = authenticate_user(session=session, username='cla_admin', password='incorrect')
-    assert auth_user == False
-
+    assert not auth_user
+    
 def test_password_hashing():
     hashed_password = 'password'
     assert verify_password('password', get_password_hash(hashed_password))

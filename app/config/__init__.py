@@ -14,3 +14,5 @@ class Config(object):
     DB_LOGGING = os.environ.get("DB_LOGGING", "False") == "True"
 
     SENTRY_DSN = os.environ.get("SENTRY_DSN")
+
+    SECRET_KEY = os.environ.get("SECRET_KEY", "TEST_KEY")

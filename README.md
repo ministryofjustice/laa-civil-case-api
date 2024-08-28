@@ -17,6 +17,10 @@ This command:
 > If you run into any isues please see [TROUBLESHOOT.md](TROUBLESHOOT.md).
 ___
 
+## Adding an authorised user
+An authorised user is created as part of the run_local script.
+The created user will have the username cla_admin and password of cla_admin.
+
 ## Running in a virtual environment
 If you wish to run the app in a virtual environment you can do so with:
 ```bash
@@ -49,6 +53,9 @@ Tests are managed using Pytest and can be run by using:
 ```commandline
 pytest
 ```
+
+All tests use a mocked user that circumvents the authorisation.
+
 For information on writing tests please see [here](./tests/README.md).
 
 ## Code formatting and linting

@@ -1,14 +1,16 @@
 from fastapi import APIRouter, HTTPException, Depends
-from ..models.cases import CaseRequest, Case
+from app.models.cases import CaseRequest, Case
 from datetime import datetime
 from sqlmodel import Session, select
 from app.db import get_session
 import random
+from app.auth.security import get_current_active_user
 
 router = APIRouter(
     prefix="/cases",
     tags=["cases"],
     responses={404: {"description": "Not found"}},
+    dependencies=[Depends(get_current_active_user)],
 )
 
 

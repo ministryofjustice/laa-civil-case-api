@@ -10,16 +10,17 @@ on:
     types:
       - reopened
 
-jobs:
-  static-analysis:
-    name: Static Analysis
-    uses: ./.github/workflows/static-analysis.yml
-    secrets:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      
+jobs: 
   test:
     name: Test
     uses: ./.github/workflows/test.yml
+
+  static-analysis:
+    name: Static Analysis
+    needs: test
+    uses: ./.github/workflows/static-analysis.yml
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build-and-push:
     name: Build

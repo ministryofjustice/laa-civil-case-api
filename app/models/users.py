@@ -8,12 +8,6 @@ class Token(SQLModel):
     token_type: str
 
 
-class TokenData(SQLModel):
-    """TokenData links the JWT token to the username"""
-
-    username: str | None = None
-
-
 class Users(SQLModel, table=True):
     """
     Users are required to be authenticated to use some functionality of the API.

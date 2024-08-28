@@ -6,7 +6,7 @@ import jwt
 from jwt.exceptions import InvalidTokenError
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, Depends, status
-from app.models.users import Users, TokenData, Token
+from app.models.users import Users, Token
 from app.config import Config
 from app.db import get_session
 from sqlmodel import Session
@@ -113,11 +113,12 @@ async def get_current_user(
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
-        token_data = TokenData(username=username)
     except InvalidTokenError:
-        logging.warning(f"Invalid Token Authorisation on token {token}")
+        logging.warning(
+            f"Invalid Token Authorisation on token {token} with username {username}"
+        )
         raise credentials_exception
-    user = session.get(Users, token_data.username)
+    user = session.get(Users, username)
     if user is None:
         raise credentials_exception
     return user

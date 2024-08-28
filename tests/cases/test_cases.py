@@ -2,8 +2,7 @@ from fastapi.testclient import TestClient
 
 
 def test_create_case(client: TestClient):
-    response = client.post(
-            "/cases/", json={"category": "Housing", "name": "John Doe"})
+    response = client.post("/cases/", json={"category": "Housing", "name": "John Doe"})
     case = response.json()
 
     assert response.status_code == 200

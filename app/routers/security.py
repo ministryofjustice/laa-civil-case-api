@@ -30,6 +30,7 @@ async def login_for_access_token(
 
     Args:
         form_data (OAuth2PasswordRequestForm): The form data containing the username and password.
+        session (Session): The current database session
 
     Returns:
         Token: An JWT containing the access token and its type.
@@ -49,4 +50,4 @@ async def login_for_access_token(
     access_token = create_access_token(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
-    return Token(access_token=access_token, token_type="bearer")
+    return Token(access_token=str(access_token), token_type="bearer")

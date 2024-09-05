@@ -6,7 +6,7 @@ import jwt
 from jwt.exceptions import InvalidTokenError
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, Depends, status
-from app.models.users import Users, TokenData, Token
+from app.models.users import User, TokenData, Token
 from app.config import Config
 from app.db import get_session
 from sqlmodel import Session
@@ -38,7 +38,7 @@ def get_password_hash(password):
     return argon2.hash(password)
 
 
-def authenticate_user(session, username: str, password: str) -> str | Users | bool:
+def authenticate_user(session, username: str, password: str) -> str | User | bool:
     """
     This function returns the user if they are authenticated against their
     hashed password and exist in the database. Used in service login.
@@ -53,7 +53,7 @@ def authenticate_user(session, username: str, password: str) -> str | Users | bo
         False: If user does not exist or if the verify password function
         cannot match the current password with the hashed user password
     """
-    user = session.get(Users, username)
+    user = session.get(User, username)
     if not user:
         return False
     if not verify_password(password, user.hashed_password):
@@ -117,14 +117,14 @@ async def get_current_user(
     except InvalidTokenError:
         logging.warning(f"Invalid Token Authorisation on token {token}")
         raise credentials_exception
-    user = session.get(Users, token_data.username)
+    user = session.get(User, token_data.username)
     if user is None:
         raise credentials_exception
     return user
 
 
 async def get_current_active_user(
-    current_user: Annotated[Users, Depends(get_current_user)],
+    current_user: Annotated[User, Depends(get_current_user)],
 ):
     if current_user.disabled:
         raise HTTPException(

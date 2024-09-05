@@ -6,6 +6,8 @@
 #
 alembic==1.13.2
     # via -r requirements/source/requirements-base.in
+alembic-autogenerate-enums==0.1.2
+    # via -r requirements/source/requirements-base.in
 annotated-types==0.7.0
     # via pydantic
 anyio==3.7.1

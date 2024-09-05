@@ -14,11 +14,13 @@ class TokenData(SQLModel):
     username: str | None = None
 
 
-class Users(SQLModel, table=True):
+class User(SQLModel, table=True):
     """
     Users are required to be authenticated to use some functionality of the API.
     Disabled users are unable to authenticate to receive a token.
     """
+
+    __tablename__ = "users"
 
     username: str = Field(primary_key=True)
     hashed_password: str | None = None

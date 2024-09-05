@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.db import get_session
-from app.models.users import Users
+from app.models.users import User
 from app.auth.security import get_password_hash
 import logging
 
@@ -36,13 +36,13 @@ def add_users(users_list_dict: list[dict]):
                 continue
 
             # Check if the username already exists
-            existing_user = session.get(Users, username)
+            existing_user = session.get(User, username)
             if existing_user:
                 logging.warning(f"User with username '{username}' already exists.")
                 continue
 
             password = get_password_hash(password)
-            new_user = Users(
+            new_user = User(
                 username=username, hashed_password=password, disabled=disabled
             )
             session.add(new_user)

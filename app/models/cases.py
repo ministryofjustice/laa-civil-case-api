@@ -1,21 +1,22 @@
 from sqlmodel import Field, SQLModel
-from datetime import datetime
-from .categories import Categories
+from app.models.base import TableModelMixin
+from app.models.case_types import CaseTypes
 
 
 class BaseCase(SQLModel):
-    category: Categories = Field(index=True)
-    name: str
+    case_type: CaseTypes = Field(
+        index=True
+    )  # Which service is the case originally from
+    assigned_to: str | None = Field(
+        default=None
+    )  # The ID of the user this case is currently assigned to.
 
 
-class Case(BaseCase, table=True):
-    id: int = Field(default=None, primary_key=True)
-    time: datetime
+class Case(BaseCase, TableModelMixin, table=True):
+    __tablename__ = "cases"
 
 
 class CaseRequest(BaseCase):
+    """Request model used to create a new case"""
+
     pass
-
-
-class CaseLookup(SQLModel):
-    id: int

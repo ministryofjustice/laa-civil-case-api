@@ -7,13 +7,10 @@ class BaseCase(SQLModel):
     case_type: CaseTypes = Field(
         index=True
     )  # Which service is the case originally from
-    assigned_to: str | None = Field(
-        default=None
-    )  # The ID of the user this case is currently assigned to.
 
 
 class Case(BaseCase, TableModelMixin, table=True):
-    __tablename__ = "cases"
+    pass
 
 
 class CaseRequest(BaseCase):

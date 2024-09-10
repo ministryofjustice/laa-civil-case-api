@@ -23,7 +23,7 @@ class User(SQLModel, table=True):
     __tablename__ = "users"
 
     username: str = Field(primary_key=True)
-    hashed_password: str | None = None
+    hashed_password: str
     email: str | None = None
     full_name: str | None = None
     disabled: bool = Field(default=False)

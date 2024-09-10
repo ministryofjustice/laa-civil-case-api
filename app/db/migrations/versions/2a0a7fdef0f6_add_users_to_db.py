@@ -22,7 +22,9 @@ def upgrade() -> None:
     op.create_table(
         "users",
         sa.Column("username", sqlmodel.sql.sqltypes.AutoString(), nullable=False),
-        sa.Column("hashed_password", sqlmodel.sql.sqltypes.AutoString(), nullable=True),
+        sa.Column(
+            "hashed_password", sqlmodel.sql.sqltypes.AutoString(), nullable=False
+        ),
         sa.Column("email", sqlmodel.sql.sqltypes.AutoString(), nullable=True),
         sa.Column("full_name", sqlmodel.sql.sqltypes.AutoString(), nullable=True),
         sa.Column("disabled", sa.Boolean(), nullable=False),

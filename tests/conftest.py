@@ -2,10 +2,12 @@ import pytest
 from sqlmodel import SQLModel, create_engine, Session, StaticPool
 from app import case_api
 from app.db import get_session
+from app.db.session import CustomSession
 from fastapi.testclient import TestClient
+from sqlalchemy.orm import sessionmaker
 
 from app.auth.security import get_password_hash
-from app.models.users import Users
+from app.models.users import User
 
 SECRET_KEY = "TEST_KEY"
 
@@ -15,25 +17,28 @@ def session_fixture():
     engine = create_engine(
         "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
     )
+    test_session = sessionmaker(
+        autocommit=False, autoflush=False, bind=engine, class_=CustomSession
+    )
     SQLModel.metadata.create_all(engine)
     users_to_add = [
         {"username": "cla_admin", "password": "cla_admin", "disabled": False},
         {"username": "jane_doe", "password": "password", "disabled": True},
     ]
-    with Session(engine) as session:
+    with test_session() as db_session:
         for user in users_to_add:
             username = user.get("username")
             password = user.get("password")
             disabled = user.get("disabled")
 
             password = get_password_hash(password)
-            new_user = Users(
+            new_user = User(
                 username=username, hashed_password=password, disabled=disabled
             )
-            session.add(new_user)
+            db_session.add(new_user)
 
-        session.commit()
-        yield session
+        db_session.commit()
+        yield db_session
 
 
 @pytest.fixture(name="client")

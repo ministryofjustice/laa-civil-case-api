@@ -10,7 +10,7 @@ from freezegun import freeze_time
 import pytest
 from jwt import ExpiredSignatureError
 from datetime import timedelta, datetime
-from app.models.users import Users
+from app.models.users import User
 
 
 def test_auth_fail_case(client: TestClient):
@@ -60,7 +60,7 @@ def test_credential_exception(client: TestClient, auth_token):
 
 def test_credential_exception_no_user(session, client: TestClient, auth_token):
     username = "cla_admin"
-    user = session.get(Users, username)
+    user = session.get(User, username)
     session.delete(user)
     session.commit()
     response = client.get("/cases/", headers={"Authorization": f"Bearer {auth_token}"})

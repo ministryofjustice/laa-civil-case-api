@@ -2,8 +2,9 @@ from logging.config import fileConfig
 
 from app.db import db_url
 
-# This imports all the models
-from app.models import cases, users  # noqa: F401
+# Imports all the models so Alembic knows what to generate migrations for.
+# As they are not directly used this raises the F403 exception, this can be ignored.
+from app.models import *  # noqa: F401, F403
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool

@@ -1,5 +1,9 @@
 from logging.config import fileConfig
 
+# This is used to auto generate migrations for Postgres Enum types. Natively Alembic does not support altering
+# Enum types after creation without manually writing the migrations.
+import alembic_postgresql_enum  # noqa: F401
+
 from app.db import db_url
 
 # Imports all the models so Alembic knows what to generate migrations for.
@@ -72,7 +76,12 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(connection=connection, target_metadata=target_metadata)
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata,
+            compare_type=True,
+            compare_server_default=True,
+        )
 
         with context.begin_transaction():
             context.run_migrations()

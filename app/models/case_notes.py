@@ -23,4 +23,5 @@ class CaseNote(BaseCaseNote, TableModelMixin, table=True):
     the `Case.notes` syntax, rather than searching for each note using its ID.
     """
 
+    __tablename__ = "case_notes"
     case: "Case" = Relationship(back_populates="notes")  # noqa: F821

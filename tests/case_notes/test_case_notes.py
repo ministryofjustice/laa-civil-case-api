@@ -2,7 +2,7 @@ from app.models.cases import Case
 from app.models.case_notes import CaseNote, NoteType
 import uuid
 from sqlmodel import Session, select
-from app.models.case_types import CaseTypes
+from app.models.types.case_types import CaseTypes
 from datetime import datetime, UTC
 
 

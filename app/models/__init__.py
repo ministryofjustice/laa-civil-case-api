@@ -2,3 +2,4 @@
 from .cases import Case  # noqa: F401
 from .users import User  # noqa: F401
 from .case_notes import CaseNote  # noqa: F401
+from .person import Person  # noqa: F401

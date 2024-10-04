@@ -1,7 +1,7 @@
 from app.models.cases import Case
 from app.models.case_notes import CaseNote, NoteType
 import uuid
-from sqlmodel import Session
+from sqlmodel import Session, select
 from app.models.case_types import CaseTypes
 from datetime import datetime, UTC
 
@@ -50,3 +50,39 @@ def test_updated_at(session: Session):
 
     assert note.updated_at.replace(tzinfo=UTC) > after_creation
     assert note.content == "Updated"
+
+
+def test_cascade_delete(session: Session):
+    case = Case(case_type=CaseTypes.CLA)
+    note = CaseNote(case_id=case.id)
+
+    session.add(case)
+    session.add(note)
+    session.commit()
+    session.delete(case)
+
+    # The note will still exist until the delete request has been sent to the database
+    assert session.exec(select(CaseNote)).all() == [note]
+    session.commit()
+
+    # After the case is deleted the attached note is also removed
+    assert session.exec(select(CaseNote)).all() == []
+
+
+def test_cascade_delete_multiple_notes(session: Session):
+    case = Case(case_type=CaseTypes.CLA)
+    notes = []
+    for i in range(5):
+        notes.append(CaseNote(case_id=case.id, content=f"Note: {i}"))
+
+    session.add(case)
+    session.add_all(notes)
+    session.commit()
+    session.delete(case)
+
+    # The notes will still exist until the delete request has been sent to the database
+    assert len(session.exec(select(CaseNote)).all()) == 5
+    session.commit()
+
+    # After the case is deleted the attached notes are also removed
+    assert len(session.exec(select(CaseNote)).all()) == 0

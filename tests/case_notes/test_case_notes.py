@@ -53,6 +53,7 @@ def test_updated_at(session: Session):
 
 
 def test_cascade_delete(session: Session):
+    """If a case is deleted all notes attached to said case should also be deleted."""
     case = Case(case_type=CaseTypes.CLA)
     note = CaseNote(case_id=case.id)
 
@@ -86,3 +87,16 @@ def test_cascade_delete_multiple_notes(session: Session):
 
     # After the case is deleted the attached notes are also removed
     assert len(session.exec(select(CaseNote)).all()) == 0
+
+
+def test_reverse_cascade_delete(session: Session):
+    """If a note is deleted we want to make sure the attached case is not deleted."""
+    case = Case(case_type=CaseTypes.CLA)
+    note = CaseNote(case_id=case.id)
+    session.add(case)
+    session.add(note)
+    session.commit()
+    session.delete(note)
+    session.commit()
+    assert session.exec(select(Case)).all() == [case]
+    assert session.exec(select(CaseNote)).all() == []

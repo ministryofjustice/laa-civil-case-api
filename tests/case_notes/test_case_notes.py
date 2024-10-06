@@ -100,3 +100,15 @@ def test_reverse_cascade_delete(session: Session):
     session.commit()
     assert session.exec(select(Case)).all() == [case]
     assert session.exec(select(CaseNote)).all() == []
+
+
+def test_case_notes_string_format():
+    provider_note = CaseNote(note_type=NoteType.provider, case_id=uuid.uuid4())
+    assert "Provider note" in str(provider_note)
+
+    operator_note = CaseNote(note_type=NoteType.operator, case_id=uuid.uuid4())
+    assert "Operator note" in str(operator_note)
+
+    case_id = uuid.uuid4()
+    note = CaseNote(case_id=case_id)
+    assert f"Attached to case ID: {case_id}" in str(note)

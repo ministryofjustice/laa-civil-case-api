@@ -1,3 +1,5 @@
+import re
+
 import pytest
 from app.models.types.phone_number import validate_phone_number
 
@@ -44,4 +46,19 @@ def test_invalid_phone_numbers():
     ]
     for phone_number in invalid_phone_numbers:
         with pytest.raises(ValueError):
+            validate_phone_number(phone_number)
+
+
+def test_invalid_country_code():
+    invalid_country_code_numbers = [
+        "+a123456789",
+        "+*123456789",
+        "+",
+        "+abcd123456",
+    ]
+
+    expected_error_message = "Invalid country code format."
+
+    for phone_number in invalid_country_code_numbers:
+        with pytest.raises(ValueError, match=re.escape(expected_error_message)):
             validate_phone_number(phone_number)

@@ -6,10 +6,10 @@ from enum import Enum
 
 class EventType(str, Enum):
     case_created = "Case Created"
-    case_updated = "Update"
-    case_deleted = "Delete"
-    login = "Login"
-    logout = "Logout"
+    case_updated = "Case Updated"
+    case_deleted = "Case Deleted"
+    user_authenticated = "User Authenticated"
+    user_wrong_password = "User Entered Incorrect Password"
     error = "Error"
     other = "Other"
 

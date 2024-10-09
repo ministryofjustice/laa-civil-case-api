@@ -1,8 +1,8 @@
 """Add audit log model
 
-Revision ID: 87045ff19b85
+Revision ID: dc7b04aafeff
 Revises: da58faadfe41
-Create Date: 2024-10-09 14:03:33.875684
+Create Date: 2024-10-09 20:53:03.130872
 
 """
 
@@ -14,7 +14,7 @@ import sqlmodel
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = "87045ff19b85"
+revision: str = "dc7b04aafeff"
 down_revision: Union[str, None] = "da58faadfe41"
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -25,8 +25,8 @@ def upgrade() -> None:
         "case_created",
         "case_updated",
         "case_deleted",
-        "login",
-        "logout",
+        "user_authenticated",
+        "user_wrong_password",
         "error",
         "other",
         name="eventtype",
@@ -42,8 +42,8 @@ def upgrade() -> None:
                 "case_created",
                 "case_updated",
                 "case_deleted",
-                "login",
-                "logout",
+                "user_authenticated",
+                "user_wrong_password",
                 "error",
                 "other",
                 name="eventtype",
@@ -75,8 +75,8 @@ def downgrade() -> None:
         "case_created",
         "case_updated",
         "case_deleted",
-        "login",
-        "logout",
+        "user_authenticated",
+        "user_wrong_password",
         "error",
         "other",
         name="eventtype",

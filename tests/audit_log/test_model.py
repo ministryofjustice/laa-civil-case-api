@@ -7,14 +7,16 @@ from sqlmodel import Session, select
 
 def test_create_user_audit_log_event(session: Session):
     user = session.exec(select(User)).all()[0]
-    event = AuditLogEvent(event_type=EventType.login, username=user.username)
+    event = AuditLogEvent(
+        event_type=EventType.user_authenticated, username=user.username
+    )
     session.add(user)
     session.add(event)
     session.commit()
     statement = select(AuditLogEvent).where(AuditLogEvent.username == user.username)
     events = session.exec(statement).all()
     assert len(events) == 1
-    assert events[0].event_type == EventType.login
+    assert events[0].event_type == EventType.user_authenticated
 
 
 def test_create_case_audit_log_event(session: Session):

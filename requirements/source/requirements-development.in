@@ -1,2 +1,3 @@
 -r requirements-base.in
+-r requirements-linting.in
 pre-commit

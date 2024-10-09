@@ -3,7 +3,7 @@ from app.models.cases import Case
 import uuid
 from sqlmodel import Session
 from pydantic import ValidationError
-from app.models.case_types import CaseTypes
+from app.models.types.case_types import CaseTypes
 
 
 def test_id_is_uuid():

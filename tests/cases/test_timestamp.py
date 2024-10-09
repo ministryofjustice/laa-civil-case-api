@@ -1,6 +1,6 @@
 from sqlmodel import Session
 from app.models.cases import Case
-from app.models.case_types import CaseTypes
+from app.models.types.case_types import CaseTypes
 from datetime import datetime, UTC
 
 

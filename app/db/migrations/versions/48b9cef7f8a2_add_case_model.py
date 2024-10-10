@@ -34,15 +34,9 @@ def upgrade() -> None:
         sa.PrimaryKeyConstraint("id"),
     )
     op.create_index(op.f("ix_cases_case_type"), "cases", ["case_type"], unique=False)
-    sa.Enum(
-        "asylum", "crime", "debt", "family", "housing", "welfare", name="category"
-    ).drop(op.get_bind())
 
 
 def downgrade() -> None:
-    sa.Enum(
-        "asylum", "crime", "debt", "family", "housing", "welfare", name="category"
-    ).create(op.get_bind())
     op.drop_index(op.f("ix_cases_case_type"), table_name="cases")
     op.drop_table("cases")
     sa.Enum("CCQ", "CLA", name="casetypes").drop(op.get_bind())

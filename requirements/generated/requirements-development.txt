@@ -111,6 +111,8 @@ pyyaml==6.0.1
     #   uvicorn
 rich==13.9.2
     # via typer
+ruff==0.6.2
+    # via -r requirements/source/requirements-linting.in
 sentry-sdk[fastapi]==2.11.0
     # via -r requirements/source/requirements-base.in
 shellingham==1.5.4

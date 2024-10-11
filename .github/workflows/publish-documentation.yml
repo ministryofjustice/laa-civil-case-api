@@ -59,5 +59,4 @@ jobs:
           tar -xvf artifact.tar
           npm install linkinator
           npx linkinator . --recurse --markdown \
-            --skip https://ministryofjustice.github.io/template-documentation-site/images/govuk-large.png \
-          # "URL Check will fail on private and internal GitHub repositories"
+            --skip https://ministryofjustice.github.io/laa-civil-case-api/images/govuk-large.png \

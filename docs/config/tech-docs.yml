@@ -28,7 +28,3 @@ max_toc_heading_level: 3
 
 # Prevent robots from indexing (e.g. whilst in development)
 prevent_indexing: true
-
-show_contribution_banner: true
-github_repo: ministryofjustice/laa-civil-case-api
-github_branch: main

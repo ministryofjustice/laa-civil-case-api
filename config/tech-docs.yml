@@ -1,5 +1,3 @@
-# See the available options: https://tdt-documentation.london.cloudapps.digital/configure_project/global_configuration/#configure-your-documentation-site
-
 # Host to use for canonical URL generation (without trailing slash)
 host: https://ministryofjustice.github.io/laa-civil-case-api
 
@@ -10,6 +8,7 @@ service_link: /
 
 # Links to show on right-hand-side of header
 header_links:
+  Documentation: /
   GitHub: https://github.com/ministryofjustice/laa-civil-case-api
 
 # Enables search functionality. This indexes pages only and is not recommended for single-page sites.

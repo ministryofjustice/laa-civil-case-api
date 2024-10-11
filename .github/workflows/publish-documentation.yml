@@ -25,9 +25,9 @@ jobs:
           sparse-checkout: |
             docs
           sparse-checkout-cone-mode: false
-      - name: Set working directory for subsequent steps
+      - name: Move directory to root
         run: |
-          cd docs
+          mv docs/* .
           ls
       - name: Compile Markdown to HTML and create artifact
         run: |

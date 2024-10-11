@@ -21,6 +21,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            docs
       - name: Compile Markdown to HTML and create artifact
         run: |
           /scripts/deploy.sh

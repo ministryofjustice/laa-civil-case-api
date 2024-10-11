@@ -4,12 +4,12 @@ host: https://ministryofjustice.github.io/laa-civil-case-api
 # Header-related options
 show_govuk_logo: true
 service_name: LAA Civil Applications Data Store
-service_link: /laa-civil-case-api
+service_link: https://ministryofjustice.github.io/laa-civil-case-api
 phase: Alpha
 
 # Links to show on right-hand-side of header
 header_links:
-  Documentation: /laa-civil-case-api
+  Documentation: https://ministryofjustice.github.io/laa-civil-case-api
   GitHub: https://github.com/ministryofjustice/laa-civil-case-api
 
 # Enables search functionality. This indexes pages only and is not recommended for single-page sites.

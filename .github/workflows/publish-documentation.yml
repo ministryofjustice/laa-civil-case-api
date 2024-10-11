@@ -1,4 +1,4 @@
-name: Publish gh-pages
+name: Publish documentation
 
 on: push
 

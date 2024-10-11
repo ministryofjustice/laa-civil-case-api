@@ -24,9 +24,11 @@ jobs:
         with:
           sparse-checkout: |
             docs
+          sparse-checkout-cone-mode: false
       - name: Set working directory for subsequent steps
         run: |
           cd docs
+          ls
       - name: Compile Markdown to HTML and create artifact
         run: |
           /scripts/deploy.sh

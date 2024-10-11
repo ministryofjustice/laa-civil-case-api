@@ -19,16 +19,20 @@ jobs:
     container:
       image: ministryofjustice/tech-docs-github-pages-publisher:v3
     steps:
+      # We only checkout the docs directory, which allows us to keep all necessary files for
+      # generating the docs separate from the app.
       - name: Checkout
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
             docs
           sparse-checkout-cone-mode: false
+      # We move the docs directory to the root so it is treated as if the docs directory was
+      # the only thing in the repository.
       - name: Move directory to root
         run: |
           mv docs/* .
-          ls
+          rm -rf docs
       - name: Compile Markdown to HTML and create artifact
         run: |
           /scripts/deploy.sh

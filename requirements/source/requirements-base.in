@@ -3,7 +3,7 @@ typing-extensions>=4.0
 sqlalchemy[asyncio]
 sqlmodel>=0.0.22
 alembic
-alembic-postgresql-enum
+alembic-postgresql-enum>=1.3.0
 sentry-sdk[fastapi]
 psycopg2-binary
 pyjwt

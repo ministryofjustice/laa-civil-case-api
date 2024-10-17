@@ -140,3 +140,4 @@ watchfiles==0.24.0
     # via uvicorn
 websockets==13.1
     # via uvicorn
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability

@@ -5,6 +5,7 @@ from app.models.types.case_types import CaseTypes
 from app.models.case_notes import CaseNote
 from app.models.person import Person
 from app.models.case_tracker import CaseTracker
+from app.models.eligibility_outcomes import EligibilityOutcomes
 
 
 class BaseCase(SQLModel):
@@ -18,6 +19,9 @@ class Case(BaseCase, TableModelMixin, table=True):
     notes: List[CaseNote] = Relationship(back_populates="case", cascade_delete=True)
     people: List[Person] = Relationship(back_populates="case", cascade_delete=True)
     case_tracker: CaseTracker = Relationship(back_populates="case", cascade_delete=True)
+    eligibility_outcomes: List[EligibilityOutcomes] = Relationship(
+        back_populates="case", cascade_delete=True
+    )
 
 
 class CaseRequest(BaseCase):

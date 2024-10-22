@@ -2,6 +2,7 @@ from sqlalchemy.orm import declared_attr
 from sqlmodel import Field, SQLModel
 from datetime import datetime, UTC
 from uuid import UUID, uuid4
+from pydantic import BaseModel
 
 
 class TimestampMixin(SQLModel):
@@ -40,3 +41,44 @@ class TableModelMixin(TimestampMixin):
         match their type annotations"""
 
         validate_assignment = True
+
+
+class BaseRequest(BaseModel):
+    class Meta:
+        foreign_fields = {}
+        model = None
+
+    def get_model(self):
+        if not self.Meta.model:
+            raise NotImplementedError(
+                "Either set the Meta.model property or override the get_model() method."
+            )
+        return self.Meta.model
+
+    def get_foreign_fields(self):
+        return self.Meta.foreign_fields
+
+    def translate(self):
+        data = self.dict()
+        foreign_fields_names = self.get_foreign_fields()
+        foreign_fields_data = {}
+        self_fields = {}
+        for field_name, field_value in data.items():
+            if field_name in foreign_fields_names:
+                foreign_fields_data[field_name] = field_value
+            else:
+                self_fields[field_name] = field_value
+        return {**self_fields, **self._translate_foreign_fields(foreign_fields_data)}
+
+    def _translate_foreign_fields(self, fields):
+        instances = {}
+        for field_name, field_value in fields.items():
+            field = getattr(self, field_name)
+            if not field:
+                continue
+            model = field[0].get_model()
+            if isinstance(field_value, list):
+                instances[field_name] = [model(**value) for value in field_value]
+            else:
+                instances[field_name] = model(**field_value)
+        return instances

@@ -33,7 +33,8 @@ async def read_all_cases(session: Session = Depends(get_session)) -> Sequence[Ca
 
 @router.post("/", tags=["cases"], response_model=Case)
 def create_case(request: CaseRequest, session: Session = Depends(get_session)) -> Case:
-    case = Case(**request.dict())
+    data = request.translate()
+    case = Case(**data)
     session.add(case)
     session.commit()
     session.refresh(case)

@@ -1,8 +1,12 @@
+import uuid
 from sqlalchemy.orm import declared_attr
 from sqlmodel import Field, SQLModel
 from datetime import datetime, UTC
-from uuid import UUID, uuid4
 from pydantic import BaseModel
+
+
+def generate_id() -> uuid.UUID:
+    return uuid.uuid4()
 
 
 class TimestampMixin(SQLModel):
@@ -28,7 +32,7 @@ class TableModelMixin(TimestampMixin):
     """Mixin adding a UUID4 ID and Timestamps to child models.
     All models which exist in the database should inherit from this mixin"""
 
-    id: UUID = Field(default_factory=uuid4, primary_key=True)
+    id: uuid.UUID = Field(default_factory=generate_id, primary_key=True)
 
     @declared_attr
     def __tablename__(self) -> str:

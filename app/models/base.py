@@ -81,7 +81,14 @@ class BaseRequest(BaseModel):
         return related_fields
 
     def translate(self) -> dict:
-        """Convert a dump of request to a dict that can easily be used to create an instance of a model"""
+        """
+        Convert a dump of request to a dict that can easily be used to create an instance of a model
+
+        This method currently only translates relationships that are two levels deep i.e Case.person
+        and not Case.person.income
+
+        Todo: Allow deeper level of nested fields to be translated
+        """
         data = self.model_dump()
         related_fields_names = self.related_fields
         related_fields_data = {}

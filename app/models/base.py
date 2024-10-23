@@ -1,4 +1,6 @@
 import uuid
+from typing import List
+
 from sqlalchemy.orm import declared_attr
 from sqlmodel import Field, SQLModel
 from datetime import datetime, UTC
@@ -53,11 +55,11 @@ class BaseResponse(TableModelMixin):
 
 class BaseRequest(BaseModel):
     class Meta:
-        related_fields = {}
-        model = None
+        related_fields: List[str] = []
+        model: BaseModel
 
     @property
-    def model(self):
+    def model(self) -> BaseModel:
         if not self.Meta.model:
             raise NotImplementedError(
                 "Either set the Meta.model property or override the get_model() method."
@@ -65,10 +67,10 @@ class BaseRequest(BaseModel):
         return self.Meta.model
 
     @property
-    def related_fields(self):
+    def related_fields(self) -> List[str]:
         return self.Meta.related_fields
 
-    def translate(self):
+    def translate(self) -> dict:
         """Convert a dump of request to a dict that can easily be used to create an instance of a model"""
         data = self.model_dump()
         related_fields_names = self.related_fields
@@ -81,7 +83,7 @@ class BaseRequest(BaseModel):
                 fields[field_name] = field_value
         return {**fields, **self._translate_related_fields(related_fields_data)}
 
-    def _translate_related_fields(self, fields):
+    def _translate_related_fields(self, fields) -> dict:
         """Convert related fields from a dict to an instance of their declared model"""
         instances = {}
         for field_name, field_value in fields.items():

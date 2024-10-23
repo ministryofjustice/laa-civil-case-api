@@ -43,9 +43,13 @@ class TableModelMixin(TimestampMixin):
         validate_assignment = True
 
 
+class BaseResponse(TableModelMixin):
+    pass
+
+
 class BaseRequest(BaseModel):
     class Meta:
-        foreign_fields = {}
+        related_fields = {}
         model = None
 
     def get_model(self):
@@ -55,28 +59,34 @@ class BaseRequest(BaseModel):
             )
         return self.Meta.model
 
-    def get_foreign_fields(self):
-        return self.Meta.foreign_fields
+    def get_related_fields(self):
+        return self.Meta.related_fields
 
     def translate(self):
-        data = self.dict()
-        foreign_fields_names = self.get_foreign_fields()
-        foreign_fields_data = {}
-        self_fields = {}
+        """Convert a dump of request to a dict that can easily be used to create an instance of a model"""
+        data = self.model_dump()
+        related_fields_names = self.get_related_fields()
+        related_fields_data = {}
+        fields = {}
         for field_name, field_value in data.items():
-            if field_name in foreign_fields_names:
-                foreign_fields_data[field_name] = field_value
+            if field_name in related_fields_names:
+                related_fields_data[field_name] = field_value
             else:
-                self_fields[field_name] = field_value
-        return {**self_fields, **self._translate_foreign_fields(foreign_fields_data)}
+                fields[field_name] = field_value
+        return {**fields, **self._translate_related_fields(related_fields_data)}
 
-    def _translate_foreign_fields(self, fields):
+    def _translate_related_fields(self, fields):
+        """Convert related fields from a dict to an instance of their declared model"""
         instances = {}
         for field_name, field_value in fields.items():
             field = getattr(self, field_name)
             if not field:
                 continue
-            model = field[0].get_model()
+            if isinstance(field, list):
+                model = field[0].get_model()
+            else:
+                model = field.get_model()
+
             if isinstance(field_value, list):
                 instances[field_name] = [model(**value) for value in field_value]
             else:

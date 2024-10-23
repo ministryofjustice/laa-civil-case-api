@@ -1,5 +1,5 @@
 from sqlmodel import Field, Relationship
-from app.models.base import TableModelMixin, BaseRequest
+from app.models.base import TableModelMixin, BaseRequest, BaseResponse
 from enum import Enum
 from uuid import UUID
 
@@ -12,10 +12,13 @@ class NoteType(str, Enum):
     other = "Other"
 
 
-class CaseNote(TableModelMixin, table=True):
-    __tablename__ = "case_notes"
+class BaseCaseNote:
     note_type: NoteType = Field(index=True, default=NoteType.other)
     content: str = Field(default="")
+
+
+class CaseNote(BaseCaseNote, TableModelMixin, table=True):
+    __tablename__ = "case_notes"
     case_id: UUID = Field(foreign_key="cases.id")
     # This allows for linking the notes back to the case, this allows us to address case notes directly by using
     # the `Case.notes` syntax, rather than searching for each note using its ID.
@@ -29,9 +32,10 @@ class CaseNote(TableModelMixin, table=True):
         )
 
 
-class CaseNotesRequest(BaseRequest):
-    note_type: NoteType
-    content: str
-
-    class Meta:
+class CaseNotesRequest(BaseCaseNote, BaseRequest):
+    class Meta(BaseRequest.Meta):
         model = CaseNote
+
+
+class CaseNotesResponse(BaseCaseNote, BaseResponse):
+    pass

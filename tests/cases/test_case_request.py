@@ -1,7 +1,8 @@
 import uuid
 from freezegun import freeze_time
 from unittest.mock import patch
-from app.models.cases import CaseRequest
+from sqlmodel import Session
+from app.models.cases import CaseRequest, Case
 from app.models.case_notes import CaseNote
 from app.models.person import Person
 from app.models.case_tracker import CaseTracker
@@ -28,7 +29,7 @@ TEST_DATA = {
 
 @patch("app.models.base.uuid.uuid4")
 @freeze_time("2024-08-23 10:00:00")
-def test_case_request(mock_uuid):
+def test_case_request(mock_uuid, session: Session):
     mock_uuid.return_value = uuid.UUID("12345678-1234-5678-1234-567812345678")
 
     case_request = CaseRequest(**TEST_DATA)
@@ -44,3 +45,6 @@ def test_case_request(mock_uuid):
     }
 
     assert data == expected_result
+    case = Case(**data)
+    session.add(case)
+    session.commit()

@@ -56,20 +56,22 @@ class BaseRequest(BaseModel):
         related_fields = {}
         model = None
 
-    def get_model(self):
+    @property
+    def model(self):
         if not self.Meta.model:
             raise NotImplementedError(
                 "Either set the Meta.model property or override the get_model() method."
             )
         return self.Meta.model
 
-    def get_related_fields(self):
+    @property
+    def related_fields(self):
         return self.Meta.related_fields
 
     def translate(self):
         """Convert a dump of request to a dict that can easily be used to create an instance of a model"""
         data = self.model_dump()
-        related_fields_names = self.get_related_fields()
+        related_fields_names = self.related_fields
         related_fields_data = {}
         fields = {}
         for field_name, field_value in data.items():
@@ -87,9 +89,9 @@ class BaseRequest(BaseModel):
             if not field:
                 continue
             if isinstance(field, list):
-                model = field[0].get_model()
+                model = field[0].model
             else:
-                model = field.get_model()
+                model = field.model
 
             if isinstance(field_value, list):
                 instances[field_name] = [model(**value) for value in field_value]

@@ -1,7 +1,9 @@
 import uuid
-from typing import List
+from functools import cached_property
+from typing import List, Tuple, Any
 
 from sqlalchemy.orm import declared_attr
+from sqlalchemy.inspection import inspect
 from sqlmodel import Field, SQLModel
 from datetime import datetime, UTC
 from pydantic import BaseModel
@@ -55,7 +57,6 @@ class BaseResponse(TableModelMixin):
 
 class BaseRequest(BaseModel):
     class Meta:
-        related_fields: List[str] = []
         model: BaseModel
 
     @property
@@ -66,9 +67,18 @@ class BaseRequest(BaseModel):
             )
         return self.Meta.model
 
-    @property
+    @cached_property
     def related_fields(self) -> List[str]:
-        return self.Meta.related_fields
+        related_fields = []
+        model = self.Meta.model
+        if not model:
+            return related_fields
+        relationship_list: Tuple[str, Any] = inspect(model).relationships.items()
+        for relationship in relationship_list:
+            field_name = relationship[0]
+            if field_name in self.model_fields:
+                related_fields.append(field_name)
+        return related_fields
 
     def translate(self) -> dict:
         """Convert a dump of request to a dict that can easily be used to create an instance of a model"""

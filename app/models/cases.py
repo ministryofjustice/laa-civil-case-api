@@ -31,7 +31,6 @@ class CaseRequest(BaseRequest):
     eligibility_outcomes: List[EligibilityOutcomesRequest] | None
 
     class Meta(BaseRequest.Meta):
-        related_fields = ["notes", "people", "case_tracker", "eligibility_outcomes"]
         model = Case
 
 

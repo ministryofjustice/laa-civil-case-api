@@ -12,8 +12,11 @@ from app.models.eligibility_outcomes import (
 )
 
 
-class Case(TableModelMixin, table=True):
+class BaseCase:
     case_type: CaseTypes = Field(index=True)
+
+
+class Case(BaseCase, TableModelMixin, table=True):
     # Cascade delete ensures all related fields are deleted when the attached case is deleted.
     notes: List[CaseNote] = Relationship(back_populates="case", cascade_delete=True)
     people: List[Person] = Relationship(back_populates="case", cascade_delete=True)
@@ -23,18 +26,17 @@ class Case(TableModelMixin, table=True):
     )
 
 
-class CaseRequest(BaseRequest):
-    case_type: CaseTypes
-    notes: List[CaseNotesRequest] | None
-    people: List[PersonRequest] | None
-    case_tracker: CaseTrackerRequest | None
-    eligibility_outcomes: List[EligibilityOutcomesRequest] | None
+class CaseRequest(BaseCase, BaseRequest):
+    notes: List[CaseNotesRequest] | None = None
+    people: List[PersonRequest] | None = None
+    case_tracker: CaseTrackerRequest | None = None
+    eligibility_outcomes: List[EligibilityOutcomesRequest] | None = None
 
     class Meta(BaseRequest.Meta):
         model = Case
 
 
-class CaseResponse(BaseResponse):
+class CaseResponse(BaseCase, BaseResponse):
     notes: List[CaseNotesResponse] | None
     people: List[PersonResponse] | None
     case_tracker: CaseTrackerResponse | None

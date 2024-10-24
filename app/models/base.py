@@ -1,10 +1,9 @@
 import uuid
 from functools import cached_property
 from typing import List, Tuple, Any
-
 from sqlalchemy.orm import declared_attr
 from sqlalchemy.inspection import inspect
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field, SQLModel, Session
 from datetime import datetime, UTC
 from pydantic import BaseModel
 
@@ -57,10 +56,10 @@ class BaseResponse(TableModelMixin):
 
 class BaseRequest(BaseModel):
     class Meta:
-        model: BaseModel
+        model: SQLModel
 
     @property
-    def model(self) -> BaseModel:
+    def model(self) -> SQLModel:
         if not self.Meta.model:
             raise NotImplementedError(
                 "Either set the Meta.model property or override the get_model() method."
@@ -80,6 +79,28 @@ class BaseRequest(BaseModel):
                 related_fields.append(field_name)
         return related_fields
 
+    def retrieve(self, session, instance_id: uuid.UUID) -> SQLModel | None:
+        model = self.model
+        return session.get(model, instance_id)
+
+    def create(self, session: Session) -> SQLModel:
+        data = self.translate()
+        instance = self.model(**data)
+        session.add(instance)
+        session.commit()
+        session.refresh(instance)
+        return instance
+
+    def update(self, instance: SQLModel, session: Session):
+        data = self.translate()
+        for field_name, field_value in data.items():
+            setattr(instance, field_name, field_value)
+
+        session.add(instance)
+        session.commit()
+        session.refresh(instance)
+        return instance
+
     def translate(self) -> dict:
         """
         Convert a dump of request to a dict that can easily be used to create an instance of a model
@@ -89,12 +110,12 @@ class BaseRequest(BaseModel):
 
         Todo: Allow deeper level of nested fields to be translated
         """
-        data = self.model_dump()
+        data = self.model_dump(exclude_unset=True)
         related_fields_names = self.related_fields
         related_fields_data = {}
         fields = {}
         for field_name, field_value in data.items():
-            if field_name in related_fields_names:
+            if field_name in related_fields_names and field_value:
                 related_fields_data[field_name] = field_value
             else:
                 fields[field_name] = field_value
@@ -104,9 +125,13 @@ class BaseRequest(BaseModel):
         """Convert related fields from a dict to an instance of their declared model"""
         instances = {}
         for field_name, field_value in fields.items():
+            if not hasattr(self, field_name):
+                continue
+
             field = getattr(self, field_name)
             if not field:
                 continue
+
             if isinstance(field, list):
                 model = field[0].model
             else:

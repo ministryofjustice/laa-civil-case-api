@@ -7,6 +7,7 @@ from sqlalchemy.inspection import inspect
 from sqlmodel import Field, SQLModel
 from datetime import datetime, UTC
 from pydantic import BaseModel
+from pydantic.config import ConfigDict
 
 
 def generate_id() -> uuid.UUID:
@@ -52,6 +53,7 @@ class TableModelMixin(TimestampMixin):
 
 
 class BaseResponse(TableModelMixin):
+    model_config = ConfigDict(from_attributes=True)
     pass
 
 

@@ -39,6 +39,3 @@ class CaseResponse(BaseResponse):
     people: List[PersonResponse] | None
     case_tracker: CaseTrackerResponse | None
     eligibility_outcomes: List[EligibilityOutcomesResponse] | None
-
-    class Config:
-        orm_mode = True

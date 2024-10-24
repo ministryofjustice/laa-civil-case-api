@@ -66,6 +66,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   trufflehog-scan:
+    name: Secret scan using Trufflehog
     runs-on: ubuntu-latest
 
     steps:

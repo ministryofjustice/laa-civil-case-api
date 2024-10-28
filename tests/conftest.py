@@ -67,6 +67,12 @@ def auth_token(client):
     return token_data["access_token"]
 
 
+@pytest.fixture(name="client_authed")
+def client_authed(auth_token, client: TestClient, session: Session):
+    client.headers["Authorization"] = f"Bearer {auth_token}"
+    return client
+
+
 @pytest.fixture
 def auth_token_disabled_user(client):
     # Send POST request with x-www-form-urlencoded data

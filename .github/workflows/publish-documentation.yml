@@ -78,3 +78,4 @@ jobs:
           npm install linkinator
           npx linkinator . --recurse --markdown \
             --skip https://ministryofjustice.github.io/laa-civil-case-api/images/govuk-large.png \
+            --skip https://moj-documentation-template-civil-case-api.cloud-platform.service.justice.gov.uk/

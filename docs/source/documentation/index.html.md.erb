@@ -5,3 +5,42 @@
 This is planned to be the central store of applications for Civil Legal Aid.
 
 It is planned for applications to originate from [Check if you can get Legal Aid](https://checklegalaid.service.gov.uk/) and [Check if your client qualifies for legal aid](https://check-your-client-qualifies-for-legal-aid.service.gov.uk/).
+
+
+## API Documentation
+
+Base URL:
+
+```
+www.civil-case-api.cloud-platform.service.justice.gov.uk/
+```
+
+### Authentication
+
+To use the API you will need a JSON Web Token (JWT) which can be obtained from the `/token` endpoint.
+
+You will need to send a `POST` request with the following headers:
+
+```json
+{
+    "accept": "application/json",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+```
+
+and body:
+
+```json
+ {
+    "grant_type": "password",
+    "username": "string",
+    "password": "string",
+    "scope": "",
+    "client_id": "string",
+    "client_secret": "string"
+  }
+```
+
+The `/token` endpoint generates the required access token to allow a user to access the service. When submitting other requests, the request needs to contain this authorisation bearer token.
+
+All access tokens are valid for 30 minutes on the API.

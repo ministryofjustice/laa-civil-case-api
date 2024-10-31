@@ -5,6 +5,8 @@ exclude: # exclude matching issues
       - dist/**
       - README.md
       - .github/**
+      - .ruff_cache/**
+      - .pytest_cache/**
   - message: Examples and data necessary for running auto-tests
     paths:
       - docs/*.html

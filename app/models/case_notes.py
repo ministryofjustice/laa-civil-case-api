@@ -1,5 +1,10 @@
 from sqlmodel import Field, Relationship
-from app.models.base import TableModelMixin, BaseRequest, BaseResponse
+from app.models.base import (
+    TableModelMixin,
+    BaseRequest,
+    BaseUpdateRequest,
+    BaseResponse,
+)
 from enum import Enum
 from uuid import UUID
 
@@ -33,6 +38,11 @@ class CaseNote(BaseCaseNote, TableModelMixin, table=True):
 
 
 class CaseNotesRequest(BaseCaseNote, BaseRequest):
+    class Meta(BaseRequest.Meta):
+        model = CaseNote
+
+
+class CaseNotesUpdateRequest(BaseCaseNote, BaseUpdateRequest):
     class Meta(BaseRequest.Meta):
         model = CaseNote
 

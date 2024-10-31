@@ -1,5 +1,10 @@
 from sqlmodel import Field, String, Relationship
-from app.models.base import TableModelMixin, BaseRequest, BaseResponse
+from app.models.base import (
+    TableModelMixin,
+    BaseRequest,
+    BaseResponse,
+    BaseUpdateRequest,
+)
 from app.models.types.postcode import Postcode
 from app.models.types.phone_number import PhoneNumber
 from pydantic import EmailStr
@@ -22,6 +27,11 @@ class Person(BasePerson, TableModelMixin, table=True):
 
 
 class PersonRequest(BasePerson, BaseRequest):
+    class Meta(BaseRequest.Meta):
+        model = Person
+
+
+class PersonUpdateRequest(BasePerson, BaseUpdateRequest):
     class Meta(BaseRequest.Meta):
         model = Person
 

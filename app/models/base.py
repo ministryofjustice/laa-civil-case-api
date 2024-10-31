@@ -10,10 +10,6 @@ from pydantic import BaseModel
 from pydantic.config import ConfigDict
 
 
-def generate_id() -> uuid.UUID:
-    return uuid.uuid4()
-
-
 class TimestampMixin(SQLModel):
     """Mixin handing adding timestamp fields to models.
 
@@ -37,7 +33,7 @@ class TableModelMixin(TimestampMixin):
     """Mixin adding a UUID4 ID and Timestamps to child models.
     All models which exist in the database should inherit from this mixin"""
 
-    id: uuid.UUID = Field(default_factory=generate_id, primary_key=True)
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
 
     @declared_attr
     def __tablename__(self) -> str:
@@ -86,7 +82,7 @@ class BaseRequest(BaseModel):
         return session.get(self.model, instance_id)
 
     def create(self, session: Session) -> SQLModel:
-        data = self.translate()
+        data = self.translate(session, create=True)
         instance = self.model(**data)
         session.add(instance)
         session.commit()
@@ -94,7 +90,7 @@ class BaseRequest(BaseModel):
         return instance
 
     def update(self, instance: SQLModel, session: Session) -> SQLModel:
-        data = self.translate()
+        data = self.translate(session, create=False)
         for field_name, field_value in data.items():
             setattr(instance, field_name, field_value)
 
@@ -103,14 +99,18 @@ class BaseRequest(BaseModel):
         session.refresh(instance)
         return instance
 
-    def translate(self) -> dict:
+    def translate(self, session: Session, create: bool = False) -> dict:
         """
         Convert a dump of request to a dict that can easily be used to create an instance of a model
 
         This method currently only translates relationships that are two levels deep i.e Case.person
         and not Case.person.income
-
         Todo: Allow deeper level of nested fields to be translated
+
+        Args:
+            session: active database session
+            create: whether to create a new instance of the model. This is particularly useful for when fetching
+                    related instances if the data in the request contains the id field
         """
         data = self.model_dump(exclude_unset=True)
         related_fields_names = self.related_fields
@@ -121,9 +121,14 @@ class BaseRequest(BaseModel):
                 related_fields_data[field_name] = field_value
             else:
                 fields[field_name] = field_value
-        return {**fields, **self._translate_related_fields(related_fields_data)}
+        return {
+            **fields,
+            **self._translate_related_fields(session, related_fields_data, create),
+        }
 
-    def _translate_related_fields(self, fields) -> dict:
+    def _translate_related_fields(
+        self, session: Session, fields: dict, create: bool = False
+    ) -> dict:
         """Convert related fields from a dict to an instance of their declared model"""
         instances = {}
         for field_name, field_value in fields.items():
@@ -131,12 +136,40 @@ class BaseRequest(BaseModel):
             if not field:
                 continue
             if isinstance(field, list):
-                model = field[0].model
+                request_class = field[0]
             else:
-                model = field.model
+                request_class = field
 
             if isinstance(field_value, list):
-                instances[field_name] = [model(**value) for value in field_value]
+                instances[field_name] = []
+                for value in field_value:
+                    instance = request_class.dict_to_instance(
+                        session, request_class.model, value, create
+                    )
+                    instances[field_name].append(instance)
             else:
-                instances[field_name] = model(**field_value)
+                instance = request_class.dict_to_instance(
+                    session, request_class.model, field_value, create
+                )
+                instances[field_name] = instance
         return instances
+
+    def dict_to_instance(
+        self, session: Session, model: SQLModel, values: dict, create: bool = False
+    ) -> SQLModel:
+        return model(**values)
+
+
+class BaseUpdateRequest(BaseRequest):
+    id: uuid.UUID | None = None
+
+    def dict_to_instance(
+        self, session: Session, model: SQLModel, values: dict, create: bool = False
+    ) -> SQLModel:
+        if not create and "id" in values:
+            instance = session.get(model, values["id"])
+        else:
+            instance = model()
+
+        instance.sqlmodel_update(values)
+        return instance

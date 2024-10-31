@@ -1,3 +1,4 @@
+import time
 import uuid
 from fastapi.testclient import TestClient
 from sqlmodel import Session
@@ -109,6 +110,33 @@ def test_case_update_request(client_authed: TestClient, session: Session):
             original_case.eligibility_outcomes[index].model_dump()
         )
         assert actual == expected, "Expected eligibility_outcomes did not match"
+
+
+def test_case_update_existing_request(client_authed: TestClient, session: Session):
+    """Test we can update a case with an existing person"""
+    original_case = create_test_case(session)
+    original_created_at = original_case.people[0].created_at
+    original_updated_at = original_case.people[0].updated_at
+    time.sleep(0.25)
+    test_data = {
+        "case_type": "Civil Legal Advice",
+        "people": [
+            {
+                "id": str(original_case.people[0].id),
+                "name": "John Doe",
+                "address": "102 Petty France",
+                "phone_number": "11111111",
+                "postcode": "SW1 1AA",
+                "email": "user1@example.com",
+            },
+        ],
+    }
+
+    response = client_authed.put(f"/cases/{original_case.id}", json=test_data)
+    updated_case = session.get(Case, original_case.id)
+    assert response.status_code == 200
+    assert updated_case.people[0].updated_at > original_updated_at
+    assert updated_case.people[0].created_at == original_created_at
 
 
 def create_test_case(session: Session) -> Case:

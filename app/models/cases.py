@@ -2,13 +2,24 @@ from sqlmodel import Field, Relationship
 from typing import List
 from app.models.base import TableModelMixin, BaseRequest, BaseResponse
 from app.models.types.case_types import CaseTypes
-from app.models.case_notes import CaseNote, CaseNotesRequest, CaseNotesResponse
-from app.models.person import Person, PersonRequest, PersonResponse
-from app.models.case_tracker import CaseTracker, CaseTrackerRequest, CaseTrackerResponse
+from app.models.case_notes import (
+    CaseNote,
+    CaseNotesRequest,
+    CaseNotesResponse,
+    CaseNotesUpdateRequest,
+)
+from app.models.person import Person, PersonRequest, PersonResponse, PersonUpdateRequest
+from app.models.case_tracker import (
+    CaseTracker,
+    CaseTrackerRequest,
+    CaseTrackerResponse,
+    CaseTrackerUpdateRequest,
+)
 from app.models.eligibility_outcomes import (
     EligibilityOutcomes,
     EligibilityOutcomesRequest,
     EligibilityOutcomesResponse,
+    EligibilityOutcomesUpdateRequest,
 )
 
 
@@ -37,6 +48,13 @@ class CaseRequest(BaseRequest):
 
     class Meta(BaseRequest.Meta):
         model = Case
+
+
+class CaseUpdateRequest(CaseRequest):
+    notes: List[CaseNotesUpdateRequest] | None = None
+    people: List[PersonUpdateRequest] | None = None
+    case_tracker: CaseTrackerUpdateRequest | None = None
+    eligibility_outcomes: List[EligibilityOutcomesUpdateRequest] | None = None
 
 
 class CaseResponse(BaseCase, BaseResponse):

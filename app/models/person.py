@@ -14,8 +14,16 @@ from uuid import UUID
 class BasePerson:
     name: str
     address: str | None
-    phone_number: PhoneNumber | None = Field(default=None, sa_type=String)
-    postcode: Postcode | None = Field(default=None, sa_type=String)
+    phone_number: PhoneNumber | None = Field(
+        default=None,
+        sa_type=String,
+        schema_extra={"json_schema_extra": {"example": "01632 960 001"}},
+    )
+    postcode: Postcode | None = Field(
+        default=None,
+        sa_type=String,
+        schema_extra={"json_schema_extra": {"example": "SW1A 1AA"}},
+    )
     email: EmailStr | None = Field(sa_type=String)
 
 

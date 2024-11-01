@@ -139,6 +139,27 @@ def test_case_update_existing_request(client_authed: TestClient, session: Sessio
     assert updated_case.people[0].created_at == original_created_at
 
 
+def test_case_update_invalid_id_request(client_authed: TestClient, session: Session):
+    """Test that updating a nested relationship with an invalid id results in an error."""
+    case = create_test_case(session)
+    test_data = {
+        "case_type": "Civil Legal Advice",
+        "people": [
+            {
+                "id": str(uuid.uuid4()),
+                "name": "John Doe",
+                "address": "102 Petty France",
+                "phone_number": "11111111",
+                "postcode": "SW1 1AA",
+                "email": "user1@example.com",
+            },
+        ],
+    }
+
+    response = client_authed.put(f"/cases/{case.id}", json=test_data)
+    assert response.status_code == 404
+
+
 def create_test_case(session: Session) -> Case:
     data = get_case_test_data()
     return CaseRequest(**data).create(session)

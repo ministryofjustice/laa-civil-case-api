@@ -2,6 +2,7 @@ import uuid
 from functools import cached_property
 from typing import List, Tuple, Any
 
+from fastapi import HTTPException
 from sqlalchemy.orm import declared_attr
 from sqlalchemy.inspection import inspect
 from sqlmodel import Field, SQLModel, Session
@@ -168,6 +169,11 @@ class BaseUpdateRequest(BaseRequest):
     ) -> SQLModel:
         if not create and "id" in values:
             instance = session.get(model, values["id"])
+            if instance is None:
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"{model.__name__} with id {values['id']} not found",
+                )
         else:
             instance = model()
 

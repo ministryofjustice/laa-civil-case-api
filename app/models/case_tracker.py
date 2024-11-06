@@ -1,6 +1,11 @@
 from uuid import UUID
 from sqlmodel import Field, JSON, Relationship
-from app.models.base import TableModelMixin, BaseRequest, BaseResponse
+from app.models.base import (
+    TableModelMixin,
+    BaseRequest,
+    BaseResponse,
+    BaseUpdateRequest,
+)
 
 
 class CaseTrackerBase:
@@ -18,6 +23,11 @@ class CaseTracker(CaseTrackerBase, TableModelMixin, table=True):
 
 
 class CaseTrackerRequest(CaseTrackerBase, BaseRequest):
+    class Meta:
+        model = CaseTracker
+
+
+class CaseTrackerUpdateRequest(CaseTrackerBase, BaseUpdateRequest):
     class Meta:
         model = CaseTracker
 

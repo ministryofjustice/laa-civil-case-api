@@ -2,7 +2,7 @@ from typing import Sequence
 
 from fastapi import APIRouter, HTTPException, Depends
 
-from app.models.cases import CaseRequest, Case, CaseResponse
+from app.models.cases import CaseRequest, Case, CaseResponse, CaseUpdateRequest
 from sqlmodel import Session, select
 from app.db import get_session
 from app.auth.security import get_current_active_user
@@ -33,9 +33,14 @@ async def read_all_cases(session: Session = Depends(get_session)) -> Sequence[Ca
 
 @router.post("/", tags=["cases"], response_model=CaseResponse)
 def create_case(request: CaseRequest, session: Session = Depends(get_session)):
-    data = request.translate()
-    case = Case(**data)
-    session.add(case)
-    session.commit()
-    session.refresh(case)
-    return case
+    return request.create(session)
+
+
+@router.put("/{case_id}", tags=["cases"], response_model=CaseResponse)
+def update_case(
+    case_id: UUID, request: CaseUpdateRequest, session: Session = Depends(get_session)
+):
+    case = request.retrieve(session, case_id)
+    if case is None:
+        raise HTTPException(status_code=404, detail="Case not found")
+    return request.update(case, session)

@@ -1,5 +1,10 @@
 from sqlmodel import Field, String, Relationship
-from app.models.base import TableModelMixin, BaseRequest, BaseResponse
+from app.models.base import (
+    TableModelMixin,
+    BaseRequest,
+    BaseResponse,
+    BaseUpdateRequest,
+)
 from app.models.types.postcode import Postcode
 from app.models.types.phone_number import PhoneNumber
 from pydantic import EmailStr
@@ -9,8 +14,16 @@ from uuid import UUID
 class BasePerson:
     name: str
     address: str | None
-    phone_number: PhoneNumber | None = Field(default=None, sa_type=String)
-    postcode: Postcode | None = Field(default=None, sa_type=String)
+    phone_number: PhoneNumber | None = Field(
+        default=None,
+        sa_type=String,
+        schema_extra={"json_schema_extra": {"example": "01632 960 001"}},
+    )
+    postcode: Postcode | None = Field(
+        default=None,
+        sa_type=String,
+        schema_extra={"json_schema_extra": {"example": "SW1A 1AA"}},
+    )
     email: EmailStr | None = Field(sa_type=String)
 
 
@@ -22,6 +35,11 @@ class Person(BasePerson, TableModelMixin, table=True):
 
 
 class PersonRequest(BasePerson, BaseRequest):
+    class Meta(BaseRequest.Meta):
+        model = Person
+
+
+class PersonUpdateRequest(BasePerson, BaseUpdateRequest):
     class Meta(BaseRequest.Meta):
         model = Person
 

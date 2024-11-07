@@ -1,7 +1,11 @@
+---
+title: Models
+---
+
 # What are models?
 Models are classes which define both the API and database schema.
 
-Each field has Python type annotations which defines what data is accepted by the API 
+Each field has Python type annotations which defines what data is accepted by the API
 as well as the column type in the database.
 
 Every object created from these classes is validated by Pydantic, which ensures that the types of every object matches
@@ -15,6 +19,7 @@ All datatypes supported by Pydantic can be used, and you can define your own if 
 View the Pydantic documentation [here](https://docs.pydantic.dev/latest/concepts/types/#constrained-types).
 
 To allow for a set of values you can define an enum and use this in your model.
+
 ```python
 from enum import Enum
 from sqlmodel import SQLModel, Field
@@ -33,12 +38,13 @@ class Birthday(SQLModel):
 ```
 
 ## How do I create a database table?
-By default, models will not be created as a table in the database. 
+By default, models will not be created as a table in the database.
 
-This is because we use models to define more than the database, they also define request and response 
+This is because we use models to define more than the database, they also define request and response
 models from the API.
 
 To create a table with the schema defined by your model set the `table` argument on your class to True.
+
 ```python
 from sqlmodel import SQLModel
 
@@ -50,10 +56,9 @@ class MyModel(SQLModel, table=True):
 
 To reflect this new model in the database you will need to generate and run an Alembic migration.
 
-Please see [/migrations/README.md](../db/migrations/README.md) for instructions on how to do this.
-
 ## How do I use these models to define endpoint schemas?
 By implementing them as part of your routers' method arguments they are automatically used to validate the user's input.
+
 ```python
 from app.models.cases import Case, CaseRequest
 from app.routers.case_information import router
@@ -63,8 +68,6 @@ from app.routers.case_information import router
 def create_case(request: CaseRequest):
     pass
 ```
-
-To see more about defining endpoints view the readme: [here](../routers/README.md).
 
 ### Model documentation
 Your models will automatically be added to the Swagger documentation when you use them as part of an API endpoint.

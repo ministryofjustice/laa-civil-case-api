@@ -15,21 +15,32 @@ A case can be created using the following request schema
 
 ```json
 {
-    "case_type": "",
+    "case_type": "CLA",
     "notes": [
         {
-            "note_type": "string",
-            "content": "string"
+            "note_type": "Operator",
+            "content": "Initial client contact made via phone."
         },
+        {
+            "note_type": "Provider",
+            "content": "Case documents received and filed."
+        }
     ],
     "people": [
         {
-            "name": "string",
-            "address": "string",
-            "phone_number": "string",
-            "postcode": "string",
-            "email": "string"
+            "name": "John Doe",
+            "address": "123 St. James Avenue",
+            "phone_number": "012334 343495",
+            "postcode": "SW1A 1AA",
+            "email": "john.doe@example.com"
         },
+        {
+            "name": "Jane Doe",
+            "address": "124 St. James Avenue",
+            "phone_number": "012334 343465",
+            "postcode": "SW1A 1AA",
+            "email": "jane.smith@example.com"
+        }
     ]
 }
 ```
@@ -45,14 +56,13 @@ Case type can be either "CLA" or "CCQ".
 Note type can be one of "User", "Provider", "Operator", or, "Other"
 
 ##### Content
-A string up to 5000 characters long.
+A string.
 
 #### Response
 
 You will receive the following response schema:
 
 ```json
-
 {
   "id": "123e4567-e89b-12d3-a456-426614174000",
   "case_type": "CLA",
@@ -119,4 +129,41 @@ GET /cases/{case_id}
 
 ```
 PATCH /cases/{case_id}
+```
+
+A case can be modified by providing a new case with the following schema.
+
+If an ID of the sub-object is included the object will be updated, if not a new object will be created.
+
+```json
+{
+    "case_type": "CLA",
+    "notes": [
+        {
+            "id": "123e4567-e89b-12d3-a456-426614174003",
+            "note_type": "Operator",
+            "content": "Initial client contact made via phone."
+        },
+        {
+            "note_type": "Provider",
+            "content": "Case documents received and filed."
+        }
+    ],
+    "people": [
+        {
+            "name": "John Doe",
+            "address": "123 St. James Avenue",
+            "phone_number": "012334 343495",
+            "postcode": "SW1A 1AA",
+            "email": "john.doe@example.com"
+        },
+        {
+            "name": "Jane Doe",
+            "address": "124 St. James Avenue",
+            "phone_number": "012334 343465",
+            "postcode": "SW1A 1AA",
+            "email": "jane.smith@example.com"
+        }
+    ]
+}
 ```

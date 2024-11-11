@@ -24,7 +24,7 @@ def test_attach_note(session: Session):
     assert provider_note.note_type == "Provider"
 
     assert case.notes[1].content == "Needs BSL"
-    assert provider_note.note_type == "Adaptation"
+    assert adaptation_note.note_type == "Adaptation"
 
 
 def test_empty_note(session: Session):

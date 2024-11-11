@@ -5,6 +5,11 @@ from sqlmodel import Session
 from app.models.cases import Case, CaseRequest
 
 
+def is_list_of_dicts(items):
+    """Check if variable is a list of dicts."""
+    return isinstance(items, list) and all(isinstance(item, dict) for item in items)
+
+
 def assert_dicts_equal(dict1, dict2):
     """
     Recursively assert that two dictionaries are equal, ignoring key order.
@@ -19,7 +24,7 @@ def assert_dicts_equal(dict1, dict2):
     for key in dict1:
         if isinstance(dict1[key], dict) and isinstance(dict2[key], dict) and dict1[key]:
             assert_dicts_equal(dict1[key], dict2[key])  # Recursively check nested dicts
-        elif isinstance(dict1[key], list) and isinstance(dict2[key], list):
+        elif is_list_of_dicts(dict1[key]) and is_list_of_dicts(dict2[key]):
             assert len(dict1[key]) == len(
                 dict2[key]
             ), f"{key} does not contain the same count of items in both dicts"
@@ -49,6 +54,7 @@ def test_case_create_request_minimal(client_authed: TestClient, session: Session
             "people": [],
             "case_tracker": None,
             "eligibility_outcomes": [],
+            "case_adaptations": None,
         },
     }
     assert_dicts_equal(response_json, expected_data)
@@ -181,7 +187,10 @@ def remove_auto_generated_fields(data: dict) -> dict:
 def get_case_test_data() -> dict:
     return {
         "case_type": "Check if your client qualifies for legal aid",
-        "notes": [{"note_type": "Other", "content": ""}],
+        "notes": [
+            {"note_type": "Other", "content": ""},
+            {"note_type": "Adaptation", "content": "This is user needs adaptations"},
+        ],
         "people": [
             {
                 "name": "string",
@@ -195,4 +204,8 @@ def get_case_test_data() -> dict:
         "eligibility_outcomes": [
             {"eligibility_type": "CCQ", "outcome": "In scope", "answers": {}}
         ],
+        "case_adaptations": {
+            "languages": ["EN", "CY"],
+            "needed_adaptations": ["BSL - Webcam", "Text Relay"],
+        },
     }

@@ -21,6 +21,12 @@ from app.models.eligibility_outcomes import (
     EligibilityOutcomesResponse,
     EligibilityOutcomesUpdateRequest,
 )
+from app.models.case_adaptations import (
+    CaseAdaptations,
+    CaseAdaptationsRequest,
+    CaseAdaptationsUpdateRequest,
+    CaseAdaptationsResponse,
+)
 
 
 class BaseCase:
@@ -28,12 +34,14 @@ class BaseCase:
 
 
 class Case(BaseCase, TableModelMixin, table=True):
-    case_type: CaseTypes = Field(index=True)
     # Cascade delete ensures all related fields are deleted when the attached case is deleted.
     notes: List[CaseNote] = Relationship(back_populates="case", cascade_delete=True)
     people: List[Person] = Relationship(back_populates="case", cascade_delete=True)
     case_tracker: CaseTracker = Relationship(back_populates="case", cascade_delete=True)
     eligibility_outcomes: List[EligibilityOutcomes] = Relationship(
+        back_populates="case", cascade_delete=True
+    )
+    case_adaptations: CaseAdaptations = Relationship(
         back_populates="case", cascade_delete=True
     )
 
@@ -45,6 +53,7 @@ class CaseRequest(BaseRequest):
     people: List[PersonRequest] | None = None
     case_tracker: CaseTrackerRequest | None = None
     eligibility_outcomes: List[EligibilityOutcomesRequest] | None = None
+    case_adaptations: CaseAdaptationsRequest | None = None
 
     class Meta(BaseRequest.Meta):
         model = Case
@@ -55,6 +64,7 @@ class CaseUpdateRequest(CaseRequest):
     people: List[PersonUpdateRequest] | None = None
     case_tracker: CaseTrackerUpdateRequest | None = None
     eligibility_outcomes: List[EligibilityOutcomesUpdateRequest] | None = None
+    case_adaptations: CaseAdaptationsUpdateRequest | None = None
 
 
 class CaseResponse(BaseCase, BaseResponse):
@@ -62,3 +72,4 @@ class CaseResponse(BaseCase, BaseResponse):
     people: List[PersonResponse] | None
     case_tracker: CaseTrackerResponse | None
     eligibility_outcomes: List[EligibilityOutcomesResponse] | None
+    case_adaptations: CaseAdaptationsResponse | None

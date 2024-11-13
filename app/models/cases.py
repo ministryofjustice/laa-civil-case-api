@@ -42,8 +42,8 @@ class Case(BaseCase, TableModelMixin, table=True):
 
 
 class CaseRetrieve(BaseCase, TableModelMixin):
+    # Model to support retrieving all case information
     case_type: CaseTypes
-    # Cascade delete ensures all related fields are deleted when the attached case is deleted.
     notes: List[CaseNote]
     people: List[Person]
     case_tracker: CaseTracker

@@ -1,6 +1,6 @@
-from sqlmodel import Field, Relationship, Session, SQLModel
+from sqlmodel import Field, Relationship
 from typing import List
-from app.models.base import TableModelMixin, BaseRequest, BaseResponse, uuid
+from app.models.base import TableModelMixin, BaseRequest, BaseResponse
 from app.models.types.case_types import CaseTypes
 from app.models.case_notes import (
     CaseNote,
@@ -26,9 +26,6 @@ from app.models.eligibility_outcomes import (
 class BaseCase:
     case_type: CaseTypes = Field(index=True)
 
-    def retrieve(self, session: Session, instance_id: uuid.UUID) -> SQLModel | None:
-        return session.get(self.model, instance_id)
-
 
 class Case(BaseCase, TableModelMixin, table=True):
     case_type: CaseTypes = Field(index=True)
@@ -39,15 +36,6 @@ class Case(BaseCase, TableModelMixin, table=True):
     eligibility_outcomes: List[EligibilityOutcomes] = Relationship(
         back_populates="case", cascade_delete=True
     )
-
-
-class CaseRetrieve(BaseCase, TableModelMixin):
-    # Model to support retrieving all case information
-    case_type: CaseTypes
-    notes: List[CaseNote]
-    people: List[Person]
-    case_tracker: CaseTracker
-    eligibility_outcomes: List[EligibilityOutcomes]
 
 
 class CaseRequest(BaseRequest):

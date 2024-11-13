@@ -7,7 +7,6 @@ from app.models.cases import (
     Case,
     CaseResponse,
     CaseUpdateRequest,
-    CaseRetrieve,
 )
 from sqlmodel import Session, select
 from app.db import get_session
@@ -28,7 +27,7 @@ async def read_case(case_id: UUID, session: Session = Depends(get_session)):
     case: Case | None = session.get(Case, case_id)
     if not case:
         raise HTTPException(status_code=404, detail="Case not found")
-    return CaseRetrieve.from_orm(case)
+    return CaseResponse.from_orm(case)
 
 
 @router.get("/", tags=["cases"])

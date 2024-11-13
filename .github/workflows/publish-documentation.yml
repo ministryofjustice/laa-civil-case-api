@@ -1,6 +1,9 @@
 name: Publish documentation
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 # GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:

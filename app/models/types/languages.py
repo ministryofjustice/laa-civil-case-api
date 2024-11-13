@@ -3,6 +3,8 @@ from enum import Enum, unique
 
 @unique
 class Languages(str, Enum):
+    """List of ISO 639-1 language codes."""
+
     Abkhazian = "AB"
     Afar = "AA"
     Afrikaans = "AF"

@@ -12,9 +12,7 @@ from app.models.types.adaptations import Adaptations
 
 
 class CaseAdaptationsBase:
-    # Should this be a list of enums
     needed_adaptations: List[Adaptations] = Field(sa_type=JSON, nullable=True)
-    # Should this be a list of enums
     languages: List[Languages] = Field(sa_type=JSON, nullable=True)
 
 

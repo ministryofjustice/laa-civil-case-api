@@ -60,6 +60,7 @@ class CaseRequest(BaseRequest):
 
 
 class CaseUpdateRequest(CaseRequest):
+    case_type: CaseTypes = None  # Optional when doing an update operation
     notes: List[CaseNotesUpdateRequest] | None = None
     people: List[PersonUpdateRequest] | None = None
     case_tracker: CaseTrackerUpdateRequest | None = None

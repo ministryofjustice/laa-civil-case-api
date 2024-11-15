@@ -10,6 +10,7 @@ from uuid import UUID
 
 
 class NoteType(str, Enum):
+    adaptation = "Adaptation"
     personal = "Personal"
     provider = "Provider"
     caseworker = "Caseworker"

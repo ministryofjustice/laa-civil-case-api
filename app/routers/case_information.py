@@ -2,7 +2,12 @@ from typing import Sequence
 
 from fastapi import APIRouter, HTTPException, Depends
 
-from app.models.cases import CaseRequest, Case, CaseResponse, CaseUpdateRequest
+from app.models.cases import (
+    CaseRequest,
+    Case,
+    CaseResponse,
+    CaseUpdateRequest,
+)
 from sqlmodel import Session, select
 from app.db import get_session
 from app.auth.security import get_current_active_user
@@ -17,7 +22,7 @@ router = APIRouter(
 )
 
 
-@router.get("/{case_id}", tags=["cases"])
+@router.get("/{case_id}", tags=["cases"], response_model=CaseResponse)
 async def read_case(case_id: UUID, session: Session = Depends(get_session)) -> Case:
     case: Case | None = session.get(Case, case_id)
     if not case:

@@ -29,6 +29,10 @@ jobs:
     secrets:
       ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
 
+  build-docs:
+    name: Build Documentation
+    uses: ./.github/workflows/build-docs.yml
+
   scan-image:
     uses: ./.github/workflows/scan-image.yml
     needs: build-and-push
@@ -38,6 +42,13 @@ jobs:
     secrets:
       ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
       ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
+
+  deploy-docs:
+    name: Deploy Documentation
+    needs: build-docs
+    uses: ./.github/workflows/deploy-docs.yml
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
 
   deploy-staging:
     name: Staging

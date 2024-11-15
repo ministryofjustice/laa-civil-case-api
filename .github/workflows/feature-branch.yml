@@ -32,7 +32,7 @@ jobs:
       ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
 
   build-docs:
-    name: Build Documentation
+    name: Documentation
     uses: ./.github/workflows/build-docs.yml
 
   scan-image:

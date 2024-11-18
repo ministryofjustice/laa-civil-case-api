@@ -1,7 +1,11 @@
 import os
+from dotenv import load_dotenv
+from app.config.logging import LOCAL_LOGGING, STRUCTURED_LOGGING
+
+load_dotenv()
 
 
-class Config(object):
+class BaseConfig(object):
     ENVIRONMENT = os.environ.get("CLA_ENVIRONMENT", "unknown")
 
     # The default DB parameters are set to allow you to connect to the Docker DB
@@ -16,3 +20,22 @@ class Config(object):
     SENTRY_DSN = os.environ.get("SENTRY_DSN")
 
     SECRET_KEY = os.environ.get("SECRET_KEY", "TEST_KEY")
+
+    LOGGER_CONFIG = STRUCTURED_LOGGING
+
+
+class LocalConfig(BaseConfig):
+    """Local development config overrides"""
+
+    ENVIRONMENT = "local"
+    LOGGER_CONFIG = LOCAL_LOGGING
+
+
+def get_config():
+    env = os.environ.get("CLA_ENVIRONMENT", "local").lower()
+    if env == "local":
+        return LocalConfig()
+    return BaseConfig()
+
+
+Config = get_config()

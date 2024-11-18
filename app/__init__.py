@@ -1,6 +1,7 @@
 from app.main import create_app
 from app.config import Config
 import sentry_sdk
+from app.config.logging import setup_logging
 
 
 if Config.SENTRY_DSN:
@@ -18,5 +19,6 @@ if Config.SENTRY_DSN:
         environment=Config.ENVIRONMENT,
     )
 
+setup_logging(Config.LOGGER_CONFIG)
 
 case_api = create_app()

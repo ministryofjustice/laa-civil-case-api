@@ -20,5 +20,4 @@ if Config.SENTRY_DSN:
     )
 
 setup_logging(Config.LOGGER_CONFIG)
-
 case_api = create_app()

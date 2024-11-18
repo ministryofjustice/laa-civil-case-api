@@ -12,6 +12,9 @@ from sqlmodel import Session, select
 from app.db import get_session
 from app.auth.security import get_current_active_user
 from uuid import UUID
+import structlog
+
+logger = structlog.getLogger(__name__)
 
 
 router = APIRouter(
@@ -37,8 +40,14 @@ async def read_all_cases(session: Session = Depends(get_session)) -> Sequence[Ca
 
 
 @router.post("/", tags=["cases"], response_model=CaseResponse, status_code=201)
-def create_case(request: CaseRequest, session: Session = Depends(get_session)):
-    return request.create(session)
+def create_case(
+    request: CaseRequest,
+    session: Session = Depends(get_session),
+    user=Depends(get_current_active_user),
+):
+    case = request.create(session)
+    logger.info("Case created", case_id=case.id, user=user.username)
+    return case
 
 
 @router.put("/{case_id}", tags=["cases"], response_model=CaseResponse)

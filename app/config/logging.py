@@ -5,7 +5,9 @@ from typing import Dict, Any
 from uvicorn.logging import DefaultFormatter
 
 
-class CustomConsoleRenderer(DefaultFormatter):
+class StructuredConsoleFormatter(DefaultFormatter):
+    """A modified version of the uvicorn formatter that supports structured logging arguments"""
+
     def __init__(self):
         super().__init__(fmt="%(levelprefix)s %(message)s", use_colors=True)
 
@@ -58,7 +60,7 @@ LOCAL_LOGGING: Dict[str, Any] = {
     "formatters": {
         "custom": {
             "()": structlog.stdlib.ProcessorFormatter,
-            "processor": CustomConsoleRenderer(),
+            "processor": StructuredConsoleFormatter(),
             "foreign_pre_chain": [
                 *STRUCTURED_LOG_PROCESSORS,
                 structlog.stdlib.ProcessorFormatter.wrap_for_formatter,

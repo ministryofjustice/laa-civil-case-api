@@ -40,9 +40,13 @@ async def read_all_cases(session: Session = Depends(get_session)) -> Sequence[Ca
 
 
 @router.post("/", tags=["cases"], response_model=CaseResponse, status_code=201)
-def create_case(request: CaseRequest, session: Session = Depends(get_session)):
+def create_case(
+    request: CaseRequest,
+    session: Session = Depends(get_session),
+    user=Depends(get_current_active_user),
+):
     case = request.create(session)
-    logger.info("Case created", case_id=case.id)
+    logger.info("Case created", case_id=case.id, user=user.username)
     return case
 
 

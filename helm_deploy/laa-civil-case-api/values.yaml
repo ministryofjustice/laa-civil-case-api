@@ -63,3 +63,21 @@ envVars:
     secret:
       name: secretkey
       key: value
+  DB_NAME:
+    secret:
+      name: rds-postgresql-instance-output
+      key: database_name
+  DB_USER:
+    secret:
+      name: rds-postgresql-instance-output
+      key: database_username
+  DB_PASSWORD:
+    secret:
+      name: rds-postgresql-instance-output
+      key: database_password
+  DB_HOST:
+    secret:
+      name: rds-postgresql-instance-output
+      key: rds_instance_address
+  DB_PORT: 5432
+  

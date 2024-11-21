@@ -8,7 +8,7 @@ replicas:
 environment: uat
 
 ingress:
-  enabled: false
+  enabled: true
   hosts:
     - host: "laa-civil-case-api-uat.cloud-platform.service.justice.gov.uk"
       paths:

@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy.orm import sessionmaker
 
 from app.auth.security import get_password_hash
-from app.models.users import User
+from app.models.users import User, UserScopes
 
 SECRET_KEY = "TEST_KEY"
 
@@ -33,7 +33,15 @@ def session_fixture():
 
             password = get_password_hash(password)
             new_user = User(
-                username=username, hashed_password=password, disabled=disabled
+                username=username,
+                hashed_password=password,
+                disabled=disabled,
+                scopes=[
+                    UserScopes.CREATE,
+                    UserScopes.READ,
+                    UserScopes.UPDATE,
+                    UserScopes.DELETE,
+                ],
             )
             db_session.add(new_user)
 

@@ -1,4 +1,7 @@
+from typing import List
+
 from fastapi.testclient import TestClient
+from sqlmodel import Session
 from app.auth.security import (
     create_access_token,
     verify_password,
@@ -10,7 +13,7 @@ from freezegun import freeze_time
 import pytest
 from jwt import ExpiredSignatureError
 from datetime import timedelta, datetime
-from app.models.users import User
+from app.models.users import User, UserScopes
 
 
 def test_auth_fail_case(client: TestClient):
@@ -107,3 +110,51 @@ def test_token_defined_expiry():
 
     with freeze_time("2024-08-23 10:05:00"):
         assert pytest.raises(ExpiredSignatureError)
+
+
+def test_scopes_missing_scopes(client: TestClient, session: Session):
+    # Create the test user with no given scopes
+    # They should not be able to access the GET /cases resource as that requires the  UserScopes.READ scope
+    assert_user_scope(session, client, [], "/cases", 401)
+
+
+def test_scopes_incorrect_scope(client: TestClient, session: Session):
+    # Create the test user with a UserScopes.CREATE scope
+    # They should not be able to access the GET /cases resource as that requires the  UserScopes.READ scope
+    assert_user_scope(session, client, [UserScopes.CREATE], "/cases", 401)
+
+
+def test_scopes_correct_scope(client: TestClient, session: Session):
+    # Create the test user with a UserScopes.READ scope
+    # They should be able to access the GET /cases resource as that requires the  UserScopes.READ scope
+    assert_user_scope(session, client, [UserScopes.READ], "/cases", 200)
+
+
+def assert_user_scope(
+    session: Session,
+    client: TestClient,
+    scopes: List[UserScopes],
+    resource: str,
+    expected_status_code,
+):
+    # Create the test user with given scopes
+    username = "test_assert_user_scope"
+    password = "<PASSWORD>"
+    user = User(
+        username=username, hashed_password=get_password_hash(password), scopes=scopes
+    )
+    session.add(user)
+    session.commit()
+
+    # Obtain an access token for the test user
+    response = client.post(
+        "/token",
+        data={"username": username, "password": password},
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+    )
+    token = response.json()["access_token"]
+    client.headers["Authorization"] = f"Bearer {token}"
+
+    # Attempt to access a resource with the test user
+    response = client.get(resource)
+    assert response.status_code == expected_status_code

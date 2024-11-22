@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import typer
 from typing import List
 from typing_extensions import Annotated

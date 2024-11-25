@@ -30,6 +30,11 @@ services:
     environment:
       SECRET_KEY: "TEST_KEY"
       <<: *database_config
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: case_api
+      DB_PORT: 5432
+      DB_HOST: db
     volumes:
       - ./app:/home/app/case_api/app
     depends_on:
@@ -42,6 +47,11 @@ services:
     command: alembic upgrade head
     environment:
       <<: *database_config
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: case_api
+      DB_PORT: 5432
+      DB_HOST: db
     depends_on:
       db:
         condition: service_healthy

@@ -6,7 +6,7 @@ import jwt
 from jwt.exceptions import InvalidTokenError
 from fastapi.security import OAuth2PasswordBearer, SecurityScopes
 from fastapi import HTTPException, Depends, status, Security
-from app.models.users import User, TokenData, Token
+from app.models.users import User, TokenData
 from app.config import Config
 from app.db import get_session
 from sqlmodel import Session
@@ -60,12 +60,15 @@ def authenticate_user(session, username: str, password: str) -> str | User | boo
     return user
 
 
-def create_access_token(data: dict, expires_delta: timedelta | None = None) -> Token:
+def create_access_token(
+    data: dict, scopes: list | None = None, expires_delta: timedelta | None = None
+) -> str:
     """
     Creates the JWT access token with an expiry time.
 
     Args:
         data: A dictionary containing the username.
+        scopes: A list of scopes assigned to the user.
         expires_delta: A timedelta of the expiry time of the token.
 
     Returns:
@@ -76,6 +79,8 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> T
     the expiry field to ensure it can still be read as a standalone object.
     """
     to_encode = data.copy()
+    scopes = scopes or []
+    to_encode.update({"scopes": scopes})
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
     else:
@@ -85,6 +90,10 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> T
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+
+
+def token_decode(token: str) -> dict:
+    return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
 
 
 async def get_current_user(

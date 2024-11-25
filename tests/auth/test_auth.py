@@ -7,6 +7,7 @@ from app.auth.security import (
     verify_password,
     get_password_hash,
     authenticate_user,
+    token_decode,
     ACCESS_TOKEN_EXPIRE_MINUTES,
 )
 from freezegun import freeze_time
@@ -85,10 +86,12 @@ def test_password_hashing():
 
 
 def test_create_token():
-    jwt = create_access_token(
-        data={"sub": "cla_admin"}, expires_delta=timedelta(minutes=30)
+    token = create_access_token(
+        data={"sub": "cla_admin"}, expires_delta=timedelta(minutes=30), scopes=[]
     )
-    assert len(jwt) == 129
+    expected_keys = ["sub", "scopes", "exp"]
+    token_data = token_decode(token)
+    assert list(token_data.keys()) == expected_keys
 
 
 def test_token_with_no_expire():
@@ -104,7 +107,8 @@ def test_token_with_no_expire():
 def test_token_defined_expiry():
     with freeze_time("2024-08-23 10:00:00"):
         token = create_access_token(
-            data={"sub": "cla_admin"}, expires_delta=timedelta(minutes=1)
+            data={"sub": "cla_admin"},
+            expires_delta=timedelta(minutes=1),
         )
     assert token is not None
 
@@ -153,8 +157,10 @@ def assert_user_scope(
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
     token = response.json()["access_token"]
-    client.headers["Authorization"] = f"Bearer {token}"
+    token_data = token_decode(token)
+    assert token_data["scopes"] == scopes
 
     # Attempt to access a resource with the test user
+    client.headers["Authorization"] = f"Bearer {token}"
     response = client.get(resource)
     assert response.status_code == expected_status_code

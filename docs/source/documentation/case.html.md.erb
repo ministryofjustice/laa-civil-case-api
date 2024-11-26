@@ -9,6 +9,8 @@ title: Case model
 ```
 POST /cases
 ```
+### Scope
+create
 
 A case can be created using the following request schema
 
@@ -118,18 +120,24 @@ You will receive the following response schema:
 ```
 GET /cases/
 ```
+### Scope
+read
 
 ### Gets all case information for a given case id
 
 ```
 GET /cases/{case_id}
 ```
+### Scope
+read
 
 ### Modify a case
 
 ```
-PATCH /cases/{case_id}
+PUT /cases/{case_id}
 ```
+### Scope
+update
 
 A case can be modified by providing a new case with the following schema.
 

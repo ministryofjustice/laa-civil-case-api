@@ -17,7 +17,9 @@ from app.main import create_app
 
 app = typer.Typer()
 
-session: Session = next(get_session())
+
+def init_session(typer_app: typer.Typer, session: Session) -> None:
+    typer_app.db_session = session
 
 
 @app.command()
@@ -25,20 +27,20 @@ def add_scopes(
     username: str, scope: Annotated[List[UserScopes], typer.Option()]
 ) -> None:
     statement = select(User).where(User.username == username)
-    user: User = session.exec(statement).first()
+    user: User = app.db_session.exec(statement).first()
     print(
         f"Replacing user {user.username} current scopes {user.scopes} with new scopes {scope}..."
     )
     user.scopes = scope
-    session.add(user)
-    session.commit()
+    app.app.db_session.add(user)
+    app.db_session.commit()
     print("Done")
 
 
 @app.command()
 def list_scopes(username: str) -> None:
     statement = select(User).where(User.username == username)
-    user: User = session.exec(statement).first()
+    user: User = app.db_session.exec(statement).first()
     if not user.scopes:
         print(f"{user.username} has no scopes")
         return
@@ -64,9 +66,10 @@ def add_user(
     email: Annotated[str, typer.Option()],
     full_name: Annotated[str, typer.Option()],
     password: Annotated[str, typer.Option()],
+    disable: Annotated[Optional[bool], typer.Option()] = False,
 ) -> None:
     statement = select(User).where(User.username == username)
-    user: User = session.exec(statement).first()
+    user: User = app.db_session.exec(statement).first()
     if user:
         print(f"{user.username} already exists")
         return
@@ -75,9 +78,10 @@ def add_user(
         hashed_password=get_password_hash(password),
         full_name=full_name,
         email=email,
+        disabled=disable,
     )
-    session.add(user)
-    session.commit()
+    app.db_session.add(user)
+    app.db_session.commit()
     print("User has been added")
 
 
@@ -91,7 +95,7 @@ def update_user(
     enable: Annotated[Optional[bool], typer.Option()] = None,
 ):
     statement = select(User).where(User.username == username)
-    user: User = session.exec(statement).first()
+    user: User = app.db_session.exec(statement).first()
     if not user:
         print(f"{username} does not exist")
     user.full_name = full_name or user.full_name
@@ -103,15 +107,15 @@ def update_user(
 
     if password:
         user.hashed_password = get_password_hash(password)
-    session.add(user)
-    session.commit()
+    app.db_session.add(user)
+    app.db_session.commit()
     print("User has been updated")
 
 
 @app.command()
-def remove_user(username: Annotated[Optional[str], typer.Argument()]):
+def delete_user(username: Annotated[Optional[str], typer.Argument()]):
     statement = select(User).where(User.username == username)
-    user: User = session.exec(statement).first()
+    user: User = app.db_session.exec(statement).first()
     if not user:
         print(f"User {username} does not exist")
         return
@@ -121,10 +125,10 @@ def remove_user(username: Annotated[Optional[str], typer.Argument()]):
         print(f"{username} does match {confirmed_username}")
         return
 
-    confirm = input(f"Are you sure you want to remove the user {username}?(y/n)")
+    confirm = input(f"Are you sure you want to remove the user {username}?(y/n): ")
     if confirm == "y":
-        session.delete(user)
-        session.commit()
+        app.db_session.delete(user)
+        app.db_session.commit()
         print("User has been removed")
     else:
         print("User removal operation cancelled")
@@ -132,7 +136,7 @@ def remove_user(username: Annotated[Optional[str], typer.Argument()]):
 
 @app.command()
 def list_users():
-    users: List[User] = session.execute(select(User)).all()
+    users: List[User] = app.db_session.execute(select(User)).all()
     headers = ["Username", "Email", "Full Name", "Disabled", "Scopes"]
     table = []
     for user in users:
@@ -153,4 +157,6 @@ def get_scopes_from_dependencies(dependencies: List[Depends]):
 
 
 if __name__ == "__main__":
+    session = next(get_session())
+    init_session(app, session)
     app()

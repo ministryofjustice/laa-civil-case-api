@@ -23,22 +23,29 @@ def init_session(typer_app: typer.Typer, session: Session) -> None:
 
 
 @app.command()
-def add_scopes(
+def set_user_scopes(
     username: str, scope: Annotated[List[UserScopes], typer.Option()]
 ) -> None:
     statement = select(User).where(User.username == username)
     user: User = app.db_session.exec(statement).first()
+    if not user:
+        print(f"User {user} does not exist")
+        return
+
+    new_scope_names = [item.value for item in scope]
+    previous_scope_names = [str(item) for item in user.scopes]
     print(
-        f"Replacing user {user.username} current scopes {user.scopes} with new scopes {scope}..."
+        f"Replacing user {user.username} current scopes {previous_scope_names} with new scopes {new_scope_names}",
+        end="...",
     )
     user.scopes = scope
-    app.app.db_session.add(user)
+    app.db_session.add(user)
     app.db_session.commit()
-    print("Done")
+    print("done")
 
 
 @app.command()
-def list_scopes(username: str) -> None:
+def list_user_scopes(username: str) -> None:
     statement = select(User).where(User.username == username)
     user: User = app.db_session.exec(statement).first()
     if not user.scopes:

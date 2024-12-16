@@ -1,4 +1,4 @@
-{{- if .Values.environment == "uat" -}}
+{{- if eq .Values.environment "uat" -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:

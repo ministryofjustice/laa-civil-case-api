@@ -105,18 +105,38 @@ def update_user(
     user: User = app.db_session.exec(statement).first()
     if not user:
         print(f"{username} does not exist")
-    user.full_name = full_name or user.full_name
-    user.email = email or user.email
+    comparison_table = []
+    headers = ["Previous value", "New value"]
+    if full_name:
+        comparison_table.append(
+            ("Full-name:" + user.full_name, "Full-name:" + full_name)
+        )
+        user.full_name = full_name
+    if email:
+        comparison_table.append(("E-mail:" + user.email, "E-mail:" + email))
+        user.email = email
+
     if disable:
+        disabled_str = "Yes" if user.disabled else "No"
+        comparison_table.append(("Disabled:" + disabled_str, "Disabled:Yes"))
         user.disabled = True
     elif enable:
+        disabled_str = "Yes" if user.disabled else "No"
+        comparison_table.append(("Disabled:" + disabled_str, "Disabled:No"))
         user.disabled = False
 
     if password:
+        comparison_table.append(("Password:************", "Password:************"))
         user.hashed_password = get_password_hash(password)
-    app.db_session.add(user)
-    app.db_session.commit()
-    print("User has been updated")
+
+    print(tabulate.tabulate(comparison_table, headers=headers, tablefmt="fancy_grid"))
+    confirm = input("Do you wish to continue(y/n)? ")
+    if confirm == "y":
+        app.db_session.add(user)
+        app.db_session.commit()
+        print("User has been updated")
+    else:
+        print("Aborted")
 
 
 @app.command()

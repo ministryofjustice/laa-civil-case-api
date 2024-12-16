@@ -11,7 +11,7 @@ runner = CliRunner()
 test_user_details = {
     "username": "test_user",
     "password": "password123",
-    "fullname": "Test User",
+    "full_name": "Test User",
     "email": "test.user@digital.justice.gov.uk",
 }
 
@@ -31,7 +31,7 @@ def test_add_user_command(session: Session) -> None:
             "--password",
             test_user_details["password"],
             "--full-name",
-            test_user_details["fullname"],
+            test_user_details["full_name"],
         ],
     )
     assert "User has been added" in result.stdout
@@ -41,13 +41,17 @@ def test_add_user_command(session: Session) -> None:
     assert user.username == test_user_details["username"]
 
 
-def test_update_user_command(session: Session) -> None:
+def test_update_user_command(session: Session, monkeypatch) -> None:
     init_session(management_app, session)
     user_details = test_user_details.copy()
     user_details["hashed_password"] = get_password_hash(user_details["password"])
     user = User(**user_details)
     session.add(user)
     session.commit()
+
+    # monkeypatch the "input" function so that we confirm our intent
+    inputs = {"Do you wish to continue(y/n)? ": "y"}
+    monkeypatch.setattr("builtins.input", lambda prompt: inputs.get(prompt))
 
     result = runner.invoke(
         management_app,
@@ -77,6 +81,15 @@ def test_update_user_command(session: Session) -> None:
     session.refresh(user)
     assert not user.disabled
 
+    inputs = {"Do you wish to continue(y/n)? ": "no"}
+    monkeypatch.setattr("builtins.input", lambda prompt: inputs.get(prompt))
+    # Try to disable the user
+    result = runner.invoke(
+        management_app, ["update-user", user_details["username"], "--disable"]
+    )
+    session.refresh(user)
+    assert not user.disabled
+
 
 def test_add_user_existing_command(session: Session) -> None:
     init_session(management_app, session)
@@ -96,7 +109,7 @@ def test_add_user_existing_command(session: Session) -> None:
             "--password",
             user_details["password"],
             "--full-name",
-            user_details["fullname"],
+            user_details["full_name"],
         ],
     )
     assert f"{user_details['username']} already exists" in result.stdout

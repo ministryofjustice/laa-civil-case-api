@@ -61,6 +61,7 @@ jobs:
                   --dry-run=client -o yaml | kubectl apply -f -
               else
                 echo "ConfigMap does not exist. Skipping update."
+              fi
 
       - name: Fetch and set SHARED_IP_RANGES_LAA environment variable
         run: |

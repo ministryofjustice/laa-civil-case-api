@@ -49,6 +49,19 @@ jobs:
           kubectl config set-context ${KUBE_CLUSTER} --cluster=${KUBE_CLUSTER} --user=deploy-user --namespace=${KUBE_NAMESPACE}
           kubectl config use-context ${KUBE_CLUSTER}
 
+      - name: Update Dashboard ConfigMap
+        run: |
+          # Check if configmap exists; this should only be in production
+          if kubectl get configmap laa-civil-case-api-prod-dashboard --namespace=${KUBE_NAMESPACE}; then
+                echo "ConfigMap exists. Updating..."
+                # Update the ConfigMap with the new file content
+                kubectl create configmap laa-civil-case-api-prod-dashboard \
+                  --from-file=.github/laa-civil-case-api-dashboard.yml \
+                  --namespace=${KUBE_NAMESPACE} \
+                  --dry-run=client -o yaml | kubectl apply -f -
+              else
+                echo "ConfigMap does not exist. Skipping update."
+
       - name: Fetch and set SHARED_IP_RANGES_LAA environment variable
         run: |
           # Pull ranges from shared LAA IP ranges and then remove spaces,

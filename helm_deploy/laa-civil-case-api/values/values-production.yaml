@@ -13,6 +13,3 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-
-dashboard:
-  enabled: true

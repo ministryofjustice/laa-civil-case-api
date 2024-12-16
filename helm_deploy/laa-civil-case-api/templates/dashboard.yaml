@@ -705,7 +705,7 @@ data:
           {
             "editorMode": "code",
             "expr": "kube_pod_container_status_restarts_total{namespace=\"$namespace\"}",
-            "legendFormat": "{{pod}}",
+            "legendFormat": "{{\"pod\"}}",
             "range": true,
             "refId": "A"
           }

@@ -30,6 +30,6 @@ spec:
                         drop: ["ALL"]
                     runAsNonRoot: true
                     seccompProfile:
-                    type: RuntimeDefault
+                        type: RuntimeDefault
         restartPolicy: Never
 backoffLimit: 4

@@ -80,6 +80,6 @@ jobs:
 
       - name: Run Alembic migrations
         env:
-          DATABASE_URL: ${{ env.db_url }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
         run: |
           alembic upgrade head

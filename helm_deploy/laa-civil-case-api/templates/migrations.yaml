@@ -14,8 +14,8 @@ spec:
                 image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
                 command: ["alembic", "upgrade", "head"]
                 env:
-                    {{ include "laa-civil-case-api.app.vars" . | nindent 12 }}
+                    "{{ include "laa-civil-case-api.app.vars" . | nindent 12 }}"
                 securityContext:
-                    {{- toYaml .Values.securityContext | nindent 12 }}
+                    "{{- toYaml .Values.securityContext | nindent 12 }}"
             restartPolicy: Never
     backoffLimit: 4

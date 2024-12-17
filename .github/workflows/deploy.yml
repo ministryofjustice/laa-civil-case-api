@@ -78,13 +78,21 @@ jobs:
           --force \
           --install
 
+      - name: Get database configuration from Kubernetes Secret
+        run: |
+          DB_USER=$(kubectl get secret db-config -n ${KUBE_NAMESPACE} -o jsonpath="{.data.DB_USER}" | base64 --decode)
+          DB_PASSWORD=$(kubectl get secret db-config -n ${KUBE_NAMESPACE} -o jsonpath="{.data.DB_PASSWORD}" | base64 --decode)
+          DB_HOST=$(kubectl get secret db-config -n ${KUBE_NAMESPACE} -o jsonpath="{.data.DB_HOST}" | base64 --decode)
+          DB_PORT=$(kubectl get secret db-config -n ${KUBE_NAMESPACE} -o jsonpath="{.data.DB_PORT}" | base64 --decode)
+          DB_NAME=$(kubectl get secret db-config -n ${KUBE_NAMESPACE} -o jsonpath="{.data.DB_NAME}" | base64 --decode)
+      
+          echo "DB_USER=${DB_USER}" >> $GITHUB_ENV
+          echo "DB_PASSWORD=${DB_PASSWORD}" >> $GITHUB_ENV
+          echo "DB_HOST=${DB_HOST}" >> $GITHUB_ENV
+          echo "DB_PORT=${DB_PORT}" >> $GITHUB_ENV
+          echo "DB_NAME=${DB_NAME}" >> $GITHUB_ENV
+          
       - name: Run Alembic migrations
-        env:
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_NAME: ${{ secrets.DB_NAME }}
         run: |
           DATABASE_URL="postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
           echo "DATABASE_URL=$DATABASE_URL"

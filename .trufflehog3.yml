@@ -13,9 +13,6 @@ exclude: # exclude matching issues
     paths:
       - docs/*.html
       - docs/examples/*
-  - message: Ignore config file containing dynamically constructed DATABASE_URL
-    paths:
-      - app/config/__init__.py
   - message: DB login config
     # Without this the db.password will incorrectly flag
     pattern: Config.DB_PASSWORD

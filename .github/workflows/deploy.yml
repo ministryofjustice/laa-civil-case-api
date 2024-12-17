@@ -80,7 +80,12 @@ jobs:
 
       - name: Run Alembic migrations
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
         run: |
-          echo "DATABASE_URL: ${{ env.DATABASE_URL }}"
-          alembic -x "db_url=${{ env.DATABASE_URL }}" upgrade head
+          DATABASE_URL="postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
+          echo "DATABASE_URL=$DATABASE_URL"
+          alembic -x "db_url=${DATABASE_URL}" upgrade head

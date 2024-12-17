@@ -15,8 +15,6 @@ class BaseConfig(object):
     DB_PORT = os.environ.get("DB_PORT", "5436")
     DB_NAME = os.environ.get("DB_NAME", "case_api")
 
-    DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-
     DB_LOGGING = os.environ.get("DB_LOGGING", "False") == "True"
 
     SENTRY_DSN = os.environ.get("SENTRY_DSN")

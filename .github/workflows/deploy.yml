@@ -25,6 +25,7 @@ on:
       KUBE_TOKEN:
         required: true
 
+
 jobs:
   deploy:
     name: Deploy
@@ -47,11 +48,6 @@ jobs:
           kubectl config set-credentials deploy-user --token=${{ secrets.KUBE_TOKEN }}
           kubectl config set-context ${KUBE_CLUSTER} --cluster=${KUBE_CLUSTER} --user=deploy-user --namespace=${KUBE_NAMESPACE}
           kubectl config use-context ${KUBE_CLUSTER}
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements/generated/requirements-development.txt
 
       - name: Fetch and set SHARED_IP_RANGES_LAA environment variable
         run: |

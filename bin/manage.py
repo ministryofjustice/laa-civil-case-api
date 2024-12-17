@@ -8,9 +8,9 @@ from sqlmodel import Session
 from sqlmodel.sql.expression import select
 from fastapi import Depends
 from fastapi.params import Security
-from app.models.users import User, UserScopes
-from app.db import get_session
-from app.main import create_app
+from ..app.models.users import User, UserScopes
+from ..app.db import get_session
+from ..app.main import create_app
 
 app = typer.Typer()
 

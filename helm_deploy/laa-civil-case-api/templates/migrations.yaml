@@ -14,23 +14,8 @@ spec:
                 image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
                 command: ["alembic", "upgrade", "head"]
                 env:
-                  - name: DB_NAME
-                    value: "{{ .Values.DB_NAME }}"
-                  - name: DB_USER
-                    value: "{{ .Values.DB_USER }}"
-                  - name: DB_PASSWORD
-                    value: "{{ .Values.DB_PASSWORD }}"
-                  - name: DB_HOST
-                    value: "{{ .Values.DB_HOST }}"
-                  - name: DB_PORT
-                    value: "{{ .Values.DB_PORT }}"
+                    {{ include "laa-civil-case-api.app.vars" . | nindent 12 }}
                 securityContext:
-                    allowPrivilegeEscalation: false
-                    capabilities:
-                        drop: ["ALL"]
-                    runAsNonRoot: true
-                    runAsUser: 1000
-                    seccompProfile:
-                        type: RuntimeDefault
+                    {{- toYaml .Values.securityContext | nindent 12 }}
             restartPolicy: Never
     backoffLimit: 4

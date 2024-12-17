@@ -1,4 +1,4 @@
-        {
+    {
         "annotations": {
         "list": [
             {
@@ -20,7 +20,7 @@
         "editable": true,
         "fiscalYearStartMonth": 0,
         "graphTooltip": 1,
-        "id": 182,
+        "id": 189,
         "links": [],
         "panels": [
         {
@@ -231,7 +231,7 @@
             {
                 "disableTextWrap": false,
                 "editorMode": "code",
-                "expr": "sum(rate(http_requests_total{namespace='$namespace'}[1m])) by (status)",
+                "expr": "sum(rate(nginx_ingress_controller_requests{exported_namespace = \"$namespace\", path !~\"/socket.io/.*\", ingress = \"$ingress\"}[5m])) by (status)",
                 "fullMetaSearch": false,
                 "includeNullMetadata": true,
                 "legendFormat": "__auto",
@@ -240,7 +240,7 @@
                 "useBackend": false
             }
             ],
-            "title": "HTTP Request Rate",
+            "title": "HTTP Request Status",
             "type": "timeseries"
         },
         {
@@ -967,8 +967,7 @@
                 "mode": "absolute",
                 "steps": [
                     {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                     },
                     {
                     "color": "red",
@@ -1085,8 +1084,7 @@
                 "mode": "absolute",
                 "steps": [
                     {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                     },
                     {
                     "color": "red",
@@ -1187,13 +1185,13 @@
         ]
         },
         "time": {
-        "from": "now-30d",
+        "from": "now-2d",
         "to": "now"
         },
         "timepicker": {},
         "timezone": "browser",
         "title": "LAA Civil Case API",
         "uid": "p1slev6w2rdkwc",
-        "version": 2,
+        "version": 1,
         "weekStart": ""
-        }
+    }

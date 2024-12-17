@@ -24,5 +24,12 @@ spec:
               value: "{{ .Values.DB_HOST }}"
             - name: DB_PORT
               value: "{{ .Values.DB_PORT }}"
-      restartPolicy: Never
-  backoffLimit: 4
+        securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+    restartPolicy: Never
+backoffLimit: 4

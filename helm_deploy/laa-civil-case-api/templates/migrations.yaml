@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}-migrations
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: migrations
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        command: ["alembic", "upgrade", "head"]
+        env:
+            - name: DB_NAME
+                value: {{ .Values.DB_NAME }}
+            - name: DB_USER
+                value: {{ .Values.DB_USER }}
+            - name: DB_PASSWORD
+                value: {{ .Values.DB_PASSWORD }}
+            - name: DB_HOST
+                value: {{ .Values.DB_HOST }}
+            - name: DB_PORT
+                value: {{ .Values.DB_PORT }}
+      restartPolicy: Never
+  backoffLimit: 4

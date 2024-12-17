@@ -79,5 +79,7 @@ jobs:
           --install
 
       - name: Run Alembic migrations
+        env:
+          DATABASE_URL: ${{ env.db_url }}
         run: |
           alembic upgrade head

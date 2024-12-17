@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from app.config.logging import LOCAL_LOGGING, STRUCTURED_LOGGING
+from app.db import db_url
 
 load_dotenv()
 
@@ -14,6 +15,8 @@ class BaseConfig(object):
     DB_HOST = os.environ.get("DB_HOST", "localhost")
     DB_PORT = os.environ.get("DB_PORT", "5436")
     DB_NAME = os.environ.get("DB_NAME", "case_api")
+
+    DATABASE_URL = db_url
 
     DB_LOGGING = os.environ.get("DB_LOGGING", "False") == "True"
 

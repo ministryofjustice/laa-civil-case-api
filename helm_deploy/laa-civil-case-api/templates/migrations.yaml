@@ -32,4 +32,4 @@ spec:
                     seccompProfile:
                         type: RuntimeDefault
             restartPolicy: Never
-        backoffLimit: 4
+    backoffLimit: 4

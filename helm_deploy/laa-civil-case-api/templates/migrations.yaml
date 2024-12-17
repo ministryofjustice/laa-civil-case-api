@@ -31,5 +31,5 @@ spec:
                     runAsNonRoot: true
                     seccompProfile:
                         type: RuntimeDefault
-        restartPolicy: Never
-backoffLimit: 4
+            restartPolicy: Never
+        backoffLimit: 4

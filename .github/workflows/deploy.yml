@@ -73,3 +73,7 @@ jobs:
           --set sharedIPRangesLAA=$SHARED_IP_RANGES_LAA \
           --force \
           --install
+
+      - name: Run Alembic migrations
+        run: |
+          alembic upgrade head

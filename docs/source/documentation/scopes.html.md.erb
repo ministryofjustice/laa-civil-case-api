@@ -12,16 +12,11 @@ There are four scopes which each correspond to a http method:
 Scopes are only assignable by the CLA team and you need to request which scopes you api requires as part of your account creation process
 
 ## Adding/updating user scopes
-
 The following overwrites the current user scopes with the ones given
 `python manage.py set-user-scopes <username> --scope=create --scope=read --scope=update`
 
 ## Listing user scopes
-
-To get a list of current scopes assign to a user do
-`python manage.py list-user-scopes <username>`
+To get a list of current scopes assign to a user do `python manage.py list-user-scopes <username>`
 
 ## List routes with scopes
-
-To get a list of all the routes which includes their scopes do
-`python manage.py list-routes`
+To get a list of all the routes which includes their scopes do `python manage.py list-routes`

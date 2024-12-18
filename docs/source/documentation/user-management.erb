@@ -8,16 +8,16 @@ Use `./manage.py add-user` to add users
 ```
  Usage: manage.py add-user [OPTIONS] USERNAME
 
-╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ *    username      TEXT  [default: None] [required]                                                          │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ *  --email                        TEXT  [default: None] [required]                                           │
-│ *  --full-name                    TEXT  [default: None] [required]                                           │
-│ *  --password                     TEXT  [default: None] [required]                                           │
-│    --disable      --no-disable          [default: no-disable]                                                │
-│    --help                               Show this message and exit.                                          │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Arguments
+*    username      TEXT  [default: None] [required]
+
+Options
+*  --email                        TEXT  [default: None] [required]
+*  --full-name                    TEXT  [default: None] [required]
+*  --password                     TEXT  [default: None] [required]
+  --disable      --no-disable          [default: no-disable]
+  --help                               Show this message and exit.
+
 
 Example: ./manage.py add-user test_user --email test.user@digital.justice.gov.uk --full-name "Test User" --password "password123"
 ```
@@ -27,17 +27,17 @@ Use `./manage.py update-user` to update users
 ```
 Usage: manage.py update-user [OPTIONS] USERNAME
 
-╭─ Arguments ────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ *    username      TEXT  [default: None] [required]                                                            │
-╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭─ Options ──────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ --email                        TEXT  [default: None]                                                           │
-│ --full-name                    TEXT  [default: None]                                                           │
-│ --password                     TEXT  [default: None]                                                           │
-│ --disable      --no-disable          [default: no-disable]                                                     │
-│ --enable       --no-enable           [default: no-enable]                                                      │
-│ --help                               Show this message and exit.                                               │
-╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Arguments
+*    username      TEXT  [default: None] [required]
+
+Options
+ --email                        TEXT  [default: None]
+ --full-name                    TEXT  [default: None]
+ --password                     TEXT  [default: None]
+ --disable      --no-disable          [default: no-disable]
+ --enable       --no-enable           [default: no-enable]
+ --help                               Show this message and exit.
+
 
 Example: ./manage.py update--user test_user --email test.user@justice.gov.uk --full-name "Sir Test User"
 ```
@@ -47,12 +47,12 @@ Use `./manage.py delete-user` to delete users
 ```
 Usage: manage.py delete-user [OPTIONS] USERNAME
 
-╭─ Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ *    username      TEXT  [default: None] [required]                                                           │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭─ Options ─────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ --help          Show this message and exit.                                                                   │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Arguments
+*    username      TEXT  [default: None] [required]
+
+Options
+ --help          Show this message and exit.
+
 ```
 ## List users
 Use `./manage.py list-user` to get a list of all users

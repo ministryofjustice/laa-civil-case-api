@@ -3,7 +3,7 @@ import uuid
 from fastapi.testclient import TestClient
 from sqlmodel import Session
 from app.models.cases import Case
-from tests.cases.utils import (
+from tests.v1.cases.utils import (
     assert_dicts_equal,
     get_case_test_data,
     create_test_case,

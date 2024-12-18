@@ -3,7 +3,7 @@ from sqlmodel import Session, select
 from fastapi.testclient import TestClient
 from app.models.case_adaptations import CaseAdaptations, Adaptations, Languages
 from app.models.cases import Case, CaseTypes
-from tests.cases.utils import get_case_test_data, assert_dicts_equal
+from tests.v1.cases.utils import get_case_test_data, assert_dicts_equal
 
 
 def create_case_adaptation(case_id=None):

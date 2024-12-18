@@ -56,6 +56,8 @@ def client_fixture(session: Session):
 
     case_api.dependency_overrides[get_session] = get_session_override
 
+    case_api.url_path_for = lambda name, **path_params: f"/v1{name}"
+
     client = TestClient(case_api)
     yield client
     case_api.dependency_overrides.clear()

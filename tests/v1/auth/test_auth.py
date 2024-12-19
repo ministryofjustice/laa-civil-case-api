@@ -18,7 +18,9 @@ from app.models.users import User, UserScopes
 
 
 def test_auth_fail_case(client: TestClient):
-    response = client.post("/cases/", json={"category": "Housing", "name": "John Doe"})
+    response = client.post(
+        "v1/cases/", json={"category": "Housing", "name": "John Doe"}
+    )
     json = response.json()
     assert json["detail"] == "Not authenticated"
     assert response.status_code == 401
@@ -26,7 +28,7 @@ def test_auth_fail_case(client: TestClient):
 
 def test_create_case_disabled_user(client: TestClient, auth_token_disabled_user):
     response = client.get(
-        "/cases/", headers={"Authorization": f"Bearer {auth_token_disabled_user}"}
+        "v1/cases/", headers={"Authorization": f"Bearer {auth_token_disabled_user}"}
     )
     json = response.json()
     assert json["detail"] == "User Disabled"
@@ -35,7 +37,7 @@ def test_create_case_disabled_user(client: TestClient, auth_token_disabled_user)
 
 def test_username_token_fail(client: TestClient):
     response = client.post(
-        "/token",
+        "v1/token",
         data={"username": "fake_user", "password": "incorrect"},
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
@@ -46,7 +48,7 @@ def test_username_token_fail(client: TestClient):
 
 def test_raw_token_fail(client: TestClient):
     response = client.post(
-        "/token",
+        "v1/token",
         data={"username": "cla_admin", "password": "cla_admin"},
         headers={"Content-Type": "raw"},
     )
@@ -55,7 +57,7 @@ def test_raw_token_fail(client: TestClient):
 
 def test_credential_exception(client: TestClient, auth_token):
     response = client.get(
-        "/cases/", headers={"Authorization": f"Bearer {auth_token} + 1"}
+        "v1/cases/", headers={"Authorization": f"Bearer {auth_token} + 1"}
     )
     json = response.json()
     assert json["detail"] == "Could not validate credentials"
@@ -67,7 +69,9 @@ def test_credential_exception_no_user(session, client: TestClient, auth_token):
     user = session.get(User, username)
     session.delete(user)
     session.commit()
-    response = client.get("/cases/", headers={"Authorization": f"Bearer {auth_token}"})
+    response = client.get(
+        "v1/cases/", headers={"Authorization": f"Bearer {auth_token}"}
+    )
     json = response.json()
     assert json["detail"] == "Could not validate credentials"
     assert response.status_code == 401
@@ -119,19 +123,19 @@ def test_token_defined_expiry():
 def test_scopes_missing_scopes(client: TestClient, session: Session):
     # Create the test user with no given scopes
     # They should not be able to access the GET /cases resource as that requires the  UserScopes.READ scope
-    assert_user_scope(session, client, [], "/cases", 401)
+    assert_user_scope(session, client, [], "v1/cases", 401)
 
 
 def test_scopes_incorrect_scope(client: TestClient, session: Session):
     # Create the test user with a UserScopes.CREATE scope
     # They should not be able to access the GET /cases resource as that requires the  UserScopes.READ scope
-    assert_user_scope(session, client, [UserScopes.CREATE], "/cases", 401)
+    assert_user_scope(session, client, [UserScopes.CREATE], "v1/cases", 401)
 
 
 def test_scopes_correct_scope(client: TestClient, session: Session):
     # Create the test user with a UserScopes.READ scope
     # They should be able to access the GET /cases resource as that requires the  UserScopes.READ scope
-    assert_user_scope(session, client, [UserScopes.READ], "/cases", 200)
+    assert_user_scope(session, client, [UserScopes.READ], "v1/cases", 200)
 
 
 def assert_user_scope(
@@ -152,7 +156,7 @@ def assert_user_scope(
 
     # Obtain an access token for the test user
     response = client.post(
-        "/token",
+        "v1/token",
         data={"username": username, "password": password},
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )

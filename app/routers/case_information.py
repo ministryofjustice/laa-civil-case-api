@@ -26,6 +26,7 @@ router = APIRouter(
 )
 
 
+@version("1")
 @router.get(
     "/{case_id}",
     tags=["cases"],
@@ -39,7 +40,7 @@ async def read_case(case_id: UUID, session: Session = Depends(get_session)) -> C
     return case
 
 
-@version("1", "2", "3")
+@version("1")
 @router.get(
     "/",
     tags=["cases"],
@@ -50,6 +51,7 @@ async def read_all_cases(session: Session = Depends(get_session)) -> Sequence[Ca
     return cases
 
 
+@version("1")
 @router.post(
     "/",
     tags=["cases"],
@@ -67,6 +69,7 @@ def create_case(
     return case
 
 
+@version("1")
 @router.put(
     "/{case_id}",
     tags=["cases"],

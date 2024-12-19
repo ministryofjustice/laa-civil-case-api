@@ -1,6 +1,9 @@
 from functools import wraps
 from fastapi import FastAPI, APIRouter
 from typing import Callable, List, Dict
+from fastapi.security import OAuth2PasswordBearer
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 versioned_endpoints: Dict[str, List[Callable]] = {}
 
@@ -57,12 +60,8 @@ class VersionedFastAPI(FastAPI):
             # Add the versioned router to the app
             self.include_router(version_router)
 
-        # Include non-versioned routes directly to the app
+        # Adds the security router as default
         for router in routers:
-            for route in router.routes:
-                if not any(
-                    route.endpoint in endpoints
-                    for endpoints in versioned_endpoints.values()
-                ):
-                    # Add authentication for non-versioned routes
+            if router.tags == ["security"]:
+                for route in router.routes:
                     self.router.routes.append(route)

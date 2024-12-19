@@ -1,0 +1,41 @@
+---
+title: API Versioning
+---
+
+# API Versioning
+Version control helps manage changes to an API without breaking existing integrations or disrupting users relying on older versions.
+Version control in our API is done using URL versioning.
+
+## URL Versioning
+URL versioning involves specifying the version number in the endpoint url path. 
+For example:
+```
+/v1/cases/{case_id}
+```
+
+Changes in version should be recorded in a version directory in app/routers with all the required routers.
+
+New router versions should be defined in the init file of that version.
+You will need to include each router in your version directory.
+
+```
+from fastapi import APIRouter
+from . import case_information, security
+
+router = APIRouter(prefix="/v1")
+router.include_router(case_information.router)
+router.include_router(security.router)
+```
+In the `main.py` file you will also need to include your new version router:
+
+```
+from .routers.v1 import router as v1_router
+
+def create_app() -> FastAPI:
+    app = FastAPI(**docs_config)
+    app.include_router(v1_router)
+
+    return app
+```
+
+This will establish a version route for your endpoint.

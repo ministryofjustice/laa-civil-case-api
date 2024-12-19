@@ -12,6 +12,7 @@ from app.models.cases import (
 from app.db import get_session
 from app.auth.security import get_current_active_user
 from app.models.users import UserScopes
+from app.versioning import version
 
 
 logger = structlog.getLogger(__name__)
@@ -38,6 +39,7 @@ async def read_case(case_id: UUID, session: Session = Depends(get_session)) -> C
     return case
 
 
+@version("1", "2", "3")
 @router.get(
     "/",
     tags=["cases"],

@@ -1,0 +1,40 @@
+---
+title: API Versioning
+---
+
+# API Versioning
+Version control helps manage changes to an API without breaking existing integrations or disrupting users relying on older versions.
+Version control in our API is done using URL versioning.
+
+## URL Versioning
+URL versioning involves specifying the version number in the endpoint url path. 
+For example:
+```
+/v1/cases/{case_id}
+```
+
+All versioning is handled via the versioning.py file in the app. This creates custom endpoints based
+on decorators. If no versions are specified, then the endpoint is not created.
+
+The exception to this is the security endpoint which only has one version to prevent vulnerabilities.
+
+Changes in version should be recorded on the required routers.
+
+Routers can also include multiple version which will create an endpoint for each version, such as:
+
+```
+@version("1","2","3")
+@router.get(
+    "/{case_id}",
+    tags=["cases"],
+    response_model=CaseResponse,
+    dependencies=[Security(get_current_active_user, scopes=[UserScopes.READ])],
+)
+```
+Which will create the endpoints:
+
+```
+/v1/cases/{case_id}
+/v2/cases/{case_id}
+/v3/cases/{case_id}
+```

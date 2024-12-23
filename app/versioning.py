@@ -62,6 +62,6 @@ class VersionedFastAPI(FastAPI):
 
         # Adds the security router as default
         for router in routers:
-            if router.tags == ["security"]:
+            if router.tags == ["Security"]:
                 for route in router.routes:
                     self.router.routes.append(route)

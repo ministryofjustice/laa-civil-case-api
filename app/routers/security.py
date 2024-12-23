@@ -15,7 +15,7 @@ from app.db import get_session
 
 
 router = APIRouter(
-    tags=["security"],
+    tags=["Security"],
     responses={404: {"description": "Not found"}},
 )
 

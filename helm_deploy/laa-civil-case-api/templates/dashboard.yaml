@@ -1,11 +1,15 @@
-{{- if eq .Values.environment "production" -}}
+{{- if eq .Values.environment "uat" -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: laa-civil-case-api-prod-dashboard
-  namespace: laa-civil-case-api-production
+  namespace: laa-civil-case-api-uat
   labels:
     grafana_dashboard: ""
+    app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name | quote }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace | quote }}
 data:
   laa-civil-case-api-dashboard.json: |
     {{ .Files.Get "files/dashboard.json" | toYaml }}

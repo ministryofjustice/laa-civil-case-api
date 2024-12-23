@@ -1,0 +1,12 @@
+{{- if eq .Values.environment "production" -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: laa-civil-case-api-prod-dashboard
+  namespace: laa-civil-case-api-production
+  labels:
+    grafana_dashboard: ""
+data:
+  laa-civil-case-api-dashboard.json: |
+    {{ .Files.Get "files/dashboard.json" | toYaml }}
+{{- end }}

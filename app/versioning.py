@@ -55,13 +55,8 @@ class VersionedFastAPI(FastAPI):
                             name=route.name,
                             summary=route.summary,
                             description=route.description,
+                            status_code=route.status_code,
                         )
 
             # Add the versioned router to the app
             self.include_router(version_router)
-
-        # Adds the security router as default
-        for router in routers:
-            if router.tags == ["Security"]:
-                for route in router.routes:
-                    self.router.routes.append(route)

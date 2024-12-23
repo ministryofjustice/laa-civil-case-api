@@ -93,3 +93,11 @@ def auth_token_disabled_user(client):
     token_data = response.json()
     assert "access_token" in token_data
     return token_data["access_token"]
+
+
+def with_versions(version_list):
+    def decorator(func):
+        # Apply pytest parameterization to the test function
+        return pytest.mark.parametrize("version", version_list)(func)
+
+    return decorator

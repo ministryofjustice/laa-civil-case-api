@@ -9,18 +9,23 @@ from tests.cases.utils import (
     create_test_case,
     remove_auto_generated_fields,
 )
+from tests.conftest import with_versions
 
 
-def test_case_create_request(client_authed: TestClient, session: Session):
+@with_versions(["v1"])
+def test_case_create_request(client_authed: TestClient, session: Session, version):
     test_data = get_case_test_data()
-    response_json = client_authed.post("/cases", json=test_data).json()
+    response_json = client_authed.post(f"{version}/cases", json=test_data).json()
     assert_dicts_equal(response_json, test_data)
 
 
-def test_case_create_request_minimal(client_authed: TestClient, session: Session):
+@with_versions(["v1"])
+def test_case_create_request_minimal(
+    client_authed: TestClient, session: Session, version
+):
     """Test the minimum data required to create a case."""
     test_data = {"case_type": "Check if your client qualifies for legal aid"}
-    response_json = client_authed.post("/cases", json=test_data).json()
+    response_json = client_authed.post(f"{version}/cases", json=test_data).json()
 
     expected_data = {
         **test_data,
@@ -35,17 +40,19 @@ def test_case_create_request_minimal(client_authed: TestClient, session: Session
     assert_dicts_equal(response_json, expected_data)
 
 
+@with_versions(["v1"])
 def test_case_create_request_not_enough_data(
-    client_authed: TestClient, session: Session
+    client_authed: TestClient, session: Session, version
 ):
     """Test that we cannot create a without providing the minimum data required."""
     test_data = {}
-    response = client_authed.post("/cases", json=test_data)
+    response = client_authed.post(f"{version}/cases", json=test_data)
     assert response.status_code == 422
     assert response.reason_phrase == "Unprocessable Entity"
 
 
-def test_case_update_request(client_authed: TestClient, session: Session):
+@with_versions(["v1"])
+def test_case_update_request(client_authed: TestClient, session: Session, version):
     """Test we can update a case"""
     original_case = create_test_case(session)
     test_data = {
@@ -69,7 +76,7 @@ def test_case_update_request(client_authed: TestClient, session: Session):
         ],
     }
 
-    response = client_authed.put(f"/cases/{original_case.id}", json=test_data)
+    response = client_authed.put(f"{version}/cases/{original_case.id}", json=test_data)
     updated_case = session.get(Case, original_case.id)
     assert response.status_code == 200
     assert updated_case.case_type == "Civil Legal Advice"
@@ -93,7 +100,10 @@ def test_case_update_request(client_authed: TestClient, session: Session):
         assert actual == expected, "Expected eligibility_outcomes did not match"
 
 
-def test_case_update_existing_request(client_authed: TestClient, session: Session):
+@with_versions(["v1"])
+def test_case_update_existing_request(
+    client_authed: TestClient, session: Session, version
+):
     """Test we can update a case with an existing person"""
     original_case = create_test_case(session)
     original_created_at = original_case.people[0].created_at
@@ -113,14 +123,17 @@ def test_case_update_existing_request(client_authed: TestClient, session: Sessio
         ],
     }
 
-    response = client_authed.put(f"/cases/{original_case.id}", json=test_data)
+    response = client_authed.put(f"{version}/cases/{original_case.id}", json=test_data)
     updated_case = session.get(Case, original_case.id)
     assert response.status_code == 200
     assert updated_case.people[0].updated_at > original_updated_at
     assert updated_case.people[0].created_at == original_created_at
 
 
-def test_case_update_invalid_id_request(client_authed: TestClient, session: Session):
+@with_versions(["v1"])
+def test_case_update_invalid_id_request(
+    client_authed: TestClient, session: Session, version
+):
     """Test that updating a nested relationship with an invalid id results in an error."""
     case = create_test_case(session)
     test_data = {
@@ -137,5 +150,5 @@ def test_case_update_invalid_id_request(client_authed: TestClient, session: Sess
         ],
     }
 
-    response = client_authed.put(f"/cases/{case.id}", json=test_data)
+    response = client_authed.put(f"{version}/cases/{case.id}", json=test_data)
     assert response.status_code == 404

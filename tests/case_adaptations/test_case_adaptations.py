@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 from app.models.case_adaptations import CaseAdaptations, Adaptations, Languages
 from app.models.cases import Case, CaseTypes
 from tests.cases.utils import get_case_test_data, assert_dicts_equal
+from tests.conftest import with_versions
 
 
 def create_case_adaptation(case_id=None):
@@ -35,18 +36,20 @@ def test_cascade_delete(session: Session):
     assert session.exec(select(CaseAdaptations)).all() == []
 
 
-def test_request_create_case_with_adaptations(client_authed: TestClient):
+@with_versions(["v1"])
+def test_request_create_case_with_adaptations(client_authed: TestClient, version):
     """Test creating a case with adaptations through the api."""
     case_data = get_case_test_data()
-    response = client_authed.post("/cases/", json=case_data)
+    response = client_authed.post(f"{version}/cases/", json=case_data)
     assert response.status_code == 201
     assert_dicts_equal(
         response.json()["case_adaptations"], case_data["case_adaptations"]
     )
 
 
+@with_versions(["v1"])
 def test_request_update_case_with_adaptations(
-    client_authed: TestClient, session: Session
+    client_authed: TestClient, session: Session, version
 ):
     """Test updating a case with adaptations through the api."""
     case = Case(case_type=CaseTypes.CLA)
@@ -54,25 +57,27 @@ def test_request_update_case_with_adaptations(
     session.commit()
 
     adaptations_data = {"case_adaptations": get_case_test_data()["case_adaptations"]}
-    response = client_authed.put(f"/cases/{case.id}", json=adaptations_data)
+    response = client_authed.put(f"{version}/cases/{case.id}", json=adaptations_data)
     assert response.status_code == 200
     assert_dicts_equal(
         response.json()["case_adaptations"], adaptations_data["case_adaptations"]
     )
 
 
-def test_request_create_case_without_adaptations(client_authed: TestClient):
+@with_versions(["v1"])
+def test_request_create_case_without_adaptations(client_authed: TestClient, version):
     """Test creating a case without adaptations through the api."""
     case_data = get_case_test_data()
     del case_data["case_adaptations"]
 
-    response = client_authed.post("/cases/", json=case_data)
+    response = client_authed.post(f"{version}/cases/", json=case_data)
     assert response.status_code == 201
     assert response.json()["case_adaptations"] is None
 
 
+@with_versions(["v1"])
 def test_request_update_case_without_adaptations(
-    client_authed: TestClient, session: Session
+    client_authed: TestClient, session: Session, version
 ):
     """Test updating a case without adaptations through the api."""
     case = Case(case_type=CaseTypes.CLA)
@@ -81,6 +86,6 @@ def test_request_update_case_without_adaptations(
     case_data = get_case_test_data()
     del case_data["case_adaptations"]
 
-    response = client_authed.put(f"/cases/{case.id}", json=case_data)
+    response = client_authed.put(f"{version}/cases/{case.id}", json=case_data)
     assert response.status_code == 200
     assert response.json()["case_adaptations"] is None

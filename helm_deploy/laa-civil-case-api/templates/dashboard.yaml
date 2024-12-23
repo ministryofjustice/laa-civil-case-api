@@ -12,5 +12,5 @@ metadata:
     meta.helm.sh/release-namespace: {{ .Release.Namespace | quote }}
 data:
   laa-civil-case-api-dashboard.json: |
-    {{ .Files.Get "files/dashboard.json" | indent 4 }}
+{{ .Files.Get "files/dashboard.json" | indent 4 }}
 {{- end }}

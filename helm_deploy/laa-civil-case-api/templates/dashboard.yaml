@@ -1,9 +1,9 @@
-{{- if eq .Values.environment "uat" -}}
+{{- if eq .Values.environment "production" -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: laa-civil-case-api-prod-dashboard
-  namespace: laa-civil-case-api-uat
+  namespace: laa-civil-case-api-production
   labels:
     grafana_dashboard: ""
     app.kubernetes.io/managed-by: {{ .Release.Service | quote }}

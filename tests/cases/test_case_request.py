@@ -13,14 +13,14 @@ from tests.cases.utils import (
 
 def test_case_create_request(client_authed: TestClient, session: Session):
     test_data = get_case_test_data()
-    response_json = client_authed.post("/cases", json=test_data).json()
+    response_json = client_authed.post("latest/cases", json=test_data).json()
     assert_dicts_equal(response_json, test_data)
 
 
 def test_case_create_request_minimal(client_authed: TestClient, session: Session):
     """Test the minimum data required to create a case."""
     test_data = {"case_type": "Check if your client qualifies for legal aid"}
-    response_json = client_authed.post("/cases", json=test_data).json()
+    response_json = client_authed.post("latest/cases", json=test_data).json()
 
     expected_data = {
         **test_data,
@@ -40,7 +40,7 @@ def test_case_create_request_not_enough_data(
 ):
     """Test that we cannot create a without providing the minimum data required."""
     test_data = {}
-    response = client_authed.post("/cases", json=test_data)
+    response = client_authed.post("latest/cases", json=test_data)
     assert response.status_code == 422
     assert response.reason_phrase == "Unprocessable Entity"
 
@@ -69,7 +69,7 @@ def test_case_update_request(client_authed: TestClient, session: Session):
         ],
     }
 
-    response = client_authed.put(f"/cases/{original_case.id}", json=test_data)
+    response = client_authed.put(f"latest/cases/{original_case.id}", json=test_data)
     updated_case = session.get(Case, original_case.id)
     assert response.status_code == 200
     assert updated_case.case_type == "Civil Legal Advice"
@@ -113,7 +113,7 @@ def test_case_update_existing_request(client_authed: TestClient, session: Sessio
         ],
     }
 
-    response = client_authed.put(f"/cases/{original_case.id}", json=test_data)
+    response = client_authed.put(f"latest/cases/{original_case.id}", json=test_data)
     updated_case = session.get(Case, original_case.id)
     assert response.status_code == 200
     assert updated_case.people[0].updated_at > original_updated_at
@@ -137,5 +137,5 @@ def test_case_update_invalid_id_request(client_authed: TestClient, session: Sess
         ],
     }
 
-    response = client_authed.put(f"/cases/{case.id}", json=test_data)
+    response = client_authed.put(f"latest/cases/{case.id}", json=test_data)
     assert response.status_code == 404

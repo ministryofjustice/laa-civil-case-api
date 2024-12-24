@@ -1,0 +1,68 @@
+---
+title: API Versioning
+---
+
+# API Versioning
+Version control helps manage changes to an API without breaking existing integrations or disrupting users relying on older versions.
+Version control in our API is done using URL versioning.
+
+## URL Versioning
+URL versioning involves specifying the version number in the endpoint url path.
+For example:
+```
+/latest/cases
+/v1/cases/{case_id}
+```
+
+All versioning is handled via the external python package fastapi-versionizer ```https://pypi.org/project/fastapi-versionizer/```.
+This handles all additional changes to routes. By default, fastapi-versionizer creates version 1 and adds all endpoints to it.
+
+### Updating the version
+To add a new version, add the @api_version to the router. This will update all routers with the new version and 
+update the latest to this version. For example:
+
+```
+from fastapi_versionizer.versionizer import api_version
+
+@api_version(2)
+@router.get(
+    "/{case_id}",
+    tags=["cases"],
+    response_model=CaseResponse,
+    dependencies=[Security(get_current_active_user, scopes=[UserScopes.READ])],
+)
+```
+
+### Removing an endpoint
+To remove an endpoint, define the version the endpoint is no longer available in:
+
+```
+from fastapi_versionizer.versionizer import api_version
+
+@api_version(1, remove_in_major=2)
+@router.get(
+    "/{case_id}",
+    tags=["cases"],
+    response_model=CaseResponse,
+    dependencies=[Security(get_current_active_user, scopes=[UserScopes.READ])],
+)
+```
+
+The above example will remove the endpoint in version 2. This means that /v1/cases/{case_id} will still be available.
+
+### Deprecating an endpoint
+To deprecate an endpoint, add the following to the router:
+
+```
+@router.get(
+    "/{case_id}",
+    tags=["cases"],
+    response_model=CaseResponse,
+    dependencies=[Security(get_current_active_user, scopes=[UserScopes.READ])],
+    deprecated=True,
+)
+```
+
+### Documentation
+All swaggerdocs in relation to the version can be seen by using the version suffix in the url, for example 
+```http://0.0.0.0:8027/v1/``` or ```http://0.0.0.0:8027/latest/```.

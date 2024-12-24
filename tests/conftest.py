@@ -65,7 +65,7 @@ def client_fixture(session: Session):
 def auth_token(client):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(
-        "/token",
+        "latest/token",
         data={"username": "cla_admin", "password": "cla_admin"},
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
@@ -85,7 +85,7 @@ def client_authed(auth_token, client: TestClient, session: Session):
 def auth_token_disabled_user(client):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(
-        "/token",
+        "latest/token",
         data={"username": "jane_doe", "password": "password"},
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )

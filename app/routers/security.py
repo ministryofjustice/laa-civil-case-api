@@ -13,7 +13,6 @@ from sqlmodel import Session
 
 from app.db import get_session
 
-
 router = APIRouter(
     responses={404: {"description": "Not found"}},
 )

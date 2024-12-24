@@ -13,7 +13,6 @@ from app.db import get_session
 from app.auth.security import get_current_active_user
 from app.models.users import UserScopes
 
-
 logger = structlog.getLogger(__name__)
 
 

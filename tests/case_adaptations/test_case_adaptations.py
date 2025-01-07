@@ -38,7 +38,7 @@ def test_cascade_delete(session: Session):
 def test_request_create_case_with_adaptations(client_authed: TestClient):
     """Test creating a case with adaptations through the api."""
     case_data = get_case_test_data()
-    response = client_authed.post("/cases/", json=case_data)
+    response = client_authed.post("latest/cases/", json=case_data)
     assert response.status_code == 201
     assert_dicts_equal(
         response.json()["case_adaptations"], case_data["case_adaptations"]
@@ -54,7 +54,7 @@ def test_request_update_case_with_adaptations(
     session.commit()
 
     adaptations_data = {"case_adaptations": get_case_test_data()["case_adaptations"]}
-    response = client_authed.put(f"/cases/{case.id}", json=adaptations_data)
+    response = client_authed.put(f"latest/cases/{case.id}", json=adaptations_data)
     assert response.status_code == 200
     assert_dicts_equal(
         response.json()["case_adaptations"], adaptations_data["case_adaptations"]
@@ -66,7 +66,7 @@ def test_request_create_case_without_adaptations(client_authed: TestClient):
     case_data = get_case_test_data()
     del case_data["case_adaptations"]
 
-    response = client_authed.post("/cases/", json=case_data)
+    response = client_authed.post("latest/cases/", json=case_data)
     assert response.status_code == 201
     assert response.json()["case_adaptations"] is None
 
@@ -81,6 +81,6 @@ def test_request_update_case_without_adaptations(
     case_data = get_case_test_data()
     del case_data["case_adaptations"]
 
-    response = client_authed.put(f"/cases/{case.id}", json=case_data)
+    response = client_authed.put(f"latest/cases/{case.id}", json=case_data)
     assert response.status_code == 200
     assert response.json()["case_adaptations"] is None

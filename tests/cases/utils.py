@@ -23,15 +23,15 @@ def assert_dicts_equal(dict1, dict2):
         if isinstance(dict1[key], dict) and isinstance(dict2[key], dict) and dict1[key]:
             assert_dicts_equal(dict1[key], dict2[key])  # Recursively check nested dicts
         elif is_list_of_dicts(dict1[key]) and is_list_of_dicts(dict2[key]):
-            assert len(dict1[key]) == len(
-                dict2[key]
-            ), f"{key} does not contain the same count of items in both dicts"
+            assert len(dict1[key]) == len(dict2[key]), (
+                f"{key} does not contain the same count of items in both dicts"
+            )
             for index, item in enumerate(dict1[key]):
                 assert_dicts_equal(dict1[key][index], dict2[key][index])
         else:
-            assert (
-                dict1[key] == dict2[key]
-            ), f"Mismatch at key '{key}': {dict1[key]} != {dict2[key]}"
+            assert dict1[key] == dict2[key], (
+                f"Mismatch at key '{key}': {dict1[key]} != {dict2[key]}"
+            )
 
 
 def create_test_case(session: Session) -> Case:

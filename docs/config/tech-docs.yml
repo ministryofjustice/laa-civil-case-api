@@ -9,7 +9,7 @@ phase: Alpha
 
 # Links to show on right-hand-side of header
 header_links:
-  Swagger Docs: https://moj-documentation-template-civil-case-api.cloud-platform.service.justice.gov.uk/
+  Swagger Docs: https://laa-civil-case-api-uat.cloud-platform.service.justice.gov.uk/
   Documentation: https://ministryofjustice.github.io/laa-civil-case-api
   GitHub: https://github.com/ministryofjustice/laa-civil-case-api
 

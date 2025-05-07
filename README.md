@@ -84,7 +84,7 @@ ruff format
 ### Manually running secret detection
 The ggshield package looks for any exposed secrets in your project based on entropy.
 
-You will need to authorise ggshield locally using the below command:
+You may be required to authorise ggshield locally using the below command:
 ```shell
 ggshield auth login
 ```

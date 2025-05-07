@@ -83,9 +83,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install -r requirements/generated/requirements-development.txt
-    - name: Authorise ggshield
-      run: ggshield auth login
     - name: Run ggshield Scan
+      env:
+        GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
       run: ggshield --config-path .gitguardian.yaml secret scan path -r .
     - name: Check for Secrets
       if: failure()

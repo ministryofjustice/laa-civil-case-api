@@ -65,8 +65,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  trufflehog-scan:
-    name: Secret scan using Trufflehog
+  ggshield-scan:
+    name: Secret scan using ggshield
     runs-on: ubuntu-latest
 
     steps:
@@ -83,8 +83,8 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install -r requirements/generated/requirements-development.txt
-    - name: Run TruffleHog Scan
-      run: trufflehog3 filesystem .
+    - name: Run ggshield Scan
+      run: ggshield --config-path .gitguardian.yaml secret scan path -r .
     - name: Check for Secrets
       if: failure()
       run: exit 1

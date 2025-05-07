@@ -28,8 +28,8 @@ repos:
       - id: ruff-format
   - repo: local
     hooks:
-      - id: trufflehog3
-        name: truffleHog3
-        entry: bash -c 'trufflehog3 filesystem .'
+      - id: ggshield
+        name: ggshield
+        entry: bash -c 'ggshield --config-path .gitguardian.yaml secret scan path -r .'
         language: system
         stages: ["commit", "push"]

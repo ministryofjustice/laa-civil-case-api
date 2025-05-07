@@ -1,2 +1,2 @@
 ruff==0.11.8
-trufflehog3==3.0.10
+ggshield==1.39.0

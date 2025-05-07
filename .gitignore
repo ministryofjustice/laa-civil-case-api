@@ -13,3 +13,4 @@ database.db
 .idea
 .venv
 .coverage
+.cache_ggshield

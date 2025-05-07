@@ -62,7 +62,7 @@ For information on writing tests please see [here](./tests/README.md).
 The following will:
 - Generate requirement.txt files from files inside requirements/source/*.in and put them into requirements/generated/*.txt
 - Run linting checks with ruff
-- Run secret detection via trufflehog3
+- Run secret detection via ggshield
 
 ```shell
 pre-commit install
@@ -82,11 +82,11 @@ ruff format
 ```
 
 ### Manually running secret detection
-The trufflehog3 package looks for any exposed secrets in your project.
+The ggshield package looks for any exposed secrets in your project based on entropy.
 
-To use trufflehog on your current project, run:
+To use ggshield on your current project, run:
 ```shell
-trufflehog3 filesystem .
+ggshield --config-path .gitguardian.yaml secret scan path -r .
 ```
 
 ## Development

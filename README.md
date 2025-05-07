@@ -84,6 +84,11 @@ ruff format
 ### Manually running secret detection
 The ggshield package looks for any exposed secrets in your project based on entropy.
 
+You will need to authorise ggshield using the below command:
+```shell
+ggshield auth login
+```
+
 To use ggshield on your current project, run:
 ```shell
 ggshield --config-path .gitguardian.yaml secret scan path -r .

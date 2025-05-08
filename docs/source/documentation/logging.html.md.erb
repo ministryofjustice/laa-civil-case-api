@@ -1,0 +1,38 @@
+---
+title: Logging
+---
+
+# Logging
+
+We use StructLog for logging, you can log using the following syntax.
+
+```python
+import structlog
+
+logger = structlog.getLogger(__name__)
+
+logger.info("Case created", case_id=1)
+logger.warning("Case not found", case_id=2)
+logger.error("Attribute does not exist on case", case_id=3, attribute_name="type")
+```
+
+## Non-local environments
+When running on a non-local environment JSON will be sent to the standard output with the following format:
+
+```json
+{"event": "Application startup complete.", "logger": "uvicorn.error", "level": "info", "timestamp": "2024-11-18T00:10:41.055251Z"}
+{"case_id": "2234", "event": "Case created", "logger": "app.routers.case_information", "level": "info", "timestamp": "2024-11-18T00:10:57.719788Z"}
+```
+
+## Local environments
+
+When running locally, the logs will be formatted using a modified version of the uvicorn log format which supports showing additional attributes:
+
+```
+INFO:     Application startup complete.
+INFO:     Case created - case_id: 3e000639-46ee-4081-901c-20a3f2894b4f
+INFO:     127.0.0.1:51782 - "POST /cases/ HTTP/1.1" 201
+```
+
+## Configuration
+The logging configuration is set by `Config.LOGGER_CONFIG`, it can either be `STRUCTURED_LOGGING`, or `DEVELOPMENT_LOGGING`

@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy.orm import sessionmaker
 
 from app.auth.security import get_password_hash
-from app.models.users import User
+from app.models.users import User, UserScopes
 
 SECRET_KEY = "TEST_KEY"
 
@@ -33,7 +33,15 @@ def session_fixture():
 
             password = get_password_hash(password)
             new_user = User(
-                username=username, hashed_password=password, disabled=disabled
+                username=username,
+                hashed_password=password,
+                disabled=disabled,
+                scopes=[
+                    UserScopes.CREATE,
+                    UserScopes.READ,
+                    UserScopes.UPDATE,
+                    UserScopes.DELETE,
+                ],
             )
             db_session.add(new_user)
 
@@ -57,7 +65,7 @@ def client_fixture(session: Session):
 def auth_token(client):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(
-        "/token",
+        "latest/token",
         data={"username": "cla_admin", "password": "cla_admin"},
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
@@ -77,7 +85,7 @@ def client_authed(auth_token, client: TestClient, session: Session):
 def auth_token_disabled_user(client):
     # Send POST request with x-www-form-urlencoded data
     response = client.post(
-        "/token",
+        "latest/token",
         data={"username": "jane_doe", "password": "password"},
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )

@@ -26,3 +26,49 @@ This API is not responsible for the validity of the data, this is the responsibi
 The following is the current data structure for resources accessible in the API.
 
 ![Entity Relationship Diagram](../images/civil_case_data_erd.png)
+
+## Support
+
+This API is maintained by the Civil Legal Advice team.
+
+If you require support please reach out to `#laa-cla-dev`
+
+## Test Environments
+
+We plan on supporting the following test environment, with endpoints which will mirror production.
+
+```
+laa-civil-case-api-uat.cloud-platform.service.justice.gov.uk/
+```
+
+To integrate with this environment you will require test credentials.
+
+## Access
+
+To use the API you will need a JSON Web Token (JWT) which can be obtained from the `/token` endpoint.
+
+You will need to send a `POST` request with the following headers:
+
+```json
+{
+    "accept": "application/json",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+```
+
+and body:
+
+```json
+ {
+    "grant_type": "password",
+    "username": "string",
+    "password": "string",
+    "scope": "",
+    "client_id": "string",
+    "client_secret": "string"
+  }
+```
+
+The `/token` endpoint generates the required access token to allow a user to access the service. When submitting other requests, the request needs to contain this authorisation bearer token.
+
+All access tokens are valid for 30 minutes on the API.

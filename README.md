@@ -62,7 +62,6 @@ For information on writing tests please see [here](./tests/README.md).
 The following will:
 - Generate requirement.txt files from files inside requirements/source/*.in and put them into requirements/generated/*.txt
 - Run linting checks with ruff
-- Run secret detection via trufflehog3
 
 ```shell
 pre-commit install
@@ -82,12 +81,7 @@ ruff format
 ```
 
 ### Manually running secret detection
-The trufflehog3 package looks for any exposed secrets in your project.
-
-To use trufflehog on your current project, run:
-```shell
-trufflehog3 filesystem .
-```
+Secret detection is currently disabled due to conflicting versions.
 
 ## Development
 For information on how to contribute please see the following:

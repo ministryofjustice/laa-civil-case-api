@@ -26,10 +26,3 @@ repos:
       - id: ruff
         args: [ --fix ]
       - id: ruff-format
-  - repo: local
-    hooks:
-      - id: ggshield
-        name: ggshield
-        entry: bash -c 'ggshield --config-path .gitguardian.yaml secret scan path -r .'
-        language: system
-        stages: ["commit", "push"]

@@ -62,7 +62,6 @@ For information on writing tests please see [here](./tests/README.md).
 The following will:
 - Generate requirement.txt files from files inside requirements/source/*.in and put them into requirements/generated/*.txt
 - Run linting checks with ruff
-- Run secret detection via ggshield
 
 ```shell
 pre-commit install
@@ -82,17 +81,7 @@ ruff format
 ```
 
 ### Manually running secret detection
-The ggshield package looks for any exposed secrets in your project based on entropy.
-
-You may be required to authorise ggshield locally using the below command:
-```shell
-ggshield auth login
-```
-
-To use ggshield on your current project, run:
-```shell
-ggshield --config-path .gitguardian.yaml secret scan path -r .
-```
+Secret detection is currently disabled due to conflicting versions.
 
 ## Development
 For information on how to contribute please see the following:

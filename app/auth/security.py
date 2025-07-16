@@ -16,7 +16,7 @@ import logging
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 SECRET_KEY = Config.SECRET_KEY
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/latest/token")
 
 
 def verify_password(plain_password, hashed_password):

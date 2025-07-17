@@ -10,6 +10,21 @@ class ReasonableAdjustments(BaseModel):
     additionalInfo: Optional[str] = ""
 
 
+class ThirdParty(BaseModel):
+    """Third party contact information structure."""
+
+    fullName: str
+    emailAddress: Optional[str] = None
+    contactNumber: Optional[str] = None
+    safeToCall: bool = False
+    address: Optional[str] = None
+    postcode: Optional[str] = None
+    relationshipToClient: Optional[dict] = None
+    passphraseSetUp: bool = False
+    passphraseNotSetUpReason: Optional[str] = ""
+    passphrase: Optional[str] = ""
+
+
 class MockCase(BaseModel):
     """Mock case data structure."""
 
@@ -31,3 +46,4 @@ class MockCase(BaseModel):
     address: Optional[str] = ""
     postcode: Optional[str] = ""
     laaReference: Optional[str] = ""
+    thirdParty: Optional[ThirdParty] = None

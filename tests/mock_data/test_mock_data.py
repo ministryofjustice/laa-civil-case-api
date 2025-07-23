@@ -391,6 +391,32 @@ class TestHelperFunctions:
             # Test pagination is set
             assert "X-Total-Count" in response.headers
 
+    def test_update_case_by_reference_success(self, mock_data):
+        """Test updating a case by reference only changes provided fields."""
+        from app.routers.mock_data import update_case_by_reference
+
+        # Patch load_mock_data to return mock_data, patch open for writing
+        with patch("app.routers.mock_data.load_mock_data", return_value=mock_data):
+            m = mock_open()
+            with patch("builtins.open", m):
+                update_data = {"fullName": "Updated Name", "language": "Spanish"}
+                updated = update_case_by_reference("PC-3184-5962", update_data)
+                assert updated["fullName"] == "Updated Name"
+                assert updated["language"] == "Spanish"
+                # Unchanged fields remain
+                assert updated["caseReference"] == "PC-3184-5962"
+                # Check file write
+                m.assert_called_once()
+
+    def test_update_case_by_reference_not_found(self, mock_data):
+        """Test updating a case by reference raises 404 if not found."""
+        from app.routers.mock_data import update_case_by_reference
+
+        with patch("app.routers.mock_data.load_mock_data", return_value=mock_data):
+            with pytest.raises(HTTPException) as exc_info:
+                update_case_by_reference("NON-EXISTENT-REF", {"fullName": "Nope"})
+            assert exc_info.value.status_code == 404
+
 
 class TestMockDataEndpoints:
     """Test the mock data API endpoints."""
@@ -462,6 +488,29 @@ class TestMockDataEndpoints:
 
             # Test not found case
             response = client.get("/latest/mock/cases/PC-0000-0000")
+            assert response.status_code == 404
+
+    def test_put_case_by_reference(self, client, mock_data):
+        """Test updating a mock case by reference using PUT endpoint."""
+        with patch("app.routers.mock_data.load_mock_data", return_value=mock_data):
+            m = mock_open()
+            with patch("builtins.open", m):
+                update_data = {"fullName": "Updated Name", "language": "Spanish"}
+                response = client.put(
+                    "/latest/mock/cases/PC-3184-5962", json=update_data
+                )
+                assert response.status_code == 200
+                data = response.json()
+                assert data["fullName"] == "Updated Name"
+                assert data["language"] == "Spanish"
+                assert data["caseReference"] == "PC-3184-5962"
+                m.assert_called_once()
+
+        # Test not found case
+        with patch("app.routers.mock_data.load_mock_data", return_value=mock_data):
+            response = client.put(
+                "/latest/mock/cases/NON-EXISTENT-REF", json={"fullName": "Nope"}
+            )
             assert response.status_code == 404
 
 

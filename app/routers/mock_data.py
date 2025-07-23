@@ -1,7 +1,7 @@
 import json
 import math
 from typing import List, Dict, Any, Optional
-from fastapi import APIRouter, HTTPException, Query, Response
+from fastapi import APIRouter, HTTPException, Query, Response, Body
 from pathlib import Path
 from ..models.mock_case import MockCase
 
@@ -11,16 +11,19 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
+MOCK_DATA_PATH = Path(__file__).parent.parent / "data" / "mock_cases.json"
+
 
 def load_mock_data() -> List[Dict[str, Any]]:
     """Load mock case data from JSON file."""
-    mock_data_path = Path(__file__).parent.parent / "data" / "mock_cases.json"
+    if not MOCK_DATA_PATH.exists():
+        raise HTTPException(status_code=404, detail="Mock data file not found")
 
-    if not mock_data_path.exists():
+    if not MOCK_DATA_PATH.exists():
         raise HTTPException(status_code=404, detail="Mock data file not found")
 
     try:
-        with open(mock_data_path, "r", encoding="utf-8") as file:
+        with open(MOCK_DATA_PATH, "r", encoding="utf-8") as file:
             return json.load(file)
     except json.JSONDecodeError:
         raise HTTPException(status_code=500, detail="Invalid JSON in mock data file")
@@ -28,6 +31,24 @@ def load_mock_data() -> List[Dict[str, Any]]:
         raise HTTPException(
             status_code=500, detail=f"Error loading mock data: {str(e)}"
         )
+
+
+def update_case_by_reference(case_reference: str, update_data: dict) -> dict:
+    """Update a case in the JSON file by reference, only changing provided fields."""
+    cases = load_mock_data()
+
+    for idx, case in enumerate(cases):
+        if case.get("caseReference") == case_reference:
+            for key, value in update_data.items():
+                case[key] = value
+            cases[idx] = case
+            with open(MOCK_DATA_PATH, "w", encoding="utf-8") as file:
+                json.dump(cases, file, indent=2, ensure_ascii=False)
+            return case
+
+    raise HTTPException(
+        status_code=404, detail=f"Case with reference '{case_reference}' not found"
+    )
 
 
 def filter_cases_by_status(
@@ -194,3 +215,19 @@ async def get_mock_case_by_reference(case_reference: str) -> MockCase:
     raise HTTPException(
         status_code=404, detail=f"Case with reference '{case_reference}' not found"
     )
+
+
+@router.put(
+    "/cases/{case_reference}",
+    tags=["mock"],
+    response_model=MockCase,
+    summary="Update mock case by reference (partial update)",
+    description="Updates fields of a specific mock case by case reference. Only provided fields will be changed.",
+)
+async def put_case_by_reference(
+    case_reference: str,
+    update_data: dict = Body(..., example={"fullName": "New Name"}),
+) -> MockCase:
+    """Update fields of a specific mock case by case reference."""
+    updated_case = update_case_by_reference(case_reference, update_data)
+    return MockCase(**updated_case)

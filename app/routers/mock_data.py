@@ -112,6 +112,51 @@ def set_pagination_headers(response: Response, total_count: int, page: int, limi
     response.headers["X-Total-Pages"] = str(total_pages)
 
 
+def search_cases(
+    cases: List[Dict[str, Any]],
+    keyword: str,
+) -> List[Dict[str, Any]]:
+    """Search cases by keyword across multiple fields with specific matching rules."""
+    # Return empty list if keyword is empty or just whitespace
+    if not keyword or not keyword.strip():
+        return []
+
+    keyword_lower = keyword.lower()
+    keyword_no_spaces = keyword.replace(" ", "").lower()
+
+    def matches_case(case: Dict[str, Any]) -> bool:
+        """Check if a case matches the search keyword."""
+        if not case or not isinstance(case, dict) or not case.get("caseReference"):
+            return False
+
+        # Define search criteria as a list of (field_value, match_type) tuples
+        search_criteria = [
+            # Case reference (exact match, case-insensitive)
+            (str(case.get("caseReference", "")).lower(), "exact", keyword_lower),
+            # Phone number (exact match)
+            (str(case.get("phoneNumber", "")), "exact", keyword),
+            # Full name (partial match, case-insensitive)
+            (str(case.get("fullName", "")).lower(), "partial", keyword_lower),
+            # Postcode (exact match, case-insensitive, ignore whitespace)
+            (
+                str(case.get("postcode", "")).replace(" ", "").lower(),
+                "exact",
+                keyword_no_spaces,
+            ),
+            # Address (partial match, case-insensitive)
+            (str(case.get("address", "")).lower(), "partial", keyword_lower),
+        ]
+
+        # Check if any criteria matches
+        return any(
+            (match_type == "exact" and field_value == search_value)
+            or (match_type == "partial" and search_value in field_value)
+            for field_value, match_type, search_value in search_criteria
+        )
+
+    return [case for case in cases if matches_case(case)]
+
+
 def get_cases_by_status(
     status: str,
     response: Response,
@@ -231,3 +276,45 @@ async def put_case_by_reference(
     """Update fields of a specific mock case by case reference."""
     updated_case = update_case_by_reference(case_reference, update_data)
     return MockCase(**updated_case)
+
+
+@router.get(
+    "/cases/search",
+    tags=["mock"],
+    response_model=List[MockCase],
+    summary="Search mock cases",
+    description="Search cases by keyword across case reference, phone number, full name, postcode, and address with optional status filter. Results are sorted by lastModified date.",
+)
+async def search_mock_cases(
+    response: Response,
+    keyword: str = Query(..., description="Keyword to search across multiple fields"),
+    status: Optional[str] = Query(
+        None, description="Filter by case status: new, opened, closed, accepted"
+    ),
+    sortOrder: Optional[str] = Query(
+        "desc", description="Sort order 'asc' or 'desc' by lastModified date"
+    ),
+    page: int = Query(1, ge=1, description="Page number starting from 1"),
+    limit: int = Query(20, ge=1, le=100, description="Number of records per page"),
+) -> List[MockCase]:
+    """Search cases by keyword across multiple fields with pagination, optional status filter, and sorting by lastModified date."""
+    all_cases = load_mock_data()
+
+    # Apply search filter
+    filtered_cases = search_cases(all_cases, keyword)
+
+    # Apply status filter if provided
+    if status:
+        filtered_cases = filter_cases_by_status(filtered_cases, status)
+
+    # Sort by lastModified date
+    reverse = sortOrder.lower() == "desc"
+    sorted_cases = sorted(
+        filtered_cases, key=lambda case: case.get("lastModified", ""), reverse=reverse
+    )
+
+    # Apply pagination
+    paginated_cases, total_count = paginate_cases(sorted_cases, page, limit)
+
+    set_pagination_headers(response, total_count, page, limit)
+    return [MockCase(**case) for case in paginated_cases]

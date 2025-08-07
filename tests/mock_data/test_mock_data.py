@@ -210,6 +210,10 @@ class TestHelperFunctions:
         assert len(new_cases_lower) == 1
         assert new_cases_lower[0]["caseStatus"] == "New"
 
+        # Test filtering with 'all' status (should return all cases)
+        all_cases = filter_cases_by_status(mock_data, "all")
+        assert len(all_cases) == len(mock_data)
+
         # Test filtering for non-existent status
         unknown_cases = filter_cases_by_status(mock_data, "Unknown")
         assert len(unknown_cases) == 0
@@ -690,11 +694,153 @@ class TestMockDataEndpoints:
     def test_search_mock_cases_with_status_filter(self, client, mock_data):
         """Test search with status filter."""
         with patch("app.routers.mock_data.load_mock_data", return_value=mock_data):
-            # Search for cases with status filter
+            # Search for cases with specific status filter
             response = client.get("/latest/mock/cases/search?keyword=Test&status=New")
             assert response.status_code == 200
             data = response.json()
             assert isinstance(data, list)
+
+            # Test 'all' status parameter returns results from all statuses
+            test_data = [
+                {
+                    "fullName": "Test User New",
+                    "caseReference": "PC-1111-1111",
+                    "refCode": "",
+                    "dateReceived": "2025-01-10T19:00:00-05:00",
+                    "caseStatus": "New",
+                    "dateOfBirth": "1990-01-01T00:00:00-05:00",
+                    "clientIsVulnerable": False,
+                    "reasonableAdjustments": {
+                        "selected": [],
+                        "available": [
+                            "BSL - Webcam",
+                            "Callback preference",
+                            "Minicom",
+                            "Skype",
+                            "Text relay",
+                            "No accommodations required",
+                        ],
+                        "additionalInfo": "",
+                    },
+                    "language": "English",
+                    "phoneNumber": "0777111111",
+                    "safeToCall": True,
+                    "announceCall": False,
+                    "emailAddress": "test1@email.com",
+                    "address": "123 Test Street, London",
+                    "postcode": "SW1 1AA",
+                    "laaReference": "1111111",
+                },
+                {
+                    "fullName": "Test User Opened",
+                    "caseReference": "PC-2222-2222",
+                    "refCode": "",
+                    "dateReceived": "2025-01-10T19:00:00-05:00",
+                    "lastModified": "2025-01-11T14:30:00-05:00",
+                    "caseStatus": "Opened",
+                    "dateOfBirth": "1990-01-01T00:00:00-05:00",
+                    "clientIsVulnerable": False,
+                    "reasonableAdjustments": {
+                        "selected": [],
+                        "available": [
+                            "BSL - Webcam",
+                            "Callback preference",
+                            "Minicom",
+                            "Skype",
+                            "Text relay",
+                            "No accommodations required",
+                        ],
+                        "additionalInfo": "",
+                    },
+                    "language": "English",
+                    "phoneNumber": "0777222222",
+                    "safeToCall": True,
+                    "announceCall": False,
+                    "emailAddress": "test2@email.com",
+                    "address": "456 Test Avenue, London",
+                    "postcode": "SW1 2BB",
+                    "laaReference": "2222222",
+                },
+                {
+                    "fullName": "Test User Accepted",
+                    "caseReference": "PC-3333-3333",
+                    "refCode": "",
+                    "dateReceived": "2025-01-10T19:00:00-05:00",
+                    "lastModified": "2025-01-11T14:30:00-05:00",
+                    "caseStatus": "Accepted",
+                    "dateOfBirth": "1990-01-01T00:00:00-05:00",
+                    "clientIsVulnerable": False,
+                    "reasonableAdjustments": {
+                        "selected": [],
+                        "available": [
+                            "BSL - Webcam",
+                            "Callback preference",
+                            "Minicom",
+                            "Skype",
+                            "Text relay",
+                            "No accommodations required",
+                        ],
+                        "additionalInfo": "",
+                    },
+                    "language": "English",
+                    "phoneNumber": "0777333333",
+                    "safeToCall": True,
+                    "announceCall": False,
+                    "emailAddress": "test3@email.com",
+                    "address": "789 Test Road, London",
+                    "postcode": "SW1 3CC",
+                    "laaReference": "3333333",
+                },
+                {
+                    "fullName": "Test User Closed",
+                    "caseReference": "PC-4444-4444",
+                    "refCode": "",
+                    "dateReceived": "2025-01-10T19:00:00-05:00",
+                    "lastModified": "2025-01-11T14:30:00-05:00",
+                    "dateClosed": "2025-01-12T14:30:00-05:00",
+                    "caseStatus": "Closed",
+                    "dateOfBirth": "1990-01-01T00:00:00-05:00",
+                    "clientIsVulnerable": False,
+                    "reasonableAdjustments": {
+                        "selected": [],
+                        "available": [
+                            "BSL - Webcam",
+                            "Callback preference",
+                            "Minicom",
+                            "Skype",
+                            "Text relay",
+                            "No accommodations required",
+                        ],
+                        "additionalInfo": "",
+                    },
+                    "language": "English",
+                    "phoneNumber": "0777444444",
+                    "safeToCall": True,
+                    "announceCall": False,
+                    "emailAddress": "test4@email.com",
+                    "address": "101 Test Boulevard, London",
+                    "postcode": "SW1 4DD",
+                    "laaReference": "4444444",
+                },
+            ]
+
+            with patch("app.routers.mock_data.load_mock_data", return_value=test_data):
+                # Should return all cases with 'all' status filter
+                response = client.get(
+                    "/latest/mock/cases/search?keyword=Test&status=all"
+                )
+                assert response.status_code == 200
+                data = response.json()
+                assert len(data) == 4
+
+                # Should return only New status cases with 'new' filter
+                response = client.get(
+                    "/latest/mock/cases/search?keyword=Test&status=new"
+                )
+                assert response.status_code == 200
+                data = response.json()
+                assert len(data) == 1
+                assert data[0]["fullName"] == "Test User New"
 
     def test_search_mock_cases_with_pagination(self, client, mock_data):
         """Test search with pagination parameters."""

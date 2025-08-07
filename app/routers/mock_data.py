@@ -54,7 +54,12 @@ def update_case_by_reference(case_reference: str, update_data: dict) -> dict:
 def filter_cases_by_status(
     cases: List[Dict[str, Any]], status: str
 ) -> List[Dict[str, Any]]:
-    """Filter cases by status."""
+    """Filter cases by status. Returns all cases when status is 'all'."""
+    # If status is "all", return all cases without filtering
+    if status.lower() == "all":
+        return cases
+
+    # Otherwise filter by the specified status
     return [
         case for case in cases if case.get("caseStatus", "").lower() == status.lower()
     ]
@@ -289,7 +294,8 @@ async def search_mock_cases(
     response: Response,
     keyword: str = Query(..., description="Keyword to search across multiple fields"),
     status: Optional[str] = Query(
-        None, description="Filter by case status: new, opened, closed, accepted"
+        None,
+        description="Filter by case status: new, opened, closed, accepted, all (returns all statuses)",
     ),
     sortOrder: Optional[str] = Query(
         "desc", description="Sort order 'asc' or 'desc' by lastModified date"
@@ -306,6 +312,11 @@ async def search_mock_cases(
     # Apply status filter if provided
     if status:
         filtered_cases = filter_cases_by_status(filtered_cases, status)
+
+    # Add console log here to see total results after search and filtering
+    print(
+        f"Search for '{keyword}'{f' with status filter {status}' if status else ''} found {len(filtered_cases)} results"
+    )
 
     # Sort by lastModified date
     reverse = sortOrder.lower() == "desc"

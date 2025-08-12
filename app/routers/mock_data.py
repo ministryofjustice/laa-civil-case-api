@@ -138,8 +138,12 @@ def search_cases(
         search_criteria = [
             # Case reference (exact match, case-insensitive)
             (str(case.get("caseReference", "")).lower(), "exact", keyword_lower),
-            # Phone number (exact match)
-            (str(case.get("phoneNumber", "")), "exact", keyword),
+            # Phone number (exact match, ignore whitespace)
+            (
+                str(case.get("phoneNumber", "")).replace(" ", "").lower(),
+                "exact",
+                keyword_no_spaces,
+            ),
             # Full name (partial match, case-insensitive)
             (str(case.get("fullName", "")).lower(), "partial", keyword_lower),
             # Postcode (exact match, case-insensitive, ignore whitespace)
@@ -288,7 +292,7 @@ async def put_case_by_reference(
     tags=["mock"],
     response_model=List[MockCase],
     summary="Search mock cases",
-    description="Search cases by keyword across case reference, phone number, full name, postcode, and address with optional status filter. Results are sorted by lastModified date.",
+    description="Search cases by keyword across case reference, phone number (ignores spaces), full name, postcode (ignores spaces), and address with optional status filter. Results are sorted by lastModified date.",
 )
 async def search_mock_cases(
     response: Response,

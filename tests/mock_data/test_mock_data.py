@@ -439,9 +439,19 @@ class TestHelperFunctions:
         assert len(results) == 0
 
     def test_search_cases_phone_number_exact_match(self, mock_data):
-        """Test search by phone number (exact match)."""
+        """Test search by phone number (exact match, ignore whitespace)."""
         # Test exact match
         results = search_cases(mock_data, "0776744581")
+        assert len(results) == 1
+        assert results[0]["fullName"] == "Ember Hamilton"
+
+        # Test with spaces (should still match by ignoring spaces)
+        results = search_cases(mock_data, "0776 744 581")
+        assert len(results) == 1
+        assert results[0]["fullName"] == "Ember Hamilton"
+
+        # Test with different spacing format
+        results = search_cases(mock_data, "07767 44581")
         assert len(results) == 1
         assert results[0]["fullName"] == "Ember Hamilton"
 
@@ -568,6 +578,10 @@ class TestHelperFunctions:
 
         # Should not match empty fields
         results = search_cases(test_data, "")
+        assert len(results) == 0
+
+        # Should not match empty phone number with spaced search
+        results = search_cases(test_data, "0777 123 456")
         assert len(results) == 0
 
         # Should match case reference
@@ -1005,7 +1019,16 @@ class TestMockDataEndpoints:
     def test_search_mock_cases_by_phone_number(self, client, mock_data):
         """Test search by phone number."""
         with patch("app.routers.mock_data.load_mock_data", return_value=mock_data):
+            # Test exact match without spaces
             response = client.get("/latest/mock/cases/search?keyword=0777123456")
+            assert response.status_code == 200
+            data = response.json()
+            assert len(data) == 1
+            assert data[0]["phoneNumber"] == "0777123456"
+            assert data[0]["fullName"] == "John Doe"
+
+            # Test match with spaces (should ignore spaces in phone number)
+            response = client.get("/latest/mock/cases/search?keyword=0777%20123%20456")
             assert response.status_code == 200
             data = response.json()
             assert len(data) == 1

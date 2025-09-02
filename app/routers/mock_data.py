@@ -371,7 +371,7 @@ async def add_third_party_to_case(
     target_case, case_index, cases = find_case_by_reference(case_reference)
 
     # Convert ThirdPartyCreate to dict and add to case
-    third_party_dict = third_party_data.dict(exclude_unset=True)
+    third_party_dict = third_party_data.model_dump(exclude_unset=True)
     target_case["thirdParty"] = third_party_dict
 
     # Update the case in the list and save
@@ -413,7 +413,7 @@ async def update_third_party_for_case(
     existing_third_party = target_case["thirdParty"]
 
     # Update only provided fields (exclude_unset=True means only fields that were explicitly set)
-    update_data = third_party_data.dict(exclude_unset=True)
+    update_data = third_party_data.model_dump(exclude_unset=True)
 
     # Merge with existing data
     for key, value in update_data.items():

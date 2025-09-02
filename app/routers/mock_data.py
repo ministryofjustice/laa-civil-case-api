@@ -3,7 +3,7 @@ import math
 from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, HTTPException, Query, Response, Body
 from pathlib import Path
-from ..models.mock_case import MockCase
+from ..models.mock_case import MockCase, ThirdPartyCreate, ThirdPartyUpdate
 
 router = APIRouter(
     prefix="/mock",
@@ -35,20 +35,38 @@ def load_mock_data() -> List[Dict[str, Any]]:
 
 def update_case_by_reference(case_reference: str, update_data: dict) -> dict:
     """Update a case in the JSON file by reference, only changing provided fields."""
+    target_case, case_index, cases = find_case_by_reference(case_reference)
+
+    for key, value in update_data.items():
+        target_case[key] = value
+
+    cases[case_index] = target_case
+    save_cases_to_file(cases)
+    return target_case
+
+
+def find_case_by_reference(
+    case_reference: str,
+) -> tuple[dict, int, List[Dict[str, Any]]]:
+    """Find a case by reference and return the case, its index, and all cases."""
     cases = load_mock_data()
 
     for idx, case in enumerate(cases):
         if case.get("caseReference") == case_reference:
-            for key, value in update_data.items():
-                case[key] = value
-            cases[idx] = case
-            with open(MOCK_DATA_PATH, "w", encoding="utf-8") as file:
-                json.dump(cases, file, indent=2, ensure_ascii=False)
-            return case
+            return case, idx, cases
 
     raise HTTPException(
         status_code=404, detail=f"Case with reference '{case_reference}' not found"
     )
+
+
+def save_cases_to_file(cases: List[Dict[str, Any]]) -> None:
+    """Save cases data back to the JSON file."""
+    try:
+        with open(MOCK_DATA_PATH, "w", encoding="utf-8") as file:
+            json.dump(cases, file, indent=2, ensure_ascii=False)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error saving data: {str(e)}")
 
 
 def filter_cases_by_status(
@@ -260,15 +278,8 @@ async def get_closed_cases(
 )
 async def get_mock_case_by_reference(case_reference: str) -> MockCase:
     """Get a specific mock case by case reference."""
-    mock_data = load_mock_data()
-
-    for case in mock_data:
-        if case.get("caseReference") == case_reference:
-            return MockCase(**case)
-
-    raise HTTPException(
-        status_code=404, detail=f"Case with reference '{case_reference}' not found"
-    )
+    target_case, _, _ = find_case_by_reference(case_reference)
+    return MockCase(**target_case)
 
 
 @router.put(
@@ -333,3 +344,84 @@ async def search_mock_cases(
 
     set_pagination_headers(response, total_count, page, limit)
     return [MockCase(**case) for case in paginated_cases]
+
+
+@router.post(
+    "/cases/{case_reference}/third-party",
+    tags=["mock"],
+    response_model=MockCase,
+    summary="Add third party to a case",
+    description="Adds third party information to a specific case by case reference. Only fullName is mandatory.",
+)
+async def add_third_party_to_case(
+    case_reference: str,
+    third_party_data: ThirdPartyCreate = Body(
+        ...,
+        example={
+            "fullName": "John Smith",
+            "emailAddress": "john.smith@email.com",
+            "contactNumber": "0123456789",
+            "safeToCall": True,
+            "address": "123 Main Street, London",
+            "postcode": "SW1A 1AA",
+        },
+    ),
+) -> MockCase:
+    """Add third party information to a specific case by case reference."""
+    target_case, case_index, cases = find_case_by_reference(case_reference)
+
+    # Convert ThirdPartyCreate to dict and add to case
+    third_party_dict = third_party_data.dict(exclude_unset=True)
+    target_case["thirdParty"] = third_party_dict
+
+    # Update the case in the list and save
+    cases[case_index] = target_case
+    save_cases_to_file(cases)
+
+    return MockCase(**target_case)
+
+
+@router.put(
+    "/cases/{case_reference}/third-party",
+    tags=["mock"],
+    response_model=MockCase,
+    summary="Update third party information for a case",
+    description="Updates third party information for a specific case by case reference. Only fullName is mandatory, other fields are optional.",
+)
+async def update_third_party_for_case(
+    case_reference: str,
+    third_party_data: ThirdPartyUpdate = Body(
+        ...,
+        example={
+            "fullName": "John Smith Updated",
+            "emailAddress": "john.updated@email.com",
+            "safeToCall": False,
+        },
+    ),
+) -> MockCase:
+    """Update third party information for a specific case by case reference."""
+    target_case, case_index, cases = find_case_by_reference(case_reference)
+
+    # Check if case has existing third party information
+    if "thirdParty" not in target_case or target_case["thirdParty"] is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No third party information found for case '{case_reference}'",
+        )
+
+    # Get existing third party data
+    existing_third_party = target_case["thirdParty"]
+
+    # Update only provided fields (exclude_unset=True means only fields that were explicitly set)
+    update_data = third_party_data.dict(exclude_unset=True)
+
+    # Merge with existing data
+    for key, value in update_data.items():
+        existing_third_party[key] = value
+
+    # Update the case in the list and save
+    target_case["thirdParty"] = existing_third_party
+    cases[case_index] = target_case
+    save_cases_to_file(cases)
+
+    return MockCase(**target_case)

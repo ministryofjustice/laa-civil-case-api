@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from typing import Optional, List
 
 
@@ -23,6 +23,50 @@ class ThirdParty(BaseModel):
     passphraseSetUp: bool = False
     passphraseNotSetUpReason: Optional[str] = ""
     passphrase: Optional[str] = ""
+
+
+class ThirdPartyCreate(BaseModel):
+    """Request model for creating third party information."""
+
+    fullName: str
+    emailAddress: Optional[str] = None
+    contactNumber: Optional[str] = None
+    safeToCall: Optional[bool] = False
+    address: Optional[str] = None
+    postcode: Optional[str] = None
+    relationshipToClient: Optional[dict] = None
+    passphraseSetUp: Optional[bool] = False
+    passphraseNotSetUpReason: Optional[str] = ""
+    passphrase: Optional[str] = ""
+
+    @field_validator("fullName")
+    @classmethod
+    def validate_full_name(cls, v):
+        if not v or not v.strip():
+            raise ValueError("fullName is required and cannot be empty")
+        return v.strip()
+
+
+class ThirdPartyUpdate(BaseModel):
+    """Request model for updating third party information."""
+
+    fullName: str
+    emailAddress: Optional[str] = None
+    contactNumber: Optional[str] = None
+    safeToCall: Optional[bool] = None
+    address: Optional[str] = None
+    postcode: Optional[str] = None
+    relationshipToClient: Optional[dict] = None
+    passphraseSetUp: Optional[bool] = None
+    passphraseNotSetUpReason: Optional[str] = None
+    passphrase: Optional[str] = None
+
+    @field_validator("fullName")
+    @classmethod
+    def validate_full_name(cls, v):
+        if not v or not v.strip():
+            raise ValueError("fullName is required and cannot be empty")
+        return v.strip()
 
 
 class MockCase(BaseModel):

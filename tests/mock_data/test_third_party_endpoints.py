@@ -5,7 +5,7 @@ Tests for third-party endpoints in mock_data.py.
 import pytest
 from unittest.mock import patch
 
-from app.models.mock_case import ThirdPartyCreate, ThirdPartyUpdate
+from app.models.mock_case import ThirdPartyCreate, ThirdPartyUpdate, PassphraseSetup
 
 
 class TestThirdPartyEndpoints:
@@ -21,6 +21,28 @@ class TestThirdPartyEndpoints:
             "safeToCall": True,
             "address": "123 Main Street, London",
             "postcode": "SW1A 1AA",
+            "relationshipToClient": {
+                "selected": ["Other"],
+                "available": [
+                    "Parent or Guardian",
+                    "Family member of friend",
+                    "Professional",
+                    "Legal adviser",
+                    "Other",
+                ],
+            },
+            "passphraseSetUp": {
+                "selected": ["Yes"],
+                "available": [
+                    "Yes",
+                    "No, client is a child or patient",
+                    "No, client is subject to power of attorney",
+                    "No, client cannot communicate on the phone due to disability",
+                    "No, client cannot communicate on the phone due to a language requirement",
+                    "Other",
+                ],
+                "passphrase": "LetMeIn",
+            },
         }
 
         with patch("app.routers.mock_data.find_case_by_reference") as mock_find:
@@ -36,6 +58,28 @@ class TestThirdPartyEndpoints:
                         "safeToCall": True,
                         "address": "123 Main Street, London",
                         "postcode": "SW1A 1AA",
+                        "relationshipToClient": {
+                            "selected": ["Other"],
+                            "available": [
+                                "Parent or Guardian",
+                                "Family member of friend",
+                                "Professional",
+                                "Legal adviser",
+                                "Other",
+                            ],
+                        },
+                        "passphraseSetUp": {
+                            "selected": ["Yes"],
+                            "available": [
+                                "Yes",
+                                "No, client is a child or patient",
+                                "No, client is subject to power of attorney",
+                                "No, client cannot communicate on the phone due to disability",
+                                "No, client cannot communicate on the phone due to a language requirement",
+                                "Other",
+                            ],
+                            "passphrase": "LetMeIn",
+                        },
                     },
                 )
 
@@ -63,6 +107,7 @@ class TestThirdPartyEndpoints:
         # Optional fields should have default values
         assert data["thirdParty"]["emailAddress"] is None
         assert data["thirdParty"]["safeToCall"] is False
+        assert data["thirdParty"]["passphraseSetUp"] is None
 
     def test_add_third_party_missing_fullname(self, client, mock_data):
         """Test adding third party without required fullName field."""
@@ -159,6 +204,8 @@ class TestThirdPartyEndpoints:
         assert data["thirdParty"]["safeToCall"] is False
         # Unchanged fields should remain the same
         assert data["thirdParty"]["postcode"] == "NW1 6XE"
+        # passphraseSetUp should remain unchanged
+        assert data["thirdParty"]["passphraseSetUp"]["passphrase"] == "Secret123"
         mock_save.assert_called_once()
 
     def test_update_third_party_partial_update(self, client, mock_data):
@@ -177,6 +224,8 @@ class TestThirdPartyEndpoints:
         assert data["thirdParty"]["fullName"] == "Alex Rivers Updated"
         # Other fields should remain unchanged
         assert data["thirdParty"]["emailAddress"] == "alex@rivers.com"
+        # passphraseSetUp should remain unchanged
+        assert data["thirdParty"]["passphraseSetUp"]["passphrase"] == "Secret123"
 
     def test_update_third_party_missing_fullname(self, client, mock_data):
         """Test updating third party without required fullName field."""
@@ -256,14 +305,32 @@ class TestThirdPartyEndpoints:
 class TestThirdPartyModels:
     """Test ThirdParty model validation."""
 
+    def test_passphrase_setup_yes_scenario(self):
+        """Test PassphraseSetup model with Yes scenario."""
+        passphrase = PassphraseSetup(selected=["Yes"], passphrase="LetMeIn")
+        assert passphrase.selected == ["Yes"]
+        assert passphrase.passphrase == "LetMeIn"
+        assert len(passphrase.available) == 6  # Default options
+
+    def test_passphrase_setup_no_scenario(self):
+        """Test PassphraseSetup model with No scenario."""
+        passphrase = PassphraseSetup(selected=["No, client is a child or patient"])
+        assert passphrase.selected == ["No, client is a child or patient"]
+        assert passphrase.passphrase is None  # No passphrase for No scenario
+
     def test_third_party_create_valid(self):
         """Test creating ThirdPartyCreate with valid data."""
+        passphrase = PassphraseSetup(selected=["Yes"], passphrase="Secret123")
         data = ThirdPartyCreate(
-            fullName="John Smith", emailAddress="john@email.com", safeToCall=True
+            fullName="John Smith",
+            emailAddress="john@email.com",
+            safeToCall=True,
+            passphraseSetUp=passphrase,
         )
         assert data.fullName == "John Smith"
         assert data.emailAddress == "john@email.com"
         assert data.safeToCall is True
+        assert data.passphraseSetUp.passphrase == "Secret123"
 
     def test_third_party_create_minimal(self):
         """Test creating ThirdPartyCreate with minimal data."""
@@ -271,6 +338,7 @@ class TestThirdPartyModels:
         assert data.fullName == "Jane Doe"
         assert data.emailAddress is None
         assert data.safeToCall is False  # Default value
+        assert data.passphraseSetUp is None
 
     def test_third_party_create_fullname_trimming(self):
         """Test that fullName gets trimmed in ThirdPartyCreate."""
@@ -297,11 +365,15 @@ class TestThirdPartyModels:
 
     def test_third_party_update_valid(self):
         """Test creating ThirdPartyUpdate with valid data."""
+        passphrase = PassphraseSetup(selected=["No, client is a child or patient"])
         data = ThirdPartyUpdate(
-            fullName="John Smith Updated", emailAddress="john.updated@email.com"
+            fullName="John Smith Updated",
+            emailAddress="john.updated@email.com",
+            passphraseSetUp=passphrase,
         )
         assert data.fullName == "John Smith Updated"
         assert data.emailAddress == "john.updated@email.com"
+        assert data.passphraseSetUp.selected == ["No, client is a child or patient"]
 
     def test_third_party_update_fullname_validation(self):
         """Test ThirdPartyUpdate fullName validation."""

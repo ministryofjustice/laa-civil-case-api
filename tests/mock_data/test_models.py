@@ -11,6 +11,7 @@ from app.models.mock_case import (
     ThirdPartyCreate,
     ThirdPartyUpdate,
     ReasonableAdjustments,
+    PassphraseSetup,
 )
 
 
@@ -90,6 +91,38 @@ class TestMockCaseModel:
         assert case.reasonableAdjustments.additionalInfo == "Client needs extra time"
 
 
+class TestPassphraseSetupModel:
+    """Test the PassphraseSetup model."""
+
+    def test_passphrase_setup_yes_scenario(self):
+        """Test PassphraseSetup with Yes scenario."""
+        passphrase = PassphraseSetup(selected=["Yes"], passphrase="MySecret123")
+        assert passphrase.selected == ["Yes"]
+        assert passphrase.passphrase == "MySecret123"
+        assert len(passphrase.available) == 6  # Default available options
+
+    def test_passphrase_setup_no_scenario(self):
+        """Test PassphraseSetup with No scenario."""
+        passphrase = PassphraseSetup(selected=["No, client is a child or patient"])
+        assert passphrase.selected == ["No, client is a child or patient"]
+        assert passphrase.passphrase is None
+
+    def test_passphrase_setup_defaults(self):
+        """Test PassphraseSetup default values."""
+        passphrase = PassphraseSetup()
+        assert passphrase.selected == []
+        assert passphrase.passphrase is None
+        assert "Yes" in passphrase.available
+        assert "No, client is a child or patient" in passphrase.available
+
+    def test_passphrase_setup_custom_available_options(self):
+        """Test PassphraseSetup with custom available options."""
+        custom_options = ["Option 1", "Option 2"]
+        passphrase = PassphraseSetup(selected=["Option 1"], available=custom_options)
+        assert passphrase.available == custom_options
+        assert passphrase.selected == ["Option 1"]
+
+
 class TestThirdPartyModel:
     """Test the ThirdParty model."""
 
@@ -115,7 +148,7 @@ class TestThirdPartyModel:
         assert third_party.fullName == "Jane Doe"
         assert third_party.emailAddress is None
         assert third_party.safeToCall is False
-        assert third_party.passphraseSetUp is False
+        assert third_party.passphraseSetUp is None
 
     def test_third_party_optional_fields_defaults(self):
         """Test ThirdParty optional fields have correct defaults."""
@@ -124,8 +157,7 @@ class TestThirdPartyModel:
         assert third_party.address is None
         assert third_party.postcode is None
         assert third_party.relationshipToClient is None
-        assert third_party.passphraseNotSetUpReason == ""
-        assert third_party.passphrase == ""
+        assert third_party.passphraseSetUp is None
 
 
 class TestThirdPartyCreateModel:
@@ -182,6 +214,8 @@ class TestThirdPartyCreateModel:
 
     def test_third_party_create_with_all_fields(self):
         """Test ThirdPartyCreate with all possible fields."""
+        passphrase_setup = PassphraseSetup(selected=["Yes"], passphrase="secret123")
+
         data = {
             "fullName": "Complete Person",
             "emailAddress": "complete@email.com",
@@ -189,16 +223,26 @@ class TestThirdPartyCreateModel:
             "safeToCall": True,
             "address": "123 Complete Street",
             "postcode": "CO1 1MP",
-            "relationshipToClient": {"type": "family"},
-            "passphraseSetUp": True,
-            "passphraseNotSetUpReason": "",
-            "passphrase": "secret123",
+            "relationshipToClient": {
+                "selected": ["Family member of friend"],
+                "available": [
+                    "Parent or Guardian",
+                    "Family member of friend",
+                    "Professional",
+                    "Legal adviser",
+                    "Other",
+                ],
+            },
+            "passphraseSetUp": passphrase_setup,
         }
 
         third_party = ThirdPartyCreate(**data)
         assert third_party.fullName == "Complete Person"
-        assert third_party.relationshipToClient == {"type": "family"}
-        assert third_party.passphraseSetUp is True
+        assert third_party.relationshipToClient["selected"] == [
+            "Family member of friend"
+        ]
+        assert third_party.passphraseSetUp.selected == ["Yes"]
+        assert third_party.passphraseSetUp.passphrase == "secret123"
 
 
 class TestThirdPartyUpdateModel:

@@ -1,5 +1,5 @@
-from pydantic import BaseModel, field_validator
-from typing import Optional, List
+from pydantic import BaseModel, field_validator, Field
+from typing import Optional, List, Dict
 
 
 class ReasonableAdjustments(BaseModel):
@@ -8,6 +8,28 @@ class ReasonableAdjustments(BaseModel):
     selected: Optional[List[str]] = []
     available: Optional[List[str]] = []
     additionalInfo: Optional[str] = ""
+
+
+class PassphraseSetup(BaseModel):
+    """Passphrase setup structure."""
+
+    selected: List[str] = Field(
+        default_factory=list, description="Selected passphrase setup options"
+    )
+    available: List[str] = Field(
+        default_factory=lambda: [
+            "Yes",
+            "No, client is a child or patient",
+            "No, client is subject to power of attorney",
+            "No, client cannot communicate on the phone due to disability",
+            "No, client cannot communicate on the phone due to a language requirement",
+            "Other",
+        ],
+        description="Available passphrase setup options",
+    )
+    passphrase: Optional[str] = Field(
+        None, description="The actual passphrase if set up"
+    )
 
 
 class ThirdParty(BaseModel):
@@ -19,10 +41,8 @@ class ThirdParty(BaseModel):
     safeToCall: bool = False
     address: Optional[str] = None
     postcode: Optional[str] = None
-    relationshipToClient: Optional[dict] = None
-    passphraseSetUp: bool = False
-    passphraseNotSetUpReason: Optional[str] = ""
-    passphrase: Optional[str] = ""
+    relationshipToClient: Optional[Dict[str, List[str]]] = None
+    passphraseSetUp: Optional[PassphraseSetup] = None
 
 
 class ThirdPartyCreate(BaseModel):
@@ -34,10 +54,8 @@ class ThirdPartyCreate(BaseModel):
     safeToCall: Optional[bool] = False
     address: Optional[str] = None
     postcode: Optional[str] = None
-    relationshipToClient: Optional[dict] = None
-    passphraseSetUp: Optional[bool] = False
-    passphraseNotSetUpReason: Optional[str] = ""
-    passphrase: Optional[str] = ""
+    relationshipToClient: Optional[Dict[str, List[str]]] = None
+    passphraseSetUp: Optional[PassphraseSetup] = None
 
     @field_validator("fullName")
     @classmethod
@@ -56,10 +74,8 @@ class ThirdPartyUpdate(BaseModel):
     safeToCall: Optional[bool] = None
     address: Optional[str] = None
     postcode: Optional[str] = None
-    relationshipToClient: Optional[dict] = None
-    passphraseSetUp: Optional[bool] = None
-    passphraseNotSetUpReason: Optional[str] = None
-    passphrase: Optional[str] = None
+    relationshipToClient: Optional[Dict[str, List[str]]] = None
+    passphraseSetUp: Optional[PassphraseSetup] = None
 
     @field_validator("fullName")
     @classmethod

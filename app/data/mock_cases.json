@@ -49,9 +49,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -102,9 +113,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -157,9 +179,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -214,9 +246,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -271,9 +314,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -327,9 +380,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -380,9 +444,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -437,9 +511,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -490,9 +574,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -547,9 +641,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -600,9 +705,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -655,9 +770,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -710,9 +835,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -766,9 +902,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -819,9 +966,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -874,9 +1031,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -931,9 +1099,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -986,9 +1165,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -1043,9 +1233,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -1100,9 +1301,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -1155,9 +1367,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -1211,9 +1433,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -1268,9 +1501,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -1321,9 +1564,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -1376,9 +1630,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -1432,9 +1697,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -1487,9 +1763,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -1543,9 +1829,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -1600,9 +1896,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -1657,9 +1963,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-01-05T19:00:00-05:00"
   },
@@ -1714,9 +2031,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-01-06T19:00:00-05:00"
   },
@@ -1772,9 +2100,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-01-15T19:00:00-05:00"
   },
@@ -1826,9 +2164,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-01-20T19:00:00-05:00"
   },
@@ -1883,9 +2232,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-01-31T19:00:00-05:00"
   },
@@ -1939,9 +2299,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-02-05T19:00:00-05:00"
   },
@@ -1997,9 +2368,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-02-15T19:00:00-05:00"
   },
@@ -2053,9 +2435,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-02-18T19:00:00-05:00"
   },
@@ -2107,9 +2500,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-02-24T19:00:00-05:00"
   },
@@ -2163,9 +2567,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-03-04T19:00:00-05:00"
   },
@@ -2217,9 +2632,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-03-12T19:00:00-05:00"
   },
@@ -2274,9 +2699,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-03-19T19:00:00-05:00"
   },
@@ -2330,9 +2766,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-03-28T19:00:00-05:00"
   },
@@ -2388,9 +2834,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-03-28T19:00:00-05:00"
   },
@@ -2445,9 +2901,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-04-03T19:00:00-05:00"
   },
@@ -2499,9 +2965,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-04-09T19:00:00-05:00"
   },
@@ -2557,9 +3033,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-04-16T19:00:00-05:00"
   },
@@ -2613,9 +3100,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-04-23T19:00:00-05:00"
   },
@@ -2669,9 +3167,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-05-01T19:00:00-05:00"
   },
@@ -2727,9 +3235,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-05-07T19:00:00-05:00"
   },
@@ -2784,9 +3302,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-05-10T19:00:00-05:00"
   },
@@ -2841,9 +3370,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-05-15T19:00:00-05:00"
   },
@@ -2898,9 +3437,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-05-20T19:00:00-05:00"
   },
@@ -2954,9 +3503,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-06-02T19:00:00-05:00"
   },
@@ -3011,9 +3571,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-06-09T19:00:00-05:00"
   },
@@ -3068,9 +3639,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-06-21T19:00:00-05:00"
   },
@@ -3122,9 +3704,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-06-25T19:00:00-05:00"
   },
@@ -3178,9 +3770,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-07-05T19:00:00-05:00"
   },
@@ -3234,9 +3836,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-07-06T19:00:00-05:00"
   },
@@ -3291,9 +3903,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-01-08T19:00:00-05:00"
   },
@@ -3344,9 +3966,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-01-12T19:00:00-05:00"
   },
@@ -3401,9 +4034,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-01-19T19:00:00-05:00"
   },
@@ -3454,9 +4097,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-01-25T19:00:00-05:00"
   },
@@ -3510,9 +4164,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-01-27T19:00:00-05:00"
   },
@@ -3567,9 +4232,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-02-07T19:00:00-05:00"
   },
@@ -3622,9 +4298,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-02-10T19:00:00-05:00"
   },
@@ -3678,9 +4365,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-02-18T19:00:00-05:00"
   },
@@ -3734,9 +4432,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-02-28T19:00:00-05:00"
   },
@@ -3791,9 +4499,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-03-06T19:00:00-05:00"
   },
@@ -3847,9 +4566,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-03-14T19:00:00-05:00"
   },
@@ -3900,9 +4629,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-03-20T19:00:00-05:00"
   },
@@ -3953,9 +4693,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-03-22T19:00:00-05:00"
   },
@@ -4008,9 +4759,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-03-26T19:00:00-05:00"
   },
@@ -4061,9 +4823,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-04-08T19:00:00-05:00"
   },
@@ -4114,9 +4886,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-04-15T19:00:00-05:00"
   },
@@ -4170,9 +4953,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-04-17T19:00:00-05:00"
   },
@@ -4227,9 +5020,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-04-25T19:00:00-05:00"
   },
@@ -4283,9 +5087,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-04-30T19:00:00-05:00"
   },
@@ -4340,9 +5154,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-05-05T19:00:00-05:00"
   },
@@ -4395,9 +5219,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-05-08T19:00:00-05:00"
   },
@@ -4452,9 +5287,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-05-12T19:00:00-05:00"
   },
@@ -4505,9 +5350,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-05-19T19:00:00-05:00"
   },
@@ -4561,9 +5417,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-05-25T19:00:00-05:00"
   },
@@ -4617,9 +5483,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-06-03T19:00:00-05:00"
   },
@@ -4674,9 +5551,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-06-07T19:00:00-05:00"
   },
@@ -4730,9 +5618,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     },
     "lastModified": "2025-06-11T19:00:00-05:00"
   },
@@ -4785,9 +5684,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     },
     "lastModified": "2025-06-15T19:00:00-05:00"
   },
@@ -4877,9 +5786,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -4934,9 +5853,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -4989,9 +5918,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -5045,9 +5984,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5101,9 +6051,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "LetMeIn"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5156,9 +6117,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5213,9 +6185,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -5270,9 +6252,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -5323,9 +6315,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5380,9 +6383,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -5437,9 +6450,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5494,9 +6518,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5547,9 +6582,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5600,9 +6646,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5655,9 +6712,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -5708,9 +6775,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -5765,9 +6842,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5821,9 +6909,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5876,9 +6975,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -5933,9 +7042,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Would you like some tea?"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -5986,9 +7106,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -6042,9 +7173,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "OpenSesame"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -6098,9 +7240,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -6151,9 +7303,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -6208,9 +7370,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "TeaTime"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -6261,9 +7434,20 @@
           "Other"
         ]
       },
-      "passphraseSetUp": true,
-      "passphraseNotSetUpReason": "",
-      "passphrase": "Secret123"
+      "passphraseSetUp": {
+        "selected": [
+          "Yes"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ],
+        "passphrase": "LetMeIn"
+      }
     }
   },
   {
@@ -6314,9 +7498,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Client declined",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -6367,9 +7561,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "Not required",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   },
   {
@@ -6423,9 +7627,19 @@
           "Other"
         ]
       },
-      "passphraseSetUp": false,
-      "passphraseNotSetUpReason": "No telephone",
-      "passphrase": ""
+      "passphraseSetUp": {
+        "selected": [
+          "No, client is a child or patient"
+        ],
+        "available": [
+          "Yes",
+          "No, client is a child or patient",
+          "No, client is subject to power of attorney",
+          "No, client cannot communicate on the phone due to disability",
+          "No, client cannot communicate on the phone due to a language requirement",
+          "Other"
+        ]
+      }
     }
   }
 ]

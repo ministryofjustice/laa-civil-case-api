@@ -301,6 +301,46 @@ class TestThirdPartyEndpoints:
         # Should be trimmed
         assert data["thirdParty"]["fullName"] == "Alex Rivers Trimmed"
 
+    def test_delete_third_party_success(self, client, mock_data):
+        """Test DELETE mock/cases/{case_reference}/third-party when thirdParty exists"""
+        # Use Ember Hamilton case which has existing third party
+        with patch("app.routers.mock_data.find_case_by_reference") as mock_find:
+            with patch("app.routers.mock_data.save_cases_to_file") as mock_save:
+                mock_find.return_value = (mock_data[0], 0, mock_data)
+                response = client.delete(
+                    "/latest/mock/cases/PC-3184-5962/third-party",
+                )
+        assert response.status_code == 200
+        data = response.json()
+        assert data["caseReference"] == "PC-3184-5962"
+        assert data["thirdParty"] is None
+        mock_save.assert_called_once()
+
+    def test_delete_third_party_case_not_found(self, client):
+        """Test DELETE mock/cases/{case_reference}/third-party when thirdParty not found"""
+        with patch("app.routers.mock_data.find_case_by_reference") as mock_find:
+            from fastapi import HTTPException
+
+            mock_find.side_effect = HTTPException(
+                status_code=404, detail="Case with reference 'PC-9999-9999' not found"
+            )
+            response = client.delete(
+                "/latest/mock/cases/PC-9999-9999/third-party",
+            )
+        assert response.status_code == 404
+        assert (
+            "Case with reference 'PC-9999-9999' not found" in response.json()["detail"]
+        )
+
+    def test_delete_third_party_no_existing_data(self, client, mock_data):
+        """Test DELETE mock/cases/{case_reference}/third-party when no existing thirdParty data"""
+        # Use Maya Patel case which has no third party
+        with patch("app.routers.mock_data.find_case_by_reference") as mock_find:
+            mock_find.return_value = (mock_data[2], 2, mock_data)
+            response = client.delete("/latest/mock/cases/PC-8765-4321/third-party")
+        assert response.status_code == 404
+        assert "No third party information found for case" in response.json()["detail"]
+
 
 class TestThirdPartyModels:
     """Test ThirdParty model validation."""

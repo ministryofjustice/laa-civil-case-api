@@ -364,28 +364,6 @@ async def add_third_party_to_case(
             "safeToCall": True,
             "address": "123 Main Street, London",
             "postcode": "SW1A 1AA",
-            "relationshipToClient": {
-                "selected": ["Other"],
-                "available": [
-                    "Parent or Guardian",
-                    "Family member of friend",
-                    "Professional",
-                    "Legal adviser",
-                    "Other",
-                ],
-            },
-            "passphraseSetUp": {
-                "selected": ["Yes"],
-                "available": [
-                    "Yes",
-                    "No, client is a child or patient",
-                    "No, client is subject to power of attorney",
-                    "No, client cannot communicate on the phone due to disability",
-                    "No, client cannot communicate on the phone due to a language requirement",
-                    "Other",
-                ],
-                "passphrase": "LetMeIn",
-            },
         },
     ),
 ) -> MockCase:
@@ -418,27 +396,6 @@ async def update_third_party_for_case(
             "fullName": "John Smith Updated",
             "emailAddress": "john.updated@email.com",
             "safeToCall": False,
-            "relationshipToClient": {
-                "selected": ["Professional"],
-                "available": [
-                    "Parent or Guardian",
-                    "Family member of friend",
-                    "Professional",
-                    "Legal adviser",
-                    "Other",
-                ],
-            },
-            "passphraseSetUp": {
-                "selected": ["No, client is a child or patient"],
-                "available": [
-                    "Yes",
-                    "No, client is a child or patient",
-                    "No, client is subject to power of attorney",
-                    "No, client cannot communicate on the phone due to disability",
-                    "No, client cannot communicate on the phone due to a language requirement",
-                    "Other",
-                ],
-            },
         },
     ),
 ) -> MockCase:
@@ -464,6 +421,34 @@ async def update_third_party_for_case(
 
     # Update the case in the list and save
     target_case["thirdParty"] = existing_third_party
+    cases[case_index] = target_case
+    save_cases_to_file(cases)
+
+    return MockCase(**target_case)
+
+
+@router.delete(
+    "/cases/{case_reference}/third-party",
+    tags=["mock"],
+    response_model=MockCase,
+    summary="Delete `thirdParty` information for a case",
+    description="Removes `thirdParty` information for a specific case by case reference.",
+)
+async def delete_third_party_from_case(case_reference: str) -> MockCase:
+    """Delete `thirdParty` information for a specific case by case reference."""
+    target_case, case_index, cases = find_case_by_reference(case_reference)
+
+    # Check if case has existing third party information
+    if "thirdParty" not in target_case or target_case["thirdParty"] is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No third party information found for case '{case_reference}'",
+        )
+
+    # Remove third party information
+    target_case["thirdParty"] = None
+
+    # Update the case in the list and save
     cases[case_index] = target_case
     save_cases_to_file(cases)
 

@@ -428,3 +428,51 @@ class TestThirdPartyModels:
         """Test that fullName gets trimmed in ThirdPartyUpdate."""
         data = ThirdPartyUpdate(fullName="  Updated Name  ")
         assert data.fullName == "Updated Name"
+
+    def test_third_party_create_safe_to_call_empty_string(self):
+        """Test that empty string safeToCall is converted to True."""
+        data = ThirdPartyCreate(fullName="John Smith", safeToCall="")
+        assert data.safeToCall is True
+
+    def test_third_party_create_safe_to_call_string_values(self):
+        """Test that string values for safeToCall are properly converted."""
+        # Test truthy string values
+        for value in ["true", "True", "TRUE", "1", "yes", "Yes"]:
+            data = ThirdPartyCreate(fullName="John Smith", safeToCall=value)
+            assert data.safeToCall is True, f"Expected True for '{value}'"
+
+        # Test falsy string values
+        for value in ["false", "False", "FALSE", "0", "no", "No"]:
+            data = ThirdPartyCreate(fullName="John Smith", safeToCall=value)
+            assert data.safeToCall is False, f"Expected False for '{value}'"
+
+        # Test invalid string values (should default to True)
+        for value in ["invalid", "random", "maybe"]:
+            data = ThirdPartyCreate(fullName="John Smith", safeToCall=value)
+            assert data.safeToCall is True, (
+                f"Expected True (default) for invalid value '{value}'"
+            )
+
+    def test_third_party_update_safe_to_call_empty_string(self):
+        """Test that empty string safeToCall is converted to None in updates."""
+        data = ThirdPartyUpdate(fullName="John Smith", safeToCall="")
+        assert data.safeToCall is None
+
+    def test_third_party_update_safe_to_call_string_values(self):
+        """Test that string values for safeToCall are properly converted in updates."""
+        # Test truthy string values
+        for value in ["true", "True", "TRUE", "1", "yes", "Yes"]:
+            data = ThirdPartyUpdate(fullName="John Smith", safeToCall=value)
+            assert data.safeToCall is True, f"Expected True for '{value}'"
+
+        # Test falsy string values
+        for value in ["false", "False", "FALSE", "0", "no", "No"]:
+            data = ThirdPartyUpdate(fullName="John Smith", safeToCall=value)
+            assert data.safeToCall is False, f"Expected False for '{value}'"
+
+        # Test invalid string values (should default to True)
+        for value in ["invalid", "random", "maybe"]:
+            data = ThirdPartyUpdate(fullName="John Smith", safeToCall=value)
+            assert data.safeToCall is True, (
+                f"Expected True (default) for invalid value '{value}'"
+            )

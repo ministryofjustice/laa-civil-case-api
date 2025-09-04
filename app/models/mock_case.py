@@ -64,6 +64,20 @@ class ThirdPartyCreate(BaseModel):
             raise ValueError("fullName is required and cannot be empty")
         return v.strip()
 
+    @field_validator("safeToCall", mode="before")
+    @classmethod
+    def validate_safe_to_call(cls, v):
+        if v == "" or v is None:
+            return True
+        if isinstance(v, str):
+            if v.lower() in ("true", "1", "yes"):
+                return True
+            elif v.lower() in ("false", "0", "no"):
+                return False
+            else:
+                return True
+        return bool(v)
+
 
 class ThirdPartyUpdate(BaseModel):
     """Request model for updating third party information."""
@@ -83,6 +97,20 @@ class ThirdPartyUpdate(BaseModel):
         if not v or not v.strip():
             raise ValueError("fullName is required and cannot be empty")
         return v.strip()
+
+    @field_validator("safeToCall", mode="before")
+    @classmethod
+    def validate_safe_to_call(cls, v):
+        if v == "" or v is None:
+            return None  # Keep as None for updates to indicate no change
+        if isinstance(v, str):
+            if v.lower() in ("true", "1", "yes"):
+                return True
+            elif v.lower() in ("false", "0", "no"):
+                return False
+            else:
+                return True  # Default to True for invalid string values
+        return bool(v)
 
 
 class MockCase(BaseModel):

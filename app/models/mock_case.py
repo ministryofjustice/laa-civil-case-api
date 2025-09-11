@@ -2,30 +2,11 @@ from pydantic import BaseModel, field_validator, Field
 from typing import Optional, List, Dict
 
 
-class ReasonableAdjustments(BaseModel):
-    """Reasonable adjustments structure."""
-
-    selected: Optional[List[str]] = []
-    available: Optional[List[str]] = []
-    additionalInfo: Optional[str] = ""
-
-
 class PassphraseSetup(BaseModel):
     """Passphrase setup structure."""
 
     selected: List[str] = Field(
         default_factory=list, description="Selected passphrase setup options"
-    )
-    available: List[str] = Field(
-        default_factory=lambda: [
-            "Yes",
-            "No, client is a child or patient",
-            "No, client is subject to power of attorney",
-            "No, client cannot communicate on the phone due to disability",
-            "No, client cannot communicate on the phone due to a language requirement",
-            "Other",
-        ],
-        description="Available passphrase setup options",
     )
     passphrase: Optional[str] = Field(
         None, description="The actual passphrase if set up"
@@ -125,7 +106,6 @@ class MockCase(BaseModel):
     caseStatus: str
     dateOfBirth: str  # Changed from DateOfBirth object to string
     clientIsVulnerable: Optional[bool] = False
-    reasonableAdjustments: Optional[ReasonableAdjustments] = None
     language: Optional[str] = "English"
     phoneNumber: Optional[str] = ""
     safeToCall: Optional[bool] = False

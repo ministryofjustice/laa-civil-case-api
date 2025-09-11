@@ -47,7 +47,6 @@ Tests for Pydantic models:
 - `ThirdParty` - Third party information model
 - `ThirdPartyCreate` - Request model for creating third parties
 - `ThirdPartyUpdate` - Request model for updating third parties
-- `ReasonableAdjustments` - Reasonable adjustments model
 - Field validation, default values, and model interactions
 
 ## Running Tests

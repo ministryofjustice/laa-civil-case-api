@@ -8,20 +8,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1987-02-19T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Arabic",
     "phoneNumber": "0784104271",
     "safeToCall": false,
@@ -40,26 +26,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -74,18 +45,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1993-11-15T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Welsh",
     "phoneNumber": "0782326094",
     "safeToCall": false,
@@ -104,26 +63,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -138,20 +82,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1972-06-17T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "English",
     "phoneNumber": "0778750146",
     "safeToCall": false,
@@ -170,26 +100,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -203,22 +118,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1992-09-21T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "BSL - Webcam",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Arabic",
     "phoneNumber": "0786458681",
     "safeToCall": true,
@@ -237,26 +136,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -271,22 +155,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1988-06-02T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "Text relay",
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Mandarin",
     "phoneNumber": "0787451639",
     "safeToCall": true,
@@ -305,26 +173,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -338,21 +191,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1988-03-25T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "French",
     "phoneNumber": "0781595396",
     "safeToCall": false,
@@ -371,26 +209,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -405,18 +228,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1993-04-06T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Polish",
     "phoneNumber": "0787796833",
     "safeToCall": true,
@@ -435,26 +246,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -468,22 +264,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1986-08-16T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "BSL - Webcam",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "German",
     "phoneNumber": "0776283010",
     "safeToCall": false,
@@ -502,26 +282,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -535,18 +300,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1988-07-02T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Urdu",
     "phoneNumber": "0782586245",
     "safeToCall": false,
@@ -565,26 +318,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -598,22 +336,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1987-10-05T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "BSL - Webcam",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Arabic",
     "phoneNumber": "0778441481",
     "safeToCall": true,
@@ -632,26 +354,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -666,18 +373,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1984-01-12T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Mandarin",
     "phoneNumber": "0788566307",
     "safeToCall": true,
@@ -696,26 +391,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -729,20 +409,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1985-12-09T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Spanish",
     "phoneNumber": "0789346188",
     "safeToCall": false,
@@ -761,26 +427,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -794,20 +445,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1989-06-14T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Arabic",
     "phoneNumber": "0782858791",
     "safeToCall": false,
@@ -826,26 +463,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -860,21 +482,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1986-05-18T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Spanish",
     "phoneNumber": "0787307744",
     "safeToCall": false,
@@ -893,26 +500,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -927,18 +519,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1987-08-25T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Arabic",
     "phoneNumber": "0787681167",
     "safeToCall": false,
@@ -957,26 +537,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -990,20 +555,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1990-03-28T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "English",
     "phoneNumber": "0782430651",
     "safeToCall": true,
@@ -1022,26 +573,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1056,22 +592,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1989-01-14T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Spanish",
     "phoneNumber": "0782782987",
     "safeToCall": false,
@@ -1090,26 +610,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1124,20 +629,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1985-08-11T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Polish",
     "phoneNumber": "0778308940",
     "safeToCall": true,
@@ -1156,26 +647,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1190,22 +666,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1984-07-30T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "Skype",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Spanish",
     "phoneNumber": "0785518683",
     "safeToCall": true,
@@ -1224,26 +684,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1258,22 +703,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1991-11-03T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Callback preference",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "German",
     "phoneNumber": "0789944000",
     "safeToCall": false,
@@ -1292,26 +721,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1326,20 +740,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1984-10-28T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Polish",
     "phoneNumber": "0788570685",
     "safeToCall": false,
@@ -1358,26 +758,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -1391,21 +776,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1993-11-24T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "French",
     "phoneNumber": "0786140148",
     "safeToCall": true,
@@ -1424,26 +794,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1458,22 +813,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1991-04-17T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Callback preference",
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Arabic",
     "phoneNumber": "0781150114",
     "safeToCall": false,
@@ -1492,26 +831,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -1525,18 +849,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1990-12-07T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Spanish",
     "phoneNumber": "0789982370",
     "safeToCall": true,
@@ -1555,26 +867,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1589,20 +886,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1982-03-13T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Welsh",
     "phoneNumber": "0787276200",
     "safeToCall": false,
@@ -1621,26 +904,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1655,21 +923,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1976-05-01T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "English",
     "phoneNumber": "0785943518",
     "safeToCall": true,
@@ -1688,26 +941,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1722,20 +960,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1989-12-22T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Polish",
     "phoneNumber": "0787057895",
     "safeToCall": false,
@@ -1754,26 +978,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -1787,21 +996,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1980-02-02T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Polish",
     "phoneNumber": "0779159190",
     "safeToCall": false,
@@ -1820,26 +1014,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -1853,22 +1032,6 @@
     "caseStatus": "Accepted",
     "dateOfBirth": "1989-02-11T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Minicom",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Spanish",
     "phoneNumber": "0778693826",
     "safeToCall": false,
@@ -1887,26 +1050,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -1920,22 +1068,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1982-09-06T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "BSL - Webcam",
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Arabic",
     "phoneNumber": "0783990658",
     "safeToCall": false,
@@ -1954,26 +1086,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -1989,21 +1106,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1994-07-21T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Arabic",
     "phoneNumber": "0782694728",
     "safeToCall": true,
@@ -2022,26 +1124,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2057,22 +1144,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1987-11-26T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Skype",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "German",
     "phoneNumber": "0788619582",
     "safeToCall": false,
@@ -2091,26 +1162,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -2125,18 +1181,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1978-04-16T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "French",
     "phoneNumber": "0778645133",
     "safeToCall": false,
@@ -2155,26 +1199,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2190,21 +1219,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1993-03-07T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Spanish",
     "phoneNumber": "0783106913",
     "safeToCall": true,
@@ -2223,26 +1237,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2258,20 +1257,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1984-05-31T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Mandarin",
     "phoneNumber": "0781139161",
     "safeToCall": true,
@@ -2290,26 +1275,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2325,22 +1295,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1979-07-03T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Minicom",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "French",
     "phoneNumber": "0785020922",
     "safeToCall": false,
@@ -2359,26 +1313,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2394,20 +1333,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1989-11-04T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "German",
     "phoneNumber": "0788819084",
     "safeToCall": true,
@@ -2426,26 +1351,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2461,18 +1371,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1988-04-15T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Mandarin",
     "phoneNumber": "0785178060",
     "safeToCall": false,
@@ -2491,26 +1389,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2526,20 +1409,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1990-12-18T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Arabic",
     "phoneNumber": "0781094314",
     "safeToCall": true,
@@ -2558,26 +1427,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2593,18 +1447,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1990-09-22T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Welsh",
     "phoneNumber": "0782678691",
     "safeToCall": true,
@@ -2623,26 +1465,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -2657,21 +1484,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1991-08-14T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Welsh",
     "phoneNumber": "0781467791",
     "safeToCall": false,
@@ -2690,26 +1502,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -2725,20 +1522,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1991-10-18T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "French",
     "phoneNumber": "0788329274",
     "safeToCall": false,
@@ -2757,26 +1540,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -2791,22 +1559,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1986-08-19T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "Text relay",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Spanish",
     "phoneNumber": "0777861134",
     "safeToCall": false,
@@ -2825,26 +1577,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -2859,21 +1596,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1993-06-21T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Polish",
     "phoneNumber": "0782707489",
     "safeToCall": false,
@@ -2892,26 +1614,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -2926,18 +1633,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1992-07-30T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Welsh",
     "phoneNumber": "0789188301",
     "safeToCall": false,
@@ -2956,26 +1651,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -2990,22 +1670,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1988-10-12T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "Callback preference",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Arabic",
     "phoneNumber": "0788656417",
     "safeToCall": true,
@@ -3024,26 +1688,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -3059,20 +1708,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1986-01-17T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Arabic",
     "phoneNumber": "0777209471",
     "safeToCall": true,
@@ -3091,26 +1726,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -3126,20 +1746,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1987-06-29T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "English",
     "phoneNumber": "0789283436",
     "safeToCall": false,
@@ -3158,26 +1764,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3192,22 +1783,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1985-12-08T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "BSL - Webcam",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Polish",
     "phoneNumber": "0782083743",
     "safeToCall": false,
@@ -3226,26 +1801,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3260,21 +1820,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1986-12-05T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "French",
     "phoneNumber": "0788779866",
     "safeToCall": true,
@@ -3293,26 +1838,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -3328,21 +1858,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1983-04-08T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Callback preference",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Urdu",
     "phoneNumber": "0789824014",
     "safeToCall": true,
@@ -3361,26 +1876,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3395,21 +1895,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1991-01-05T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "English",
     "phoneNumber": "0785857511",
     "safeToCall": false,
@@ -3428,26 +1913,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3462,20 +1932,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1989-02-13T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Urdu",
     "phoneNumber": "0783460030",
     "safeToCall": false,
@@ -3494,26 +1950,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -3529,21 +1970,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1985-09-23T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Mandarin",
     "phoneNumber": "0784117706",
     "safeToCall": false,
@@ -3562,26 +1988,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -3597,21 +2008,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1977-12-17T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Mandarin",
     "phoneNumber": "0786975768",
     "safeToCall": false,
@@ -3630,26 +2026,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -3665,18 +2046,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1987-09-09T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Urdu",
     "phoneNumber": "0782346851",
     "safeToCall": false,
@@ -3695,26 +2064,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3729,20 +2083,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1982-03-06T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Welsh",
     "phoneNumber": "0784826219",
     "safeToCall": true,
@@ -3761,26 +2101,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3795,20 +2120,6 @@
     "caseStatus": "Closed",
     "dateOfBirth": "1996-10-27T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Mandarin",
     "phoneNumber": "0784764672",
     "safeToCall": false,
@@ -3827,26 +2138,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3860,22 +2156,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1977-06-10T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Callback preference",
-        "BSL - Webcam",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Spanish",
     "phoneNumber": "0781892249",
     "safeToCall": true,
@@ -3894,26 +2174,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -3927,18 +2192,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1984-08-22T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Urdu",
     "phoneNumber": "0779461997",
     "safeToCall": true,
@@ -3957,26 +2210,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -3991,22 +2229,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1982-07-04T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "BSL - Webcam",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Arabic",
     "phoneNumber": "0781677634",
     "safeToCall": false,
@@ -4025,26 +2247,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -4058,18 +2265,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1975-11-30T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "French",
     "phoneNumber": "0783698468",
     "safeToCall": true,
@@ -4088,26 +2283,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4122,21 +2302,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1994-08-03T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Mandarin",
     "phoneNumber": "0786240009",
     "safeToCall": false,
@@ -4155,26 +2320,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4189,22 +2339,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1991-04-15T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Minicom",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "German",
     "phoneNumber": "0789965395",
     "safeToCall": true,
@@ -4223,26 +2357,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4257,20 +2376,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1988-05-14T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Welsh",
     "phoneNumber": "0782266893",
     "safeToCall": true,
@@ -4289,26 +2394,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4323,21 +2413,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1989-07-11T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "German",
     "phoneNumber": "0788055521",
     "safeToCall": true,
@@ -4356,26 +2431,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4390,21 +2450,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1993-10-05T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Callback preference",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "English",
     "phoneNumber": "0787225666",
     "safeToCall": false,
@@ -4423,26 +2468,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -4456,22 +2486,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1971-10-01T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "BSL - Webcam",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Urdu",
     "phoneNumber": "0784531607",
     "safeToCall": false,
@@ -4490,26 +2504,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4524,21 +2523,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1986-06-09T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "English",
     "phoneNumber": "0777842384",
     "safeToCall": false,
@@ -4557,26 +2541,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -4590,18 +2559,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1992-12-08T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Spanish",
     "phoneNumber": "0779638755",
     "safeToCall": true,
@@ -4620,26 +2577,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4654,18 +2596,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1987-12-03T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Arabic",
     "phoneNumber": "0787164074",
     "safeToCall": true,
@@ -4684,26 +2614,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4718,20 +2633,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1987-09-28T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "German",
     "phoneNumber": "0785428008",
     "safeToCall": true,
@@ -4750,26 +2651,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4784,18 +2670,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1990-02-14T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Arabic",
     "phoneNumber": "0787283710",
     "safeToCall": false,
@@ -4814,26 +2688,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -4847,18 +2706,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1985-09-22T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Spanish",
     "phoneNumber": "0779170550",
     "safeToCall": false,
@@ -4877,26 +2724,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -4911,21 +2743,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1985-12-31T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Urdu",
     "phoneNumber": "0782137966",
     "safeToCall": true,
@@ -4944,26 +2761,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -4977,22 +2779,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1989-11-20T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "BSL - Webcam",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Mandarin",
     "phoneNumber": "0779885677",
     "safeToCall": false,
@@ -5011,26 +2797,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -5045,21 +2816,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1992-01-25T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Mandarin",
     "phoneNumber": "0788847138",
     "safeToCall": true,
@@ -5078,26 +2834,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -5111,22 +2852,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1970-04-04T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Callback preference",
-        "Minicom",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Urdu",
     "phoneNumber": "0788616856",
     "safeToCall": false,
@@ -5145,26 +2870,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -5178,20 +2888,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1990-05-13T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Polish",
     "phoneNumber": "0776809552",
     "safeToCall": false,
@@ -5210,26 +2906,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -5244,22 +2925,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1983-09-07T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Skype",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Urdu",
     "phoneNumber": "0776903483",
     "safeToCall": true,
@@ -5278,26 +2943,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -5311,18 +2961,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1986-01-08T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "French",
     "phoneNumber": "0783017079",
     "safeToCall": false,
@@ -5341,26 +2979,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -5375,21 +2998,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1991-11-16T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "English",
     "phoneNumber": "0787406129",
     "safeToCall": true,
@@ -5408,26 +3016,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -5441,21 +3034,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1988-03-19T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Welsh",
     "phoneNumber": "0778092610",
     "safeToCall": true,
@@ -5474,26 +3052,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -5508,22 +3071,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1994-04-08T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "Callback preference",
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Welsh",
     "phoneNumber": "0785573480",
     "safeToCall": false,
@@ -5542,26 +3089,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -5576,21 +3108,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1994-02-17T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Polish",
     "phoneNumber": "0781226731",
     "safeToCall": true,
@@ -5609,26 +3126,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -5643,20 +3145,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1995-04-28T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Welsh",
     "phoneNumber": "0787122610",
     "safeToCall": false,
@@ -5675,26 +3163,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     },
@@ -5708,22 +3181,6 @@
     "caseStatus": "New",
     "dateOfBirth": "1981-08-18T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Skype",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "German",
     "phoneNumber": "0786442261",
     "safeToCall": false,
@@ -5744,21 +3201,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1991-12-19T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Callback preference"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Urdu",
     "phoneNumber": "0784019408",
     "safeToCall": true,
@@ -5777,26 +3219,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -5810,22 +3237,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1993-12-04T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Skype",
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "French",
     "phoneNumber": "0788166575",
     "safeToCall": false,
@@ -5844,26 +3255,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -5877,20 +3273,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1994-11-13T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Spanish",
     "phoneNumber": "0779238102",
     "safeToCall": false,
@@ -5909,26 +3291,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -5942,21 +3309,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1985-11-07T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Welsh",
     "phoneNumber": "0789006315",
     "safeToCall": false,
@@ -5975,26 +3327,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6009,21 +3346,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1986-10-15T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required",
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "Welsh",
     "phoneNumber": "0783425668",
     "safeToCall": false,
@@ -6042,26 +3364,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6076,20 +3383,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1987-04-12T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Spanish",
     "phoneNumber": "0789617529",
     "safeToCall": true,
@@ -6108,26 +3401,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6142,22 +3420,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1988-06-23T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "BSL - Webcam",
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Client prefers morning appointments"
-    },
     "language": "German",
     "phoneNumber": "0788273653",
     "safeToCall": true,
@@ -6176,26 +3438,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -6209,22 +3456,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1996-11-15T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Skype",
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Spanish",
     "phoneNumber": "0778382547",
     "safeToCall": true,
@@ -6243,26 +3474,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -6276,18 +3492,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1992-05-22T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Mandarin",
     "phoneNumber": "0777961746",
     "safeToCall": true,
@@ -6306,26 +3510,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6340,22 +3529,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1989-06-27T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Minicom",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Arabic",
     "phoneNumber": "0783014917",
     "safeToCall": false,
@@ -6374,26 +3547,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -6407,22 +3565,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1985-09-08T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "No accommodations required",
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Urdu",
     "phoneNumber": "0777494444",
     "safeToCall": true,
@@ -6441,26 +3583,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6475,22 +3602,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1984-03-26T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Callback preference",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "English",
     "phoneNumber": "0782370595",
     "safeToCall": false,
@@ -6509,26 +3620,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6543,18 +3639,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1992-09-14T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "French",
     "phoneNumber": "0778858539",
     "safeToCall": false,
@@ -6573,26 +3657,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6607,18 +3676,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1990-07-09T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "French",
     "phoneNumber": "0784503049",
     "safeToCall": false,
@@ -6637,26 +3694,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6671,20 +3713,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1990-03-17T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Spanish",
     "phoneNumber": "0776264887",
     "safeToCall": false,
@@ -6703,26 +3731,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -6736,18 +3749,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1991-01-29T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "French",
     "phoneNumber": "0787305003",
     "safeToCall": true,
@@ -6766,26 +3767,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -6799,22 +3785,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1987-02-03T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "Callback preference",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "English",
     "phoneNumber": "0776343841",
     "safeToCall": true,
@@ -6833,26 +3803,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6867,21 +3822,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1989-08-18T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "English",
     "phoneNumber": "0782289045",
     "safeToCall": false,
@@ -6900,26 +3840,11 @@
       "relationshipToClient": {
         "selected": [
           "Family member of friend"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -6934,20 +3859,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1988-01-31T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Welsh",
     "phoneNumber": "0779066816",
     "safeToCall": false,
@@ -6966,26 +3877,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -6999,22 +3895,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1983-11-10T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "No accommodations required",
-        "Minicom"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Mandarin",
     "phoneNumber": "0781102890",
     "safeToCall": false,
@@ -7033,26 +3913,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -7067,18 +3932,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1972-01-15T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "German",
     "phoneNumber": "0781322627",
     "safeToCall": true,
@@ -7097,26 +3950,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -7131,21 +3969,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1997-06-11T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Text relay",
-        "No accommodations required"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "German",
     "phoneNumber": "0786635066",
     "safeToCall": true,
@@ -7164,26 +3987,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -7198,21 +4006,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1981-05-22T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "Callback preference",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Requires written confirmation"
-    },
     "language": "Arabic",
     "phoneNumber": "0776354243",
     "safeToCall": true,
@@ -7231,26 +4024,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -7264,18 +4042,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1971-06-12T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Needs extra time for responses"
-    },
     "language": "Arabic",
     "phoneNumber": "0779158591",
     "safeToCall": true,
@@ -7294,26 +4060,11 @@
       "relationshipToClient": {
         "selected": [
           "Professional"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -7327,22 +4078,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1997-04-26T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Skype"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Spanish",
     "phoneNumber": "0782836977",
     "safeToCall": true,
@@ -7361,26 +4096,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -7395,18 +4115,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1986-10-13T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Mandarin",
     "phoneNumber": "0777100984",
     "safeToCall": false,
@@ -7425,26 +4133,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "Yes"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ],
         "passphrase": "LetMeIn"
       }
@@ -7459,18 +4152,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1983-03-08T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Arabic",
     "phoneNumber": "0776064938",
     "safeToCall": false,
@@ -7489,26 +4170,11 @@
       "relationshipToClient": {
         "selected": [
           "Parent or Guardian"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -7522,18 +4188,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1991-06-28T00:00:00-05:00",
     "clientIsVulnerable": false,
-    "reasonableAdjustments": {
-      "selected": [],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": "Prefers phone over video calls"
-    },
     "language": "Arabic",
     "phoneNumber": "0783298798",
     "safeToCall": true,
@@ -7552,26 +4206,11 @@
       "relationshipToClient": {
         "selected": [
           "Other"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }
@@ -7585,21 +4224,6 @@
     "caseStatus": "Opened",
     "dateOfBirth": "1979-11-12T00:00:00-05:00",
     "clientIsVulnerable": true,
-    "reasonableAdjustments": {
-      "selected": [
-        "Skype",
-        "BSL - Webcam"
-      ],
-      "available": [
-        "BSL - Webcam",
-        "Callback preference",
-        "Minicom",
-        "Skype",
-        "Text relay",
-        "No accommodations required"
-      ],
-      "additionalInfo": ""
-    },
     "language": "Polish",
     "phoneNumber": "0777929124",
     "safeToCall": true,
@@ -7618,26 +4242,11 @@
       "relationshipToClient": {
         "selected": [
           "Legal adviser"
-        ],
-        "available": [
-          "Parent or Guardian",
-          "Family member of friend",
-          "Professional",
-          "Legal adviser",
-          "Other"
         ]
       },
       "passphraseSetUp": {
         "selected": [
           "No, client is a child or patient"
-        ],
-        "available": [
-          "Yes",
-          "No, client is a child or patient",
-          "No, client is subject to power of attorney",
-          "No, client cannot communicate on the phone due to disability",
-          "No, client cannot communicate on the phone due to a language requirement",
-          "Other"
         ]
       }
     }

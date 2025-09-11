@@ -21,26 +21,9 @@ class TestThirdPartyEndpoints:
             "safeToCall": True,
             "address": "123 Main Street, London",
             "postcode": "SW1A 1AA",
-            "relationshipToClient": {
-                "selected": ["Other"],
-                "available": [
-                    "Parent or Guardian",
-                    "Family member of friend",
-                    "Professional",
-                    "Legal adviser",
-                    "Other",
-                ],
-            },
+            "relationshipToClient": {"selected": ["Other"]},
             "passphraseSetUp": {
                 "selected": ["Yes"],
-                "available": [
-                    "Yes",
-                    "No, client is a child or patient",
-                    "No, client is subject to power of attorney",
-                    "No, client cannot communicate on the phone due to disability",
-                    "No, client cannot communicate on the phone due to a language requirement",
-                    "Other",
-                ],
                 "passphrase": "LetMeIn",
             },
         }
@@ -58,26 +41,9 @@ class TestThirdPartyEndpoints:
                         "safeToCall": True,
                         "address": "123 Main Street, London",
                         "postcode": "SW1A 1AA",
-                        "relationshipToClient": {
-                            "selected": ["Other"],
-                            "available": [
-                                "Parent or Guardian",
-                                "Family member of friend",
-                                "Professional",
-                                "Legal adviser",
-                                "Other",
-                            ],
-                        },
+                        "relationshipToClient": {"selected": ["Other"]},
                         "passphraseSetUp": {
                             "selected": ["Yes"],
-                            "available": [
-                                "Yes",
-                                "No, client is a child or patient",
-                                "No, client is subject to power of attorney",
-                                "No, client cannot communicate on the phone due to disability",
-                                "No, client cannot communicate on the phone due to a language requirement",
-                                "Other",
-                            ],
                             "passphrase": "LetMeIn",
                         },
                     },
@@ -350,7 +316,6 @@ class TestThirdPartyModels:
         passphrase = PassphraseSetup(selected=["Yes"], passphrase="LetMeIn")
         assert passphrase.selected == ["Yes"]
         assert passphrase.passphrase == "LetMeIn"
-        assert len(passphrase.available) == 6  # Default options
 
     def test_passphrase_setup_no_scenario(self):
         """Test PassphraseSetup model with No scenario."""

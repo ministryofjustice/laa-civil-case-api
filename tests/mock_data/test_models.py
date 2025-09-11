@@ -10,7 +10,6 @@ from app.models.mock_case import (
     ThirdParty,
     ThirdPartyCreate,
     ThirdPartyUpdate,
-    ReasonableAdjustments,
     PassphraseSetup,
 )
 
@@ -70,26 +69,6 @@ class TestMockCaseModel:
         assert case.phoneNumber == ""
         assert case.thirdParty is None
 
-    def test_mock_case_with_reasonable_adjustments(self):
-        """Test MockCase with reasonable adjustments."""
-        case_data = {
-            "fullName": "John Smith",
-            "caseReference": "PC-1234-5678",
-            "dateReceived": "2025-01-01T10:00:00-05:00",
-            "caseStatus": "New",
-            "dateOfBirth": "1990-01-01T00:00:00-05:00",
-            "reasonableAdjustments": {
-                "selected": ["BSL - Webcam"],
-                "available": ["BSL - Webcam", "Callback preference"],
-                "additionalInfo": "Client needs extra time",
-            },
-        }
-
-        case = MockCase(**case_data)
-        assert case.reasonableAdjustments.selected == ["BSL - Webcam"]
-        assert "BSL - Webcam" in case.reasonableAdjustments.available
-        assert case.reasonableAdjustments.additionalInfo == "Client needs extra time"
-
 
 class TestPassphraseSetupModel:
     """Test the PassphraseSetup model."""
@@ -99,7 +78,6 @@ class TestPassphraseSetupModel:
         passphrase = PassphraseSetup(selected=["Yes"], passphrase="MySecret123")
         assert passphrase.selected == ["Yes"]
         assert passphrase.passphrase == "MySecret123"
-        assert len(passphrase.available) == 6  # Default available options
 
     def test_passphrase_setup_no_scenario(self):
         """Test PassphraseSetup with No scenario."""
@@ -112,15 +90,12 @@ class TestPassphraseSetupModel:
         passphrase = PassphraseSetup()
         assert passphrase.selected == []
         assert passphrase.passphrase is None
-        assert "Yes" in passphrase.available
-        assert "No, client is a child or patient" in passphrase.available
 
-    def test_passphrase_setup_custom_available_options(self):
-        """Test PassphraseSetup with custom available options."""
-        custom_options = ["Option 1", "Option 2"]
-        passphrase = PassphraseSetup(selected=["Option 1"], available=custom_options)
-        assert passphrase.available == custom_options
-        assert passphrase.selected == ["Option 1"]
+    def test_passphrase_setup_custom_selected_options(self):
+        """Test PassphraseSetup with custom selected options."""
+        custom_options = ["Option 1"]
+        passphrase = PassphraseSetup(selected=custom_options)
+        assert passphrase.selected == custom_options
 
 
 class TestThirdPartyModel:
@@ -223,16 +198,7 @@ class TestThirdPartyCreateModel:
             "safeToCall": True,
             "address": "123 Complete Street",
             "postcode": "CO1 1MP",
-            "relationshipToClient": {
-                "selected": ["Family member of friend"],
-                "available": [
-                    "Parent or Guardian",
-                    "Family member of friend",
-                    "Professional",
-                    "Legal adviser",
-                    "Other",
-                ],
-            },
+            "relationshipToClient": {"selected": ["Family member of friend"]},
             "passphraseSetUp": passphrase_setup,
         }
 
@@ -299,39 +265,6 @@ class TestThirdPartyUpdateModel:
         assert update.safeToCall is False
         assert update.emailAddress is None
         assert update.address is None
-
-
-class TestReasonableAdjustmentsModel:
-    """Test the ReasonableAdjustments model."""
-
-    def test_reasonable_adjustments_creation(self):
-        """Test creating ReasonableAdjustments with data."""
-        data = {
-            "selected": ["BSL - Webcam", "Callback preference"],
-            "available": ["BSL - Webcam", "Callback preference", "Minicom"],
-            "additionalInfo": "Client needs extra time",
-        }
-
-        adjustments = ReasonableAdjustments(**data)
-        assert adjustments.selected == ["BSL - Webcam", "Callback preference"]
-        assert len(adjustments.available) == 3
-        assert adjustments.additionalInfo == "Client needs extra time"
-
-    def test_reasonable_adjustments_defaults(self):
-        """Test ReasonableAdjustments default values."""
-        adjustments = ReasonableAdjustments()
-        assert adjustments.selected == []
-        assert adjustments.available == []
-        assert adjustments.additionalInfo == ""
-
-    def test_reasonable_adjustments_partial(self):
-        """Test ReasonableAdjustments with partial data."""
-        data = {"additionalInfo": "Special requirements"}
-
-        adjustments = ReasonableAdjustments(**data)
-        assert adjustments.selected == []
-        assert adjustments.available == []
-        assert adjustments.additionalInfo == "Special requirements"
 
 
 class TestModelInteractions:

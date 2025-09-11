@@ -364,26 +364,9 @@ async def add_third_party_to_case(
             "safeToCall": True,
             "address": "123 Main Street, London",
             "postcode": "SW1A 1AA",
-            "relationshipToClient": {
-                "selected": ["Other"],
-                "available": [
-                    "Parent or Guardian",
-                    "Family member of friend",
-                    "Professional",
-                    "Legal adviser",
-                    "Other",
-                ],
-            },
+            "relationshipToClient": {"selected": ["Other"]},
             "passphraseSetUp": {
                 "selected": ["Yes"],
-                "available": [
-                    "Yes",
-                    "No, client is a child or patient",
-                    "No, client is subject to power of attorney",
-                    "No, client cannot communicate on the phone due to disability",
-                    "No, client cannot communicate on the phone due to a language requirement",
-                    "Other",
-                ],
                 "passphrase": "LetMeIn",
             },
         },
@@ -418,27 +401,8 @@ async def update_third_party_for_case(
             "fullName": "John Smith Updated",
             "emailAddress": "john.updated@email.com",
             "safeToCall": False,
-            "relationshipToClient": {
-                "selected": ["Professional"],
-                "available": [
-                    "Parent or Guardian",
-                    "Family member of friend",
-                    "Professional",
-                    "Legal adviser",
-                    "Other",
-                ],
-            },
-            "passphraseSetUp": {
-                "selected": ["No, client is a child or patient"],
-                "available": [
-                    "Yes",
-                    "No, client is a child or patient",
-                    "No, client is subject to power of attorney",
-                    "No, client cannot communicate on the phone due to disability",
-                    "No, client cannot communicate on the phone due to a language requirement",
-                    "Other",
-                ],
-            },
+            "relationshipToClient": {"selected": ["Professional"]},
+            "passphraseSetUp": {"selected": ["No, client is a child or patient"]},
         },
     ),
 ) -> MockCase:

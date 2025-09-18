@@ -3,7 +3,12 @@ import math
 from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, HTTPException, Query, Response, Body
 from pathlib import Path
-from ..models.mock_case import MockCase, ThirdPartyCreate, ThirdPartyUpdate
+from ..models.mock_case import (
+    MockCase,
+    ThirdPartyCreate,
+    ThirdPartyUpdate,
+    ClientSupportNeedsCreate,
+)
 
 router = APIRouter(
     prefix="/mock",
@@ -454,6 +459,122 @@ async def delete_third_party_from_case(case_reference: str) -> MockCase:
 
     # Remove third party information
     target_case["thirdParty"] = None
+
+    # Update the case in the list and save
+    cases[case_index] = target_case
+    save_cases_to_file(cases)
+
+    return MockCase(**target_case)
+
+
+@router.post(
+    "/cases/{case_reference}/client-support-needs",
+    tags=["mock"],
+    response_model=MockCase,
+    summary="Add client support needs to a case",
+    description="Adds client support needs information to a specific case by case reference.",
+)
+async def add_client_support_needs_to_case(
+    case_reference: str,
+    client_support_needs_data: ClientSupportNeedsCreate = Body(
+        ...,
+        example={
+            "bslWebcam": "No",
+            "textRelay": "No",
+            "callbackPreference": "No",
+            "languageSupportNeeds": "English",
+            "notes": "Here are some notes from the operator",
+        },
+    ),
+) -> MockCase:
+    """Add client support needs information to a specific case by case reference."""
+    target_case, case_index, cases = find_case_by_reference(case_reference)
+
+    # Convert ClientSupportNeedsCreate to dict and add to case
+    client_support_needs_dict = client_support_needs_data.model_dump(exclude_unset=True)
+    target_case["clientSupportNeeds"] = client_support_needs_dict
+
+    # Update the case in the list and save
+    cases[case_index] = target_case
+    save_cases_to_file(cases)
+
+    return MockCase(**target_case)
+
+
+@router.put(
+    "/cases/{case_reference}/client-support-needs",
+    tags=["mock"],
+    response_model=MockCase,
+    summary="Update client support needs for a case",
+    description="Updates client support needs information for a specific case by case reference.",
+)
+async def update_client_support_needs_for_case(
+    case_reference: str,
+    client_support_needs_data: ClientSupportNeedsCreate = Body(
+        ...,
+        example={
+            "bslWebcam": "Yes",
+            "textRelay": "Yes",
+            "callbackPreference": "Yes",
+            "languageSupportNeeds": "British Sign Language",
+            "notes": "Updated support needs - BSL interpreter required",
+        },
+    ),
+) -> MockCase:
+    """Update client support needs information for a specific case by case reference."""
+    target_case, case_index, cases = find_case_by_reference(case_reference)
+
+    # Check if case has existing client support needs information
+    if (
+        "clientSupportNeeds" not in target_case
+        or target_case["clientSupportNeeds"] is None
+    ):
+        raise HTTPException(
+            status_code=404,
+            detail=f"No client support needs information found for case '{case_reference}'",
+        )
+
+    # Get existing client support needs data
+    existing_support_needs = target_case["clientSupportNeeds"]
+
+    # Update only provided fields (exclude_unset=True means only fields that were explicitly set)
+    update_data = client_support_needs_data.model_dump(exclude_unset=True)
+
+    # Merge with existing data
+    for key, value in update_data.items():
+        existing_support_needs[key] = value
+
+    # Update the case in the list and save
+    target_case["clientSupportNeeds"] = existing_support_needs
+    cases[case_index] = target_case
+    save_cases_to_file(cases)
+
+    return MockCase(**target_case)
+
+
+@router.delete(
+    "/cases/{case_reference}/client-support-needs",
+    tags=["mock"],
+    response_model=MockCase,
+    summary="Delete client support needs for a case",
+    description="Removes client support needs information for a specific case by case reference.",
+)
+async def delete_client_support_needs_from_case(case_reference: str) -> MockCase:
+    """Delete client support needs information for a specific case by case reference."""
+    target_case, case_index, cases = find_case_by_reference(case_reference)
+
+    # Check if case has existing client support needs information
+    if (
+        "clientSupportNeeds" not in target_case
+        or target_case["clientSupportNeeds"] is None
+    ):
+        raise HTTPException(
+            status_code=404,
+            detail=f"No client support needs information found for case '{case_reference}'",
+        )
+
+    # Remove client support needs information
+    target_case["clientSupportNeeds"] = None
 
     # Update the case in the list and save
     cases[case_index] = target_case

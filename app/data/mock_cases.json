@@ -4249,6 +4249,13 @@
           "No, client is a child or patient"
         ]
       }
+    },
+    "clientSupportNeeds": {
+      "bslWebcam": "Yes",
+      "textRelay": "No",
+      "callbackPreference": "No",
+      "languageSupportNeeds": "English",
+      "notes": "Here are some notes from the operator!"
     }
   }
 ]

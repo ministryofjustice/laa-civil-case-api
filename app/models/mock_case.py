@@ -13,6 +13,18 @@ class PassphraseSetup(BaseModel):
     )
 
 
+class ClientSupportNeeds(BaseModel):
+    """Client support needs structure."""
+
+    bslWebcam: Optional[str] = Field(None, description="BSL webcam support needed")
+    textRelay: Optional[str] = Field(None, description="Text relay support needed")
+    callbackPreference: Optional[str] = Field(None, description="Callback preference")
+    languageSupportNeeds: Optional[str] = Field(
+        None, description="Language support needs"
+    )
+    notes: Optional[str] = Field(None, description="Additional support notes")
+
+
 class ThirdParty(BaseModel):
     """Third party contact information structure."""
 
@@ -94,6 +106,18 @@ class ThirdPartyUpdate(BaseModel):
         return bool(v)
 
 
+class ClientSupportNeedsCreate(BaseModel):
+    """Request model for creating client support needs."""
+
+    bslWebcam: Optional[str] = Field(None, description="BSL webcam support needed")
+    textRelay: Optional[str] = Field(None, description="Text relay support needed")
+    callbackPreference: Optional[str] = Field(None, description="Callback preference")
+    languageSupportNeeds: Optional[str] = Field(
+        None, description="Language support needs"
+    )
+    notes: Optional[str] = Field(None, description="Additional support notes")
+
+
 class MockCase(BaseModel):
     """Mock case data structure."""
 
@@ -115,3 +139,4 @@ class MockCase(BaseModel):
     postcode: Optional[str] = ""
     laaReference: Optional[str] = ""
     thirdParty: Optional[ThirdParty] = None
+    clientSupportNeeds: Optional[ClientSupportNeeds] = None

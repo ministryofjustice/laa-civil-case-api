@@ -4044,7 +4044,7 @@
     "clientIsVulnerable": true,
     "language": "Arabic",
     "phoneNumber": "0779158591",
-    "safeToCall": true,
+    "safeToCall": false,
     "announceCall": true,
     "emailAddress": "mark.jones@email.com",
     "address": "94 Park Road, Coventry",

@@ -1,9 +1,14 @@
 from logging.config import fileConfig
 
+# This is used to auto generate migrations for Postgres Enum types. Natively Alembic does not support altering
+# Enum types after creation without manually writing the migrations.
+import alembic_postgresql_enum  # noqa: F401
+
 from app.db import db_url
 
-# This imports all the models
-from app.models import cases  # noqa: F401
+# Imports all the models so Alembic knows what to generate migrations for.
+# As they are not directly used this raises the F403 exception, this can be ignored.
+from app.models import *  # noqa: F401, F403
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
@@ -14,7 +19,7 @@ from alembic import context
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-config.set_main_option('sqlalchemy.url', db_url)
+config.set_main_option("sqlalchemy.url", db_url)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -72,7 +77,10 @@ def run_migrations_online() -> None:
 
     with connectable.connect() as connection:
         context.configure(
-            connection=connection, target_metadata=target_metadata
+            connection=connection,
+            target_metadata=target_metadata,
+            compare_type=True,
+            compare_server_default=True,
         )
 
         with context.begin_transaction():

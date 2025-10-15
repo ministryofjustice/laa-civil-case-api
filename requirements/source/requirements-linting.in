@@ -1,2 +1,1 @@
--r requirements-base.in
-ruff==0.4.9
+ruff

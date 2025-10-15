@@ -15,6 +15,8 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 COPY app ./app
+COPY bin ./bin
+COPY manage.py ./manage.py
 COPY alembic.ini ./alembic.ini
 
 # Change ownership of the working directory to the non-root user

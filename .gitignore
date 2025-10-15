@@ -11,3 +11,5 @@ terraform.tfstate
 __pycache__
 database.db
 .idea
+.venv
+.coverage

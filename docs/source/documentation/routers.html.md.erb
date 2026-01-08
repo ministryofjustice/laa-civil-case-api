@@ -1,3 +1,7 @@
+---
+title: Endpoints
+---
+
 # Creating new endpoints
 To create new endpoints you need to define the URL route it belongs to and which request method it accepts.
 
@@ -35,17 +39,16 @@ async def create_case(case: Case):
     return case
 ```
 These create_case route only accepts post requests and requires the request body to be of the form defined by
-the Case model. 
+the Case model.
 
-This means the body needs to contain a name which can be encoded as a string and a category which 
-matches one of the categories of law defined in the [/app/models/categories.py](../models/types/categories.py) enum class.
+This means the body needs to contain a name which can be encoded as a string and a category which
+matches one of the categories of law defined in the models enum class.
 
-To learn more about models please read [/app/models/README.md](../models/README.md)
 
 ## Reading and writing to the database
 Database connections are managed with SQLModel sessions, these are inherited from SQLAlchemy sessions.
 
-If your endpoint depends on a database session you can pass this into your routing function using the 
+If your endpoint depends on a database session you can pass this into your routing function using the
 FastAPI `Depends()` method.
 
 ```python

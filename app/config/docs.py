@@ -4,6 +4,8 @@ description = """
 * Create cases by posting to the /cases/ endpoint.
 * Read all cases by sending a get request to the /cases/ endpoint.
 * Read a given case by sending a get request to the /cases/{case_id} endpoint.
+
+[View Technical Documentation](https://ministryofjustice.github.io/laa-civil-case-api/)
 """
 
 config = {

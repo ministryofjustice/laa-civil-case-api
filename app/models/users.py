@@ -1,4 +1,22 @@
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field, SQLModel, JSON
+from enum import Enum
+from typing import List
+
+
+class UserScopes(str, Enum):
+    READ = "read"
+    CREATE = "create"
+    UPDATE = "update"
+    DELETE = "delete"
+
+    @classmethod
+    def as_list(cls):
+        # Iterate over the values only
+        return [member.value for member in cls]
+
+    @classmethod
+    def as_dict(cls) -> dict:
+        return {member.name: member.value for member in cls}
 
 
 class Token(SQLModel):
@@ -27,3 +45,4 @@ class User(SQLModel, table=True):
     email: str | None = None
     full_name: str | None = None
     disabled: bool = Field(default=False)
+    scopes: List[UserScopes] = Field(sa_type=JSON, default=[], nullable=True)

@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.db import get_session
-from app.models.users import User
+from app.models.users import User, UserScopes
 from app.auth.security import get_password_hash
 import logging
 
@@ -28,6 +28,7 @@ def add_users(users_list_dict: list[dict]):
             username = user_info.get("username")
             password = user_info.get("password")
             disabled = user_info.get("disabled")
+            scopes = user_info.get("scopes", [])
 
             if not username or not password:
                 logging.warning(
@@ -43,7 +44,10 @@ def add_users(users_list_dict: list[dict]):
 
             password = get_password_hash(password)
             new_user = User(
-                username=username, hashed_password=password, disabled=disabled
+                username=username,
+                hashed_password=password,
+                disabled=disabled,
+                scopes=scopes,
             )
             session.add(new_user)
 
@@ -51,7 +55,12 @@ def add_users(users_list_dict: list[dict]):
 
 
 users_to_add = [
-    {"username": "cla_admin", "password": "cla_admin", "disabled": False},
+    {
+        "username": "cla_admin",
+        "password": "cla_admin",
+        "disabled": False,
+        "scopes": UserScopes.as_list(),
+    },
     {"username": "janedoe", "password": "password", "disabled": True},
 ]
 

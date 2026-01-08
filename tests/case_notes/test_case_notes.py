@@ -8,13 +8,23 @@ from datetime import datetime, UTC
 
 def test_attach_note(session: Session):
     case = Case(case_type=CaseTypes.CLA)
-    note = CaseNote(case_id=case.id, content="Hello world", note_type=NoteType.provider)
+    provider_note = CaseNote(
+        case_id=case.id, content="Hello world", note_type=NoteType.provider
+    )
+    adaptation_note = CaseNote(
+        case_id=case.id, content="Needs BSL", note_type=NoteType.adaptation
+    )
     session.add(case)
-    session.add(note)
+    session.add(provider_note)
+    session.add(adaptation_note)
     session.commit()
-    assert len(case.notes) == 1
+
+    assert len(case.notes) == 2
     assert case.notes[0].content == "Hello world"
-    assert note.note_type == "Provider"
+    assert provider_note.note_type == "Provider"
+
+    assert case.notes[1].content == "Needs BSL"
+    assert adaptation_note.note_type == "Adaptation"
 
 
 def test_empty_note(session: Session):

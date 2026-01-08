@@ -1,7 +1,12 @@
 from uuid import UUID
 from enum import Enum
 from sqlmodel import Field, JSON, Relationship
-from app.models.base import TableModelMixin, BaseRequest, BaseResponse
+from app.models.base import (
+    TableModelMixin,
+    BaseRequest,
+    BaseResponse,
+    BaseUpdateRequest,
+)
 
 
 class EligibilityType(str, Enum):
@@ -32,6 +37,11 @@ class EligibilityOutcomes(EligibilityOutcomesBase, TableModelMixin, table=True):
 
 
 class EligibilityOutcomesRequest(EligibilityOutcomesBase, BaseRequest):
+    class Meta:
+        model = EligibilityOutcomes
+
+
+class EligibilityOutcomesUpdateRequest(EligibilityOutcomesBase, BaseUpdateRequest):
     class Meta:
         model = EligibilityOutcomes
 

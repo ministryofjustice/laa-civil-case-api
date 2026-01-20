@@ -16,7 +16,7 @@ click==8.2.1
 dnspython==2.7.0
 email-validator==2.2.0
 fastapi[standard]==0.128.0
-fastapi-cli[standard]==0.0.7
+fastapi-cli[standard]==0.0.8
 fastapi-versionizer==4.0.1
 freezegun==1.5.2
 greenlet==3.2.3

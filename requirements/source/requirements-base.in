@@ -1,7 +1,7 @@
 fastapi[standard]>=0.115.13
 # Version of python-multipart installed by fastapi has a securiy issue https://avd.aquasec.com/nvd/cve-2024-53981
 python-multipart>=0.0.19
-starlette>=0.40.0
+starlette==0.47.0
 typing-extensions>=4.0
 sqlalchemy[asyncio]
 sqlmodel>=0.0.22

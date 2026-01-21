@@ -30,7 +30,7 @@ h11==0.16.0
 httpcore==1.0.9
 httptools==0.6.4
 httpx==0.28.1
-identify==2.6.12
+identify==2.6.16
 idna==3.10
 iniconfig==2.1.0
 jinja2==3.1.6

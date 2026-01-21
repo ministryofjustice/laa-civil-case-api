@@ -1,6 +1,10 @@
 default_language_version:
   python: python3.12
 repos:
+  - repo: https://github.com/ministryofjustice/devsecops-hooks
+    rev: v1.3.0
+    hooks:
+      - id: baseline
   - repo: https://github.com/jazzband/pip-tools
     rev: 7.4.1
     hooks:
@@ -8,25 +12,53 @@ repos:
         name: pip-compile requirements-development.in
         files: requirements-(base|development).in
         additional_dependencies: ["pip<25.3"]
-        args: [requirements/source/requirements-development.in, "--output-file", requirements/generated/requirements-development.txt, "--no-annotate", "--strip-extras"]
+        args:
+          [
+            requirements/source/requirements-development.in,
+            "--output-file",
+            requirements/generated/requirements-development.txt,
+            "--no-annotate",
+            "--strip-extras",
+          ]
       - id: pip-compile
         name: pip-compile requirements-linting.in
         files: requirements-(base|linting).in
         additional_dependencies: ["pip<25.3"]
-        args: [requirements/source/requirements-linting.in, "--output-file", requirements/generated/requirements-linting.txt, "--no-annotate", "--strip-extras"]
+        args:
+          [
+            requirements/source/requirements-linting.in,
+            "--output-file",
+            requirements/generated/requirements-linting.txt,
+            "--no-annotate",
+            "--strip-extras",
+          ]
       - id: pip-compile
         name: pip-compile requirements-testing.in
         files: requirements-(base|testing).in
         additional_dependencies: ["pip<25.3"]
-        args: [requirements/source/requirements-testing.in, "--output-file", requirements/generated/requirements-testing.txt, "--no-annotate", "--strip-extras"]
+        args:
+          [
+            requirements/source/requirements-testing.in,
+            "--output-file",
+            requirements/generated/requirements-testing.txt,
+            "--no-annotate",
+            "--strip-extras",
+          ]
       - id: pip-compile
         name: pip-compile requirements-production.in
         files: requirements-(base|production).in
         additional_dependencies: ["pip<25.3"]
-        args: [requirements/source/requirements-production.in, "--output-file", requirements/generated/requirements-production.txt, "--no-annotate", "--strip-extras"]
+        args:
+          [
+            requirements/source/requirements-production.in,
+            "--output-file",
+            requirements/generated/requirements-production.txt,
+            "--no-annotate",
+            "--strip-extras",
+          ]
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.12.0
     hooks:
       - id: ruff
-        args: [ --fix ]
+        args: [--fix]
       - id: ruff-format

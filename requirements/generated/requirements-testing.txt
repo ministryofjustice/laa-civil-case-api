@@ -50,7 +50,7 @@ pytest==8.4.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.0
 python-multipart==0.0.20
-pyyaml==6.0.2
+pyyaml==6.0.3
 rich==14.0.0
 rich-toolkit==0.14.8
 rignore==0.7.6

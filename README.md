@@ -1,13 +1,17 @@
 # LAA Civil Case API
-[![Standards Icon]][Standards Link]
+
+[![Ministry of Justice Repository Compliance Badge](https://github-community.service.justice.gov.uk/repository-standards/api/laa-civil-case-api/badge)](https://github-community.service.justice.gov.uk/repository-standards/laa-civil-case-api)
 
 ## Running the API
+
 It is recommended to use Docker to run the app and database.
 
 ```bash
 ./run_local.sh
 ```
+
 This command:
+
 - Builds the containers for the app and database
 - Migrates the database to the latest version
 - Reloads the app whenever changes are made within the `/app` directory
@@ -15,18 +19,23 @@ This command:
 #### The API docs can then be found at: [localhost:8027](http://localhost:8027)
 
 > If you run into any isues please see [TROUBLESHOOT.md](TROUBLESHOOT.md).
-___
+
+---
 
 ## Adding an authorised user
+
 An authorised user is created as part of the run_local script.
 The created user will have the username cla_admin and password of cla_admin.
 
 ## Running in a virtual environment
+
 If you wish to run the app in a virtual environment you can do so with:
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
+
 ```commandline
 pip install -r requirements/generated/requirements-development.txt
 ```
@@ -34,6 +43,7 @@ pip install -r requirements/generated/requirements-development.txt
 ### Running the API
 
 To migrate the database to the latest revision run:
+
 ```bash
 alembic upgrade head
 ```
@@ -45,11 +55,15 @@ uvicorn app:case_api --reload
 ```
 
 ## Tests
+
 To install testing dependencies run:
+
 ```commandline
 pip install -r requirements/generated/requirements-testing.txt
 ```
+
 Tests are managed using Pytest and can be run by using:
+
 ```commandline
 pytest
 ```
@@ -59,15 +73,19 @@ All tests use a mocked user that circumvents the authorisation.
 For information on writing tests please see [here](./tests/README.md).
 
 ## Code formatting and linting
+
 The following will:
-- Generate requirement.txt files from files inside requirements/source/*.in and put them into requirements/generated/*.txt
+
+- Generate requirement.txt files from files inside requirements/source/_.in and put them into requirements/generated/_.txt
 - Run linting checks with ruff
 
 ```shell
 pre-commit install
 ```
+
 ### Manually running linting
-The Ruff linter looks for code quality issues. Ensure there are no ruff issues before committing. 
+
+The Ruff linter looks for code quality issues. Ensure there are no ruff issues before committing.
 
 To lint all files in the directory, run:
 
@@ -76,15 +94,19 @@ ruff check
 ```
 
 To format all files in the directory, run:
+
 ```shell
 ruff format
 ```
 
 ### Manually running secret detection
+
 Secret detection is currently disabled due to conflicting versions.
 
 ## Development
+
 For information on how to contribute please see the following:
+
 - ### Models - [app/models/README.md](./app/models/README.md)
 
 - ### Migrations - [app/db/migrations/README.md](app/db/migrations/README.md)
@@ -110,7 +132,7 @@ Repository uses [MoJ DevSecOps hooks](https://github.com/ministryofjustice/devse
    curl --proto '=https' --tlsv1.2 -LsSf https://raw.githubusercontent.com/ministryofjustice/devsecops-hooks/e85ca6127808ef407bc1e8ff21efed0bbd32bb1a/prek/prek-installer.sh | sh
    ```
 
-   or 
+   or
 
    ```bash
    brew install prek
@@ -122,7 +144,7 @@ Repository uses [MoJ DevSecOps hooks](https://github.com/ministryofjustice/devse
    powershell -ExecutionPolicy ByPass -c "irm https://raw.githubusercontent.com/ministryofjustice/devsecops-hooks/e85ca6127808ef407bc1e8ff21efed0bbd32bb1a/prek/prek-installer.ps1 | iex"
    ```
 
-3. **Activation**
+2. **Activation**
 
    Execute the following command in the repository directory
 
@@ -130,9 +152,9 @@ Repository uses [MoJ DevSecOps hooks](https://github.com/ministryofjustice/devse
    prek install
    ```
 
-4. **Test**
+3. **Test**
 
-    To dry-run the hook
+   To dry-run the hook
 
    ```bash
    prek run

@@ -36,7 +36,7 @@ jobs:
       contents: read  # This is required for actions/checkout
     steps:
       - name: Checkout GitHub repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Authenticate to the cluster
         env:

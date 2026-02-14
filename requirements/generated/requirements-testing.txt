@@ -21,7 +21,7 @@ fastapi-cli==0.0.8
 fastapi-cloud-cli==0.11.0
 fastapi-versionizer==4.0.1
 fastar==0.8.0
-freezegun==1.5.2
+freezegun==1.5.5
 greenlet==3.2.3
 h11==0.16.0
 httpcore==1.0.9

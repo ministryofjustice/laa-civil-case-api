@@ -49,7 +49,7 @@ jobs:
 
     steps:
       - name: Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Archive
         uses: ministryofjustice/devsecops-actions/github/repository/archive@582b43adf072ef7d15af8e33e78a6997509e25b0 # v1.3.0

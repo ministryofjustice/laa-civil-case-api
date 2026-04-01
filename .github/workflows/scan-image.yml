@@ -22,7 +22,7 @@ jobs:
       contents: read  # This is required for actions/checkout
     steps:
       - name: Assume role in Cloud Platform
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v5
         with:
           role-to-assume: ${{ secrets.ECR_ROLE_TO_ASSUME }}
           aws-region: ${{ inputs.ECR_REGION }}

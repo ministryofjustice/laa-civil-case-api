@@ -78,5 +78,5 @@ urllib3==2.6.3
 uvicorn==0.34.3
 uvloop==0.21.0
 virtualenv==20.31.2
-watchfiles==1.1.0
+watchfiles==1.1.1
 websockets==15.0.1
